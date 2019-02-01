@@ -71,7 +71,7 @@ DEPENDENCIES
   jekyll (~> 3.8.5)
   jekyll-feed (~> 0.6)
   jekyll-theme-hacker (~> 0.1.1)
-  minima (~> 2.0)
+  minima (~> 2.5)
   tzinfo-data
 
 BUNDLED WITH

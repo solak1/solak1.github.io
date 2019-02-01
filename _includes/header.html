@@ -1,2 +1,15 @@
-<h1 style="color: {{ include.color }}">{{ site.title }}</h1>
-<hr> <br>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ site.url}}/assets/css/site.css">
+</head>
+<nav>
+	<ul>
+		<li>
+			<a href="{{ site.url }}">{{ site.title }}</a>
+		</li>
+	 		| 
+		<li>
+			<a href=" {{ site.url }}/projects/">Projects</a>
+		</li>
+	</ul>
+</nav>
+<hr><br>

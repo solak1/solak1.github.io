@@ -1,0 +1,93 @@
+
+
+#casino body {
+	font-family: 'Oleo Script', cursive;
+	background-color: #e8e8e8;
+	text-align: center;
+}
+
+#casino header {
+	font-size: 1.5em;
+}
+
+#casino button {
+	border-style: solid;
+	border-width: 2px;
+	box-shadow: 1px 1px .5px .5px;
+}
+
+#casino nav {
+	border-radius: 2px;
+	background-color: #d20202;
+	margin-bottom: 20px;
+}
+
+#casino ul {
+
+	align-self: center;
+	margin: auto;
+	max-width: 855px;
+	width: auto;
+	padding: 15px 5px;
+}
+#casino nav li {
+	display: block;
+	padding: 5px 5px;
+	color: white;
+
+	list-style: none;
+	text-shadow: 0px 0px .1px black;
+	
+}
+
+#casino nav li a:link {
+	color: white;
+	text-shadow: 0px 0px .1px #black;
+	text-decoration: none;
+
+}
+
+#casino nav li a:visited {
+	color: white;
+	text-decoration: none;
+
+}
+
+#casino nav li a:hover {
+
+}
+
+#casino .content {
+	align-self: center;
+	margin: auto;
+
+	max-width: 800px;
+	width: auto;
+	padding: 20px 20px;
+	box-shadow: 0px 0px 1px black;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #D3D2CD;
+}
+
+#casino article {
+	height: 100%;
+}
+
+#casino article li {
+	padding: 15px 15px;
+	list-style-type: none;
+
+}
+
+#casino #higher {
+	font-weight: normal;
+}
+#lower {
+	font-weight: normal;
+}
+
+#casino article a {
+	color: black;
+}

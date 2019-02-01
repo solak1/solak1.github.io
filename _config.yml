@@ -26,7 +26,6 @@ github_username:  solak1
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
 
@@ -39,6 +38,7 @@ defaults:
       layout: "post"
       title: "My Title"
         #values
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

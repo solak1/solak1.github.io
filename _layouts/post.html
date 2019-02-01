@@ -2,7 +2,12 @@
 layout: "wrapper"
 ---
 
-<h1>Title: {{ page.title }} </h1>
-<h3>Author: {{ page.author }}</h3>
-<hr>
-{{ content }}
+<div class="section">
+	<h1>Title: {{ page.title }} </h1>
+	<h3>Author: {{ page.author }}</h3>
+	<h4>{{ page.date | date_to_long_string }}</h4>
+</div>
+
+<div class="section">
+	{{ content }}
+</div>
