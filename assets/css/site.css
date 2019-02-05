@@ -34,6 +34,7 @@ ul {
 	max-width: 855px;
 	width: auto;
 	padding: 15px 5px;
+	list-style-type: none;
 }
 nav li {
 	display: inline-block;
@@ -68,6 +69,7 @@ nav li:hover {
 	border-style: solid;
 	border-width: 5px;
 	border-color: #D3D2CD;
+
 }
 
 article {
