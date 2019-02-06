@@ -221,7 +221,7 @@ function updateCoin(){
 
 function updateAxe(){
 	$('#axeType').text(player.axe.name);
-	$("#axeImg").attr("src",{{ site.url }} + "/assets/img/woodchop/" + player.axe.img);
+	$("#axeImg").attr("src","/assets/img/woodchop/" + player.axe.img);
 
 }
 
