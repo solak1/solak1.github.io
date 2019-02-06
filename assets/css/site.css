@@ -36,6 +36,7 @@ ul {
 	padding: 15px 5px;
 	list-style-type: none;
 }
+
 nav li {
 	display: inline-block;
 	
@@ -70,6 +71,17 @@ nav li:hover {
 	border-width: 5px;
 	border-color: #D3D2CD;
 
+}
+
+a:hover {
+	color: blue;
+	text-decoration: none;
+
+}
+
+a:link, a:visited { 
+  color: black;
+  text-decoration: underline;
 }
 
 article {

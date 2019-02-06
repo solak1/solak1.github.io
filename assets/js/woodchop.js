@@ -4,29 +4,58 @@ var wood = {
 	incr:1
 },
 
+Axe = {
+  price :0, // Default value of properties
+  img: "src",
+  name: "name"
+},
+
+hand = Object.create(Axe), 
+
+handsAxe = {
+	price: 10,
+	img: "hand.png",
+	name: "Hand"
+}
+
+
 player = {
 	coins:0,
-	axe: 'Hands'
+	axe: handsAxe
 },
+
+
 
 store = {
 	bronzeAxe: {
-		price: 10
+		price: 10,
+		img: "bronze_axe.png",
+		name: "Bronze Axe"
 	},
 	ironAxe: {
-		price: 50
+		price: 50,
+		img: "iron_axe.png",
+		name: "Iron Axe"
 	},
 	steelAxe: {
-		price: 250
+		price: 250,
+		img: "steel_axe.png",
+		name: "Steel Axe"
 	},
 	titaniumAxe: {
-		price: 1000
+		price: 1000,
+		img: "titanium_axe.png",
+		name: "Titanium Axe"
 	},
 	diamondAxe: {
-		price: 2500
+		price: 2500,
+		img: "diamond_axe.png",
+		name: "Diamond Axe"
 	},
-	treeFarm: {
-		price: 10000
+	fireAxe: {
+		price: 10000,
+		img: "fire_axe.png",
+		name: "Fire Axe"
 	}
 
 }
@@ -39,7 +68,23 @@ store = {
 
 /*	Chops Wood
 */
+
 $('#chopWood').click(function(){
+
+    $('#axeImg').css({
+        "-webkit-transform": "rotate(-20deg)",
+        "-moz-transform": "rotate(-20deg)",
+        "transform": "rotate(-20deg)" /* For modern browsers(CSS3)  */
+    })
+
+
+    window.setTimeout(function () {
+    	$('#axeImg').css({
+        "-webkit-transform": "rotate(0deg)",
+        "-moz-transform": "rotate(0deg)",
+        "transform": "rotate(0deg)" /* For modern browsers(CSS3)  */
+    })}, 50);
+
 	wood.amt = wood.amt + wood.incr;
 	updateWood()
 })
@@ -90,7 +135,8 @@ $('#sellWood100x').click(function(){
 $('#buyBronzeAxe').click(function(){
 	if (player.coins >= store.bronzeAxe.price) {
 		player.coins -= store.bronzeAxe.price;
-		player.axe = 'Bronze Axe';
+		player.axe.name = store.bronzeAxe.name;
+		player.axe.img = store.bronzeAxe.img;
 		wood.incr = 2;
 		updateCoin();
 		updateAxe();
@@ -101,7 +147,8 @@ $('#buyBronzeAxe').click(function(){
 $('#buyIronAxe').click(function(){
 	if (player.coins >= store.ironAxe.price) {
 		player.coins -= store.ironAxe.price
-		player.axe = 'Iron Axe'
+		player.axe.name = store.ironAxe.name;
+		player.axe.img = store.ironAxe.img;
 		wood.incr = 3
 		updateCoin()
 		updateAxe()
@@ -112,7 +159,8 @@ $('#buyIronAxe').click(function(){
 $('#buySteelAxe').click(function(){
 	if (player.coins >= store.steelAxe.price) {
 		player.coins -= store.steelAxe.price
-		player.axe = 'Steel Axe'
+		player.axe.name = store.steelAxe.name;
+		player.axe.img = store.steelAxe.img;
 		wood.incr = 5
 		updateCoin()
 		updateAxe()
@@ -123,7 +171,8 @@ $('#buySteelAxe').click(function(){
 $('#buyTitaniumAxe').click(function(){
 	if (player.coins >= store.titaniumAxe.price) {
 		player.coins -= store.titaniumAxe.price
-		player.axe = 'Titanium Axe'
+		player.axe.name = store.titaniumAxe.name;
+		player.axe.img = store.titaniumAxe.img;		
 		wood.incr = 25
 		updateCoin()
 		updateAxe()
@@ -134,22 +183,24 @@ $('#buyTitaniumAxe').click(function(){
 $('#buyDiamondAxe').click(function(){
 	if (player.coins >= store.diamondAxe.price) {
 		player.coins -= store.diamondAxe.price
-		player.axe = 'Diamond Axe'
+		player.axe.name = store.diamondAxe.name;
+		player.axe.img = store.diamondAxe.img;
 		wood.incr = 50
 		updateCoin()
 		updateAxe()
-		document.getElementById("buyTitaniumAxe").disabled = true;
+		document.getElementById("buyDiamondAxe").disabled = true;
 	}
 })
 
-$('#buyTreeFarm').click(function(){
-	if (player.coins >= store.treeFarm.price) {
-		player.coins -= store.treeFarm.price
-		player.axe = 'Tree Farm'
-		wood.incr = 99
+$('#buyFireAxe').click(function(){
+	if (player.coins >= store.fireAxe.price) {
+		player.coins -= store.fireAxe.price
+		player.axe.name = store.fireAxe.name;
+		player.axe.img = store.fireAxe.img;
+		wood.incr = 175
 		updateCoin()
 		updateAxe()
-		document.getElementById("buyTitaniumAxe").disabled = true;
+		document.getElementById("buyFireAxe").disabled = true;
 	}
 })
 
@@ -169,7 +220,9 @@ function updateCoin(){
 }
 
 function updateAxe(){
-	document.getElementById('axeType').innerHTML = player.axe
+	$('#axeType').text(player.axe.name);
+	$("#axeImg").attr("src","../../assets/img/woodchop/" + player.axe.img);
+
 }
 
 
