@@ -6,6 +6,7 @@ body {
 	max-width: 800px;
 	width: auto;
 	display: block;
+	height: 100%;
 }
 
 nav {
@@ -96,4 +97,8 @@ article li {
 
 article a {
 	color: #726870;
+}
+
+footer {
+	text-align: center;
 }
