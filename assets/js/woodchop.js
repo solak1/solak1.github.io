@@ -54,7 +54,7 @@ store = {
 	},
 	fireAxe: {
 		price: 10000,
-		img: "fire_axe.png",
+		img: "fire_axe.gif",
 		name: "Fire Axe"
 	}
 
