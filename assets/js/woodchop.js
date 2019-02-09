@@ -86,7 +86,8 @@ $('#chopWood').click(function(){
     })}, 50);
 
 	wood.amt = wood.amt + wood.incr;
-	updateWood()
+	updateWood();
+	updateSellButtons();
 })
 
 
@@ -94,37 +95,41 @@ $('#chopWood').click(function(){
 */
 $('#sellWood').click(function(){
 	if (wood.amt > 0) {
-		wood.amt -= 1
-		player.coins += 2
-		updateWood()
-		updateCoin()
+		wood.amt -= 1;
+		player.coins += 2;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
 	}
 })
 
 $('#sellWood5x').click(function(){
 	if (wood.amt >= 5) {
-		wood.amt -= 5
-		player.coins += 10
-		updateWood()
-		updateCoin()
+		wood.amt -= 5;
+		player.coins += 10;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
 	}
 })
 
 $('#sellWood25x').click(function(){
 	if (wood.amt >= 25) {
-		wood.amt -= 25
-		player.coins += 50
-		updateWood()
-		updateCoin()
+		wood.amt -= 25;
+		player.coins += 50;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
 	}
 })
 
 $('#sellWood100x').click(function(){
 	if (wood.amt >= 100) {
-		wood.amt -= 100
-		player.coins += 200
-		updateWood()
-		updateCoin()
+		wood.amt -= 100;
+		player.coins += 200;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
 	}
 })
 
@@ -213,6 +218,29 @@ $('#buyFireAxe').click(function(){
 */
 function updateWood(){
 	document.getElementById("woodAmt").innerHTML = wood.amt
+}
+
+function updateSellButtons(){
+	if (wood.amt >= 1) {
+		$("#sellWood").css("background-color", "#afa");
+	} else {
+		$("#sellWood").css("background-color", "#fdd");
+	}
+	if (wood.amt >= 5) {
+		$("#sellWood5x").css("background-color", "#afa");
+	} else {
+		$("#sellWood5x").css("background-color", "#fdd");
+	}
+	if (wood.amt >= 25) {
+		$("#sellWood25x").css("background-color", "#afa");
+	} else {
+		$("#sellWood25x").css("background-color", "#fdd");
+	}
+	if (wood.amt >= 100) {
+		$("#sellWood100x").css("background-color", "#afa");
+	} else {
+		$("#sellWood100x").css("background-color", "#fdd");
+	}
 }
 
 function updateCoin(){

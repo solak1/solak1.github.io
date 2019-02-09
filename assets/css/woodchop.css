@@ -52,3 +52,15 @@ img {
   -ms-user-select: none;
   user-select: none;
 }
+
+.sellButton {
+  padding: 1em;
+  display: inline-block;
+  background: #fdd;
+  outline: 1px solid transparent;
+}
+
+.buyButton {
+  padding: .5em;
+  margin: .25em;
+}
