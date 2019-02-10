@@ -9,11 +9,14 @@ layout: wrapper
 
 <div class="section">
 	<h3>Recent Posts:</h3>
-
-	{% for post in site.posts %}
+	<ul>
+		{% for post in site.posts %}
 		<li>
 			<a href="{{ post.url }}">{{post.title}}</a>
 		</li>
-	{% endfor %}
+		<br>
+		{% endfor %}
+	</ul>
+
 </div>
 
