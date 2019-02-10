@@ -100,7 +100,9 @@ $('#sellWood').click(function(){
 		updateWood();
 		updateCoin();
 		updateSellButtons();
+		
 	}
+	updateBuyButtons();
 })
 
 $('#sellWood5x').click(function(){
@@ -110,7 +112,9 @@ $('#sellWood5x').click(function(){
 		updateWood();
 		updateCoin();
 		updateSellButtons();
+		
 	}
+	updateBuyButtons();
 })
 
 $('#sellWood25x').click(function(){
@@ -120,7 +124,9 @@ $('#sellWood25x').click(function(){
 		updateWood();
 		updateCoin();
 		updateSellButtons();
+		
 	}
+	updateBuyButtons();
 })
 
 $('#sellWood100x').click(function(){
@@ -131,6 +137,7 @@ $('#sellWood100x').click(function(){
 		updateCoin();
 		updateSellButtons();
 	}
+	updateBuyButtons();
 })
 
 
@@ -147,6 +154,7 @@ $('#buyBronzeAxe').click(function(){
 		updateAxe();
 		document.getElementById("buyBronzeAxe").disabled = true;
 	}
+	updateBuyButtons();
 })
 
 $('#buyIronAxe').click(function(){
@@ -158,6 +166,7 @@ $('#buyIronAxe').click(function(){
 		updateCoin()
 		updateAxe()
 		document.getElementById("buyIronAxe").disabled = true;
+		updateBuyButtons();
 	}
 })
 
@@ -170,6 +179,7 @@ $('#buySteelAxe').click(function(){
 		updateCoin()
 		updateAxe()
 		document.getElementById("buySteelAxe").disabled = true;
+		updateBuyButtons();
 	}
 })
 
@@ -182,6 +192,7 @@ $('#buyTitaniumAxe').click(function(){
 		updateCoin()
 		updateAxe()
 		document.getElementById("buyTitaniumAxe").disabled = true;
+		updateBuyButtons();
 	}
 })
 
@@ -194,6 +205,8 @@ $('#buyDiamondAxe').click(function(){
 		updateCoin()
 		updateAxe()
 		document.getElementById("buyDiamondAxe").disabled = true;
+		updateBuyButtons();
+
 	}
 })
 
@@ -206,6 +219,7 @@ $('#buyFireAxe').click(function(){
 		updateCoin()
 		updateAxe()
 		document.getElementById("buyFireAxe").disabled = true;
+		updateBuyButtons();
 	}
 })
 
@@ -247,13 +261,42 @@ function updateCoin(){
 	document.getElementById('coinAmt').innerHTML = player.coins
 }
 
+function updateBuyButtons() {
+	if (player.coins >= store.fireAxe.price) {
+		$('.buyButton').css("background-color", '#afa');
+		console.log("All buy buttons available.");
+	} else if (player.coins >= store.diamondAxe.price) {
+		$('#buyButton').css("background-color", '#afa');
+		$('#buyFireAxe').css("background-color", '#fdd');
+	} else if (player.coins >= store.titaniumAxe.price) {
+		$('#buyButton').css("background-color", '#afa');
+		$('#buyFireAxe').css("background-color", '#fdd');
+		$('#buyDiamondAxe').css("background-color", '#fdd');
+	} else if (player.coins >= store.steelAxe.price) {
+		$('#buyButton').css("background-color", '#fdd');
+		$('#buySteelAxe').css("background-color", '#afa');
+		$('#buyIronAxe').css("background-color", '#afa');
+		$('buyBronzeAxe').css("background-color", '#afa');
+	} else if (player.coins >= store.ironAxe.price) {
+		$('#buyButton').css("background-color", '#fdd');
+		$('#buyIronAxe').css("background-color", '#afa');
+		$('#buyBronzeAxe').css("background-color", '#afa');
+	} else if (player.coins >= store.bronzeAxe.price) {
+		$('#buyButton').css("background-color", '#fdd');
+		$('#buyBronzeAxe').css("background-color", '#afa');
+	} else {
+		$('#buyButton').css("background-color", '#fdd');
+	}
+
+}
+
 function updateAxe(){
 	$('#axeType').text(player.axe.name);
 	$("#axeImg").attr("src","/assets/img/woodchop/" + player.axe.img);
 
 }
 
-
-updateWood()
-updateCoin()
-updateAxe()
+updateBuyButtons();
+updateWood();
+updateCoin();
+updateAxe();
