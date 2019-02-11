@@ -146,25 +146,37 @@ $('#sellWood100x').click(function(){
 */
 $('#buyBronzeAxe').click(function(){
 	if (player.coins >= store.bronzeAxe.price) {
+		// remove coins
 		player.coins -= store.bronzeAxe.price;
-		player.axe.name = store.bronzeAxe.name;
-		player.axe.img = store.bronzeAxe.img;
-		wood.incr = 2;
 		updateCoin();
-		updateAxe();
+		// ensure new axe is better
+		if (wood.incr < 2) {
+			player.axe.name = store.bronzeAxe.name;
+			player.axe.img = store.bronzeAxe.img;
+			wood.incr = 2;
+			updateAxe();
+		}
+		// update buttons
 		document.getElementById("buyBronzeAxe").disabled = true;
+		updateBuyButtons();
 	}
-	updateBuyButtons();
+	
 })
 
 $('#buyIronAxe').click(function(){
 	if (player.coins >= store.ironAxe.price) {
+		// remove coins
 		player.coins -= store.ironAxe.price
-		player.axe.name = store.ironAxe.name;
-		player.axe.img = store.ironAxe.img;
-		wood.incr = 3
 		updateCoin()
-		updateAxe()
+
+		// ensure new axe is better
+		if (wood.incr < 3) {
+			player.axe.name = store.ironAxe.name;
+			player.axe.img = store.ironAxe.img;
+			wood.incr = 3
+			updateAxe()
+		}
+		// update buttons
 		document.getElementById("buyIronAxe").disabled = true;
 		updateBuyButtons();
 	}
@@ -172,12 +184,17 @@ $('#buyIronAxe').click(function(){
 
 $('#buySteelAxe').click(function(){
 	if (player.coins >= store.steelAxe.price) {
+		// remove coins
 		player.coins -= store.steelAxe.price
-		player.axe.name = store.steelAxe.name;
-		player.axe.img = store.steelAxe.img;
-		wood.incr = 5
 		updateCoin()
-		updateAxe()
+		// ensure new axe is better
+		if (wood.incr < 5) {
+			player.axe.name = store.steelAxe.name;
+			player.axe.img = store.steelAxe.img;
+			wood.incr = 5
+			updateAxe()
+		}
+		// update buttons
 		document.getElementById("buySteelAxe").disabled = true;
 		updateBuyButtons();
 	}
@@ -185,12 +202,17 @@ $('#buySteelAxe').click(function(){
 
 $('#buyTitaniumAxe').click(function(){
 	if (player.coins >= store.titaniumAxe.price) {
+		// remove coins
 		player.coins -= store.titaniumAxe.price
+		updateCoin()
+		// ensure new axe is better
+		if (wood.incr < 25) {
 		player.axe.name = store.titaniumAxe.name;
 		player.axe.img = store.titaniumAxe.img;		
 		wood.incr = 25
-		updateCoin()
 		updateAxe()
+		}
+		// update buttons
 		document.getElementById("buyTitaniumAxe").disabled = true;
 		updateBuyButtons();
 	}
@@ -198,12 +220,17 @@ $('#buyTitaniumAxe').click(function(){
 
 $('#buyDiamondAxe').click(function(){
 	if (player.coins >= store.diamondAxe.price) {
-		player.coins -= store.diamondAxe.price
+		// remove coins
+		player.coins -= store.diamondAxe.price;
+		updateCoin()
+		// ensure new axe is better
+		if (wood.incr < 50) {
 		player.axe.name = store.diamondAxe.name;
 		player.axe.img = store.diamondAxe.img;
 		wood.incr = 50
-		updateCoin()
 		updateAxe()
+		}
+		// update buttons
 		document.getElementById("buyDiamondAxe").disabled = true;
 		updateBuyButtons();
 
@@ -212,12 +239,16 @@ $('#buyDiamondAxe').click(function(){
 
 $('#buyFireAxe').click(function(){
 	if (player.coins >= store.fireAxe.price) {
+		// remove coins
 		player.coins -= store.fireAxe.price
+		updateCoin()
+		if (wood.incr < 175) {
 		player.axe.name = store.fireAxe.name;
 		player.axe.img = store.fireAxe.img;
-		wood.incr = 175
-		updateCoin()
+		wood.incr = 175	
 		updateAxe()
+		}
+		// update button
 		document.getElementById("buyFireAxe").disabled = true;
 		updateBuyButtons();
 	}
