@@ -294,29 +294,33 @@ function updateCoin(){
 
 function updateBuyButtons() {
 	if (player.coins >= store.fireAxe.price) {
+		// all green
 		$('.buyButton').css("background-color", '#afa');
-		console.log("All buy buttons available.");
 	} else if (player.coins >= store.diamondAxe.price) {
-		$('#buyButton').css("background-color", '#afa');
+		// all green, but fire axe
+		$('.buyButton').css("background-color", '#afa');
 		$('#buyFireAxe').css("background-color", '#fdd');
 	} else if (player.coins >= store.titaniumAxe.price) {
-		$('#buyButton').css("background-color", '#afa');
+		// all green but fire axe and diamond axe
+		$('.buyButton').css("background-color", '#afa');
 		$('#buyFireAxe').css("background-color", '#fdd');
 		$('#buyDiamondAxe').css("background-color", '#fdd');
 	} else if (player.coins >= store.steelAxe.price) {
-		$('#buyButton').css("background-color", '#fdd');
+		// all red but, steel, iron, bronze
+		$('.buyButton').css("background-color", '#fdd');
 		$('#buySteelAxe').css("background-color", '#afa');
 		$('#buyIronAxe').css("background-color", '#afa');
-		$('buyBronzeAxe').css("background-color", '#afa');
+		$('#buyBronzeAxe').css("background-color", '#afa');
 	} else if (player.coins >= store.ironAxe.price) {
-		$('#buyButton').css("background-color", '#fdd');
+		// all red but, iron, bronze
+		$('.buyButton').css("background-color", '#fdd');
 		$('#buyIronAxe').css("background-color", '#afa');
 		$('#buyBronzeAxe').css("background-color", '#afa');
 	} else if (player.coins >= store.bronzeAxe.price) {
-		$('#buyButton').css("background-color", '#fdd');
+		$('.buyButton').css("background-color", '#fdd');
 		$('#buyBronzeAxe').css("background-color", '#afa');
 	} else {
-		$('#buyButton').css("background-color", '#fdd');
+		$('.buyButton').css("background-color", '#fdd');
 	}
 
 }
