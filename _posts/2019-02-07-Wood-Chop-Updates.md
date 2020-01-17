@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Wood  Chop Updates"
+title: "Wood Chop Updates"
 author: "Mike"
 date: 2019-02-07T16:18:00+05:00
 ---
