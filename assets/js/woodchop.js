@@ -49,7 +49,7 @@ store = {
 	},
 	diamondAxe: {
 		price: 2500,
-		img: "diamond_axe.png",
+		img: "diamond_axe2.png",
 		name: "Diamond Axe"
 	},
 	fireAxe: {
