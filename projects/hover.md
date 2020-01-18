@@ -1,5 +1,5 @@
 ---
-layout: hover
+layout: wrapper
 title: Hover effect
 description: Testing the limits of css hover.
 permalink: projects/hover/
@@ -9,18 +9,16 @@ permalink: projects/hover/
 	REPLACE <div class="section"> with <section>!!!!
 --->
 
-<body id="Hover">
-
-<div class="section">
+<section>
 	Hover
-</div>
+</section>
+
 
 
 {% for post in site.posts %}
-	<div class="section">
+	<section>
 		<a href="{{ post.url }}">{{post.title}}</a>
 		<img src="/assets/img/hover/goldstar.png" alt="">
-	</div>
+	</section>
 {% endfor %}
 
-</body>
