@@ -2,7 +2,7 @@
 layout: wrapper
 title: Contact
 description: Contact by email.
-permalink: Contact
+permalink: /contact/
 ---
 
 <section>
