@@ -11,6 +11,11 @@ permalink: "/projects/"
 
   <div class="section">
       <ul>
+        <ul class = "projectNotes">
+          <li>HTML, CSS, and Javascript exersize</li>
+          <li>Started on: 12/22/18</li>
+          <li>Last updaded: 02/05/18</li>
+        </ul>
         <li><a href="{{ page.url }}snake">Snake</a></li>
         <ul class = "projectNotes">
           <li>HTML, CSS, and Javascript exersize</li>
@@ -18,11 +23,6 @@ permalink: "/projects/"
           <li>Last updaded: 01/31/19</li>
         </ul>
         <li><a href="{{ page.url }}woodchop">Wood Chop</a></li>
-        <ul class = "projectNotes">
-          <li>HTML, CSS, and Javascript exersize</li>
-          <li>Started on: 12/22/18</li>
-          <li>Last updaded: 02/05/18</li>
-        </ul>
         <li><a href="{{ page.url }}casino">Casino</a></li>
         <ul class = "projectNotes">
           <li>HTML, CSS, and Javascript exersize</li>
