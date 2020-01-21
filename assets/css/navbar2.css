@@ -118,18 +118,14 @@ a {
   font-family: "Open Sans", sans-serif;
 }
 
-/* Mobile Extra Small  */
-@media (min-width:0px) and (max-width:204px) {
+/*  Extra Small  */
+@media (min-width:0px) and (max-width:278px) {
   #links, .mobile-menu {
     display: none;
   }
 
   .mobile-btn {
     text-align: center;
-  }
-
-  .sidenav a {
-    padding: 8px 8px 8px 120px;
   }
 
   #logo {
@@ -140,8 +136,28 @@ a {
 
 }
 
+/* Small Mobile to Mobile */
+@media (min-width:278px) and (max-width:391px) {
+  #links, .mobile-menu {
+    display: none;
+  }
+
+  #logo {
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: auto auto;
+    grid-gap: 0px;
+    font-size: 24px;
+  }
+
+  .mobile-btn {
+    font-size: 24px;
+  }
+
+}
+
 /* Mobile to Tablet  */
-@media (min-width:205px) and (max-width:575px) {
+@media (min-width:392px) and (max-width:575px) {
   #links, .mobile-menu {
     display: none;
   }
