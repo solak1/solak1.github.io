@@ -19,7 +19,6 @@ body {
   text-decoration: none;
 }
 
-
 #logo {
   display: grid;
   justify-content: start;
@@ -29,14 +28,11 @@ body {
   font-weight: 700;
   color: #000;
   text-transform: uppercase;
-
 }
 
 .logo span {
   color: #0474bc;
-
 }
-
 
 #links {
   display: grid;
@@ -66,8 +62,8 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #333;
   font-size: 18px;
-  cursor:pointer; 
-  font-weight:bold;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .mobile-btn {
@@ -77,9 +73,8 @@ body {
   text-align: right;
   font-size: 30px;
   font-family: "Open Sans", sans-serif;
-  cursor:pointer; 
-  font-weight:bold;
-
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* =======================
@@ -123,30 +118,31 @@ a {
   font-family: "Open Sans", sans-serif;
 }
 
-
 /* Mobile Extra Small  */
-@media (min-width: 0px) and (max-width: 204px) {
-  #links,
-  .mobile-menu {
+@media (min-width:0px) and (max-width:204px) {
+  #links, .mobile-menu {
     display: none;
   }
+
   .mobile-btn {
-    text-align:center;
+    text-align: center;
   }
+
   .sidenav a {
-  padding: 8px 8px 8px 120px;
+    padding: 8px 8px 8px 120px;
   }
+
   #logo {
     display: none;
     grid-template-columns: auto auto;
     grid-gap: 5px;
   }
+
 }
 
 /* Mobile to Tablet  */
-@media (min-width: 205px) and (max-width: 549px) {
-  #links,
-  .mobile-menu {
+@media (min-width:205px) and (max-width:575px) {
+  #links, .mobile-menu {
     display: none;
   }
 
@@ -160,9 +156,9 @@ a {
 }
 
 /* Tablet to Desktop */
-@media (min-width: 550px) {
-  .mobile-btn,
-  .mobile-btn-text {
-    display: none; 
+@media (min-width:576px) {
+  .mobile-btn, .mobile-btn-text {
+    display: none;
   }
+
 }
