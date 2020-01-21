@@ -35,5 +35,3 @@ permalink: "/projects/"
           <li>Started on: 01/14/20</li>
           <li>Last updaded: 01/14/20</li>
         </ul>
-
-  </div>
