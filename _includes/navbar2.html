@@ -1,38 +1,28 @@
-
-  <header>
-    <nav>
-      <div id="navbar">
-        <div id="logo" class="reverse">
-          <div class="mobile-btn" style="font-size:30px;cursor:pointer; font-weight:bold;" onclick="openNav()">&#9776;</div>
-          <div class="logo"><a href="/">Mike<span> Solak</a></div>
-
-        </div>
-        <div id="links">
-          	
-         	<a href="/" {% if page.url == "/" %}style="color: #0474bc;"{% endif %}>Home</a>
-			<a href="/projects/" {% if page.url == '/projects/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Projects</a>
-         	<a href="/contact/" {% if page.url == '/contact/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Contact</a>
-     		<!--
-     		<a href="">Home</a>
-         	<a href="">About</a>
-         	<a href="">Blog</a>
-         	-->
-        </div>
+<header>
+  <nav>
+    <div id="navbar">
+      <div id="logo" class="reverse">
+        <div class="logo"><a href="/">Mike<span> Solak</a></div>
       </div>
-
-    </nav>
-    <!-- Mobile Menu -->
-    <div id="mySidenav" class="sidenav">
-      <a style="cursor:pointer;" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="/" {% if page.url == "/" %}style="color: #fff;"{% endif %}> Home </a>
-      <a href="/projects/" {% if page.url == '/projects/' %}style="color: #fff; "{% endif %}>Projects</a>
-      <a href="/contact/" {% if page.url == '/contact/' %}style="color: #fff; "{% endif %}>Contact</a>
+      <div id="links">
+        
+        <a href="/" {% if page.url == "/" %}style="color: #0474bc;"{% endif %}>Home</a>
+        <a href="/projects/" {% if page.url == '/projects/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Projects</a>
+        <a href="/contact/" {% if page.url == '/contact/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Contact</a>
+        <!--
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Blog</a>
+        -->
+      </div>
+      <div class="mobile-btn" onclick="openNav()">&#9776</div>
     </div>
-  </header>
-
-
-<!-- <section>
-  <div style="border:solid 1px #fff; padding-top:50px; text-align:center">
-    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fewebdesigns%2F&width=450&layout=standard&action=like&size=small&show_faces=true" width="450" height="80" style="border:none;overflow:hidden"></iframe>
+  </nav>
+  <!-- Mobile Menu -->
+  <div id="mySidenav" class="sidenav">
+    <a style="cursor:pointer;" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/" {% if page.url == "/" %}style="color: #fff;"{% endif %}> Home </a>
+    <a href="/projects/" {% if page.url == '/projects/' %}style="color: #fff; "{% endif %}>Projects</a>
+    <a href="/contact/" {% if page.url == '/contact/' %}style="color: #fff; "{% endif %}>Contact</a>
   </div>
-</section> -->
+</header>
