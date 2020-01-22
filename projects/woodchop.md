@@ -10,7 +10,7 @@ permalink: projects/woodchop/
 
 <main>
 	<div class="section">
-		<h3>Wood Cutting</h3>
+		<h3>Wood Chop</h3>
 		<p><b>Current Axe:</b> <span id="axeType"></span></p>
 		<a class="more round" id="chopWood">
 			<img id="axeImg" src="{{site.url}}/assets/img/woodchop/hand.png">
