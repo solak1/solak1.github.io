@@ -29,9 +29,3 @@ permalink: "/projects/"
           <li>Started on: 11/26/18</li>
           <li>Last updaded: 11/26/18</li>
         </ul>
-        <li><a href="{{ page.url }}Hover">Hover</a></li>
-        <ul class = "projectNotes">
-          <li>HTML, CSS, and JavaScript exersize</li>
-          <li>Started on: 01/14/20</li>
-          <li>Last updaded: 01/14/20</li>
-        </ul>
