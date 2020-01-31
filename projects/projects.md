@@ -28,4 +28,4 @@ permalink: "/projects/"
           <li>HTML, CSS, and Javascript exersize</li>
           <li>Started on: 11/26/18</li>
           <li>Last updaded: 11/26/18</li>
-        </ul>
+
