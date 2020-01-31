@@ -49,7 +49,7 @@
 		collide() {
 			var head = this.body[0]; 
 			var search_array = this.body;
-			search_array = search_array.splice(1, (search_array.length));
+			search_array = search_array.slice(1, (search_array.length));
 			var foundHead = search_array.find(function(element) {
 				element[0] == head[0][0];
 				element[1] == head [0][1];
@@ -62,18 +62,39 @@
 			var search_array = this.body.slice(1);
 			var found = search_array.find(function(element){
 				return (element);
+				console.log(element);
 			})
 
 			if (found[0] === this.body[0][0]){
-				if (found[1] == this.body[0][1]) {
-				console.log('collision!!!!');
-				this.body = []
-				this.body_len = 0
+				console.log(found[0], found[1], this.body[0],this.body[1])
+				if (found[1] === this.body[0][1]) {
+					console.log('collision!!!!');
+					return false
 				}
-				else console.log('x values same.');
-			} 
-			else console.log(found, this.body[0]);
-		}	
+				else console.log('x values same.', found[1], this.body[0][1]);
+			} else console.log('no collision on x or y axis.')
+		}
+
+		newCollide2() {
+			for (var i = 1; i < this.body_len; i++) {
+				if (this.body[i][0] === this.body[0][0] && this.body[i][1] === this.body[0][1]){
+					this.quitGame;
+					return false;
+				}
+			}
+		}
+		
+		quitGame() {
+			console.log('quiting...')
+			this.body = [[dim/2, dim/2],[dim/2, dim/2]];
+			this.body_len = 2;
+			document.getElementById('playAgain').style.display = 'block';
+			document.getElementById('snakeH3').style.display = 'none';
+		}
+
+			// take in self.body
+			// var searchBody = self.body.splice(1)
+			// searchBody.forEach(function test)
 
 		/*
 
@@ -179,22 +200,38 @@
 
 
 	// Game Initialization
-
-	const theplayer = new Player(dim/2, dim/2, dim/10, "green");
-	const theapple = new Apple(dim/4, dim/4, dim/10, "red");
+	var theplayer = new Player(dim/2, dim/2, dim/10, "green");
+	var theapple = new Apple(dim/4, dim/4, dim/10, "red");
 
 
 
 	function gameUpdate() {
 		clearCanvas();
-		theplayer.newCollide();
-		updateScore(theplayer, theapple);
-		theplayer.update();
+		if (theplayer.newCollide2() !== false) {
+			updateScore(theplayer, theapple);
+			theplayer.update();
+		} else {
+			theplayer.quitGame();
+			running = clearInterval();
+		}
 	}
 
+function reload() {
+	scoreboard.innerText = 0;
+	document.getElementById('playAgain').style.display = 'none';
+	document.getElementById('snakeH3').style.display = 'block';
+	theplayer = new Player(dim/2, dim/2, dim/10, "green");
+	theplayer.body_len = 3;
+	var theapple = new Apple(dim/4, dim/4, dim/10, "red");
+
+}	
+
+
   window.onload = function() {
-    setInterval(gameUpdate, 75); // Kick off the game loop!
+    const running = setInterval(gameUpdate, 75); // Kick off the game loop!
     window.onkeydown = function(e) {
       theplayer.direction = {37: -1, 38: -2, 39: 1, 40: 2}[e.keyCode];
     };
   };
+
+  document.getElementById('playAgain').addEventListener("click", reload);
