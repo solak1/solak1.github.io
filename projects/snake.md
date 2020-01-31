@@ -5,8 +5,6 @@ description: Eat the fruit to grow.  Watch out for your growing tail though!
 ---
 
 
-<html>
-<body>
 	<div class="section">
 		<p>This is under construction!</p>
 		<p> Return within a couple of days and it will be completed!</p>
@@ -15,9 +13,4 @@ description: Eat the fruit to grow.  Watch out for your growing tail though!
 	</div>
 <script type="text/javascript" src="{{ site.url }}/assets/js/snake.js"></script>
 	
-</body>
-
-	
-</html>
-
 

@@ -29,7 +29,6 @@ permalink: projects/casino/
       <button onclick="betAmt()">Set Bet Amount</button>
       <button onclick="betPref()">Set Bet Preference</button>
       <p><button onclick="play()">Play</button>
-  </div>
 
 <script src='{{site.url}}/assets/js/casino.js'></script>
 

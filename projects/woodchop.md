@@ -51,8 +51,6 @@ permalink: projects/woodchop/
 	</div>
 </main>
 
-</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='{{site.url}}/assets/js/woodchop.js'>
 </script>
-</html>
