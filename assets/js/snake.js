@@ -45,20 +45,53 @@
 			// ctx.strokeRect(this.x, this.y, grid, grid);
 			// ctx.fillRect(this.x, this.y, grid, grid);
 		}
-		/*
+		
 		collide() {
-			var search_array = this.body
-			search_array = search_array.splice(1, (search_array.length)) 
-			if (search_array.find(function (this.body[0]); == undefined ){
-				this.body = [];
-				this.body_len = 0;
-			}
-			var i;
-			for (i = 1; i < cars.length; i++) {
-			  text += cars[i] + "<br>";
-			}	
+			var head = this.body[0]; 
+			var search_array = this.body;
+			search_array = search_array.splice(1, (search_array.length));
+			var foundHead = search_array.find(function(element) {
+				element[0] == head[0][0];
+				element[1] == head [0][1];
+			});
+			console.log(foundHead);
 		}
+		
+		newCollide() {
+			var head = this.body[0];
+			var search_array = this.body.slice(1);
+			var found = search_array.find(function(element){
+				return (element);
+			})
+
+			if (found[0] === this.body[0][0]){
+				if (found[1] == this.body[0][1]) {
+				console.log('collision!!!!');
+				this.body = []
+				this.body_len = 0
+				}
+				else console.log('x values same.');
+			} 
+			else console.log(found, this.body[0]);
+		}	
+
+		/*
+
+		// input array contain some elements. 
+		var array = [10, 20, 30, 40, 50]; 
+		  
+		// Here find function returns the value of the first element 
+		// in the array that satisfies the provided testing 
+		// function (return element > 10). 
+		var found = array.find(function(element) { 
+		  return element > 20; 
+		}); 
+		  
+		// Printing desired values. 
+		console.log(found);
 		*/
+
+		
 
 		update() {
 			if (this.direction == 1) {
@@ -154,8 +187,9 @@
 
 	function gameUpdate() {
 		clearCanvas();
-		theplayer.update();
+		theplayer.newCollide();
 		updateScore(theplayer, theapple);
+		theplayer.update();
 	}
 
   window.onload = function() {
