@@ -140,6 +140,17 @@ $('#sellWood100x').click(function(){
 	updateBuyButtons();
 })
 
+$('#sellWood1000x').click(function(){
+	if (wood.amt >= 1000) {
+		wood.amt -= 1000;
+		player.coins += 2000;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
+	}
+	updateBuyButtons();
+})
+
 
 
 /*	Functions For Buying Axes
