@@ -114,8 +114,7 @@ function play() {
 
 
 promptForName();
-alert(`Hello ${player.name}!`);
-alert('Higher or Lower: The Casino will roll a 6 sided dice. Good Luck! Play by Setting your bet amount, setting your preference, and hitting Play.');
+alert(`Hello ${player.name}! Higher or Lower: The Casino will roll a 6 sided dice. Play by setting your bet amount, selecting higher or lower, and hitting Play. Good Luck!`);
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
