@@ -48,12 +48,12 @@ store = {
 		name: "Titanium Axe"
 	},
 	diamondAxe: {
-		price: 2500,
+		price: 10000,
 		img: "diamond_axe2.png",
 		name: "Diamond Axe"
 	},
 	fireAxe: {
-		price: 10000,
+		price: 100000,
 		img: "fire_axe.gif",
 		name: "Fire Axe"
 	}
