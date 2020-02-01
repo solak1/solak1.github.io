@@ -60,8 +60,10 @@ function handleRoll(player,slider){
 	roll = Math.floor(Math.random() * Math.floor(6));
 	console.log(roll)
 	// betting on higher
+	// values will be from 0-5
+	// thus higher = 3-5 and lower = 0-2
 	if (checkbox.checked === false) {
-		if (roll > 3) {
+		if (roll > 2) {
 			player.currency = (+player.currency) + (+player.bet);
 		} else {
 			player.currency = (+player.currency) - (+player.bet);
