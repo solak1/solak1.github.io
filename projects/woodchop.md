@@ -38,16 +38,16 @@ permalink: projects/woodchop/
 		</button>
 		<p>Axes For Sale:</p>
 		<button class ="buyButton" id="buyBronzeAxe">
-			Bronze Axe (-10 coins, +2 wood per chop)
+			Bronze Axe (-50 coins, +2 wood per chop)
 		</button>
 		<button class ="buyButton" id="buyIronAxe">
-			Iron Axe (-50 coins, +3 wood per chop)
+			Iron Axe (-250 coins, +3 wood per chop)
 		</button>
 		<button class ="buyButton" id="buySteelAxe">
-			Steel Axe (-250 coins, +5 wood per chop)
+			Steel Axe (-500 coins, +5 wood per chop)
 		</button>
 		<br>
-		<button class ="buyButton" id="buyTitaniumAxe">Titanium Axe (-1000 coins, +25 wood per chop)</button>
+		<button class ="buyButton" id="buyTitaniumAxe">Titanium Axe (-2,000 coins, +25 wood per chop)</button>
 		<button class ="buyButton" id="buyDiamondAxe">Diamond Axe (-10,000 coins, +50 wood per chop)</button>
 		<br>
 		<button class ="buyButton" id="buyFireAxe">Fire Axe (-100,000 coins, +175 wood per chop)</button>

@@ -28,22 +28,22 @@ player = {
 
 store = {
 	bronzeAxe: {
-		price: 10,
+		price: 50,
 		img: "bronze_axe.png",
 		name: "Bronze Axe"
 	},
 	ironAxe: {
-		price: 50,
+		price: 250,
 		img: "iron_axe.png",
 		name: "Iron Axe"
 	},
 	steelAxe: {
-		price: 250,
+		price: 500,
 		img: "steel_axe.png",
 		name: "Steel Axe"
 	},
 	titaniumAxe: {
-		price: 1000,
+		price: 2000,
 		img: "titanium_axe.png",
 		name: "Titanium Axe"
 	},
