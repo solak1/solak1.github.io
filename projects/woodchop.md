@@ -48,9 +48,9 @@ permalink: projects/woodchop/
 		</button>
 		<br>
 		<button class ="buyButton" id="buyTitaniumAxe">Titanium Axe (-1000 coins, +25 wood per chop)</button>
-		<button class ="buyButton" id="buyDiamondAxe">Diamond Axe (-2500 coins, +50 wood per chop)</button>
+		<button class ="buyButton" id="buyDiamondAxe">Diamond Axe (-10,000 coins, +50 wood per chop)</button>
 		<br>
-		<button class ="buyButton" id="buyFireAxe">Fire Axe (-10,000 coins, +175 wood per chop)</button>
+		<button class ="buyButton" id="buyFireAxe">Fire Axe (-100,000 coins, +175 wood per chop)</button>
 	</div>
 </main>
 
