@@ -14,7 +14,7 @@ permalink: projects/woodchop/
 		<p><b>Current Axe:</b> <span id="axeType"></span></p>
 		<a class="more round" id="chopWood">
 			<img id="axeImg" src="{{site.url}}/assets/img/woodchop/hand.png">
-			<p>Chop</p>
+			<p style="user-select:none">Chop</p>
 		</a>
 		<p><b>Amount of Wood:</b> <span id="woodAmt">0</span></p>
 	</div>

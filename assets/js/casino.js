@@ -1,3 +1,8 @@
+var slider = document.getElementById("myRange");
+var output = document.getElementById("bet");
+var checkbox = document.getElementById("myCheck");
+var dice = document.getElementById("dice");
+
 const myVar = setInterval(function() {
   myTimer();
   }, 1000);
@@ -9,24 +14,15 @@ function myTimer() {
 
 class Player {
 	constructor(){
-		this.name = ''
-		this.currency = 100
-		this.bet = 0
-		this.preference = ''
+		this.name = '';
+		this.currency = 100;
+		this.bet = 50;
+		this.preference = '';
 	}
 }
 
 const player = new Player();
 
-function highlightPref(player) {
-	if (player.preference === 'h') {
-		document.getElementById('higher').innerHTML = 'HIGHER';
-		document.getElementById('lower').innerHTML = 'lower';
-	} else if (player.preference === 'l') {
-		document.getElementById('higher').innerHTML = 'higher';
-		document.getElementById('lower').innerHTML = 'LOWER';
-	}
-}
 
 function promptForName() {
 	player.name = prompt('What is your name?');
@@ -48,28 +44,24 @@ function makeBet(player) {
 	parseInt(newBet);
 	if (newBet > player.currency) {
 		makeBet(player);
-	} else (player.bet = newBet);
-}
-
-
-function promptForPreference(player) {
-	var newPreference = prompt('Bet on (h/l):')
-	if (newPreference === 'l' || 'h') {
-		player.preference = newPreference
-		highlightPref(player)
 	} else {
-		promptForPreference(player)
+		player.bet = newBet;
+		output.innerHTML = newBet;
+		slider.value= newBet;
+		
 	}
 }
 
+
 // this is not a tight function.  Change in the future to correct format
 
-function handleRoll(player){
+function handleRoll(player,slider){
 	// fix
 	roll = Math.floor(Math.random() * Math.floor(6));
 	console.log(roll)
-	if (player.preference === 'h') {
-		if (roll > 2) {
+	// betting on higher
+	if (checkbox.checked === false) {
+		if (roll > 3) {
 			player.currency = (+player.currency) + (+player.bet);
 		} else {
 			player.currency = (+player.currency) - (+player.bet);
@@ -82,12 +74,25 @@ function handleRoll(player){
 		}
 	}
 	// update currency
-	document.getElementById('currency').innerHTML = player.currency
+	document.getElementById('currency').innerHTML = player.currency;
+	// update dice #
+	dice.innerHTML = (roll+1);
+	dice.style.transition = "all 1s";
+	slider.max = String(player.currency);
+	
+}
+
+// edge case when currency < previous bet amt
+function newSliderMax(player, slider) {
+	if (player.currency < player.bet) {
+		player.bet = player.currency;
+	}
+	slider.max = String(player.currency);
 }
 
 function playWithPlayer(player) {
 	if (player.currency > 0) {
-		handleRoll(player)
+		handleRoll(player,slider);
 
 	}
 	
@@ -99,7 +104,6 @@ function betAmt(){
 
 function betPref() {
 	promptForPreference(player);
-	highlightPref(player);
 }
 
 function play() {
@@ -111,3 +115,21 @@ promptForName();
 alert('Hello and Welcome to Casino Solak! We are currently under construction. We only have one game, Higher or Lower.  We are working on adding more!');
 alert('Higher or Lower: The Casino will roll a 6 sided dice. You may place a bet on the lower values (1-3) by pressing L. Or you may place a bet on the higher values (4-6) by press H. Good Luck!')
 alert('Play by Setting your bet amount, setting your preference(h/l), and hitting Play.')
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+	output.innerHTML = this.value;
+	player.bet = this.value;
+  }
+  output.innerHTML = slider.value; // Display the default slider value
+
+// update max value for slider
+function updateSliderRange(player, slider) {
+	slider.innerHTML = player.currency;
+}
+
+
+/*
+player.currency = max
+min="1" max="100" value="50"
+*/

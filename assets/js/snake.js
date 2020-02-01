@@ -186,8 +186,8 @@
 		if (player.x == apple.x && player.y == apple.y){
 				player.score += 1;
 				player.body_len += 1;
-				random_x = Math.floor(Math.random() * 10) * 20; // new x cord int 0-9 * 20
-				random_y = Math.floor(Math.random() * 10) * 20; // new y cord 
+				random_x = Math.floor(Math.random() * 20) * 20; // new x cord int 0-9 * 20
+				random_y = Math.floor(Math.random() * 20) * 20; // new y cord 
 				apple.x = random_x;
 				apple.y = random_y;
 		}
