@@ -151,6 +151,17 @@ $('#sellWood1000x').click(function(){
 	updateBuyButtons();
 })
 
+$('#sellWood5000x').click(function(){
+	if (wood.amt >= 1000) {
+		wood.amt -= 1000;
+		player.coins += 2000;
+		updateWood();
+		updateCoin();
+		updateSellButtons();
+	}
+	updateBuyButtons();
+})
+
 
 
 /*	Functions For Buying Axes
@@ -252,12 +263,12 @@ $('#buyFireAxe').click(function(){
 	if (player.coins >= store.fireAxe.price) {
 		// remove coins
 		player.coins -= store.fireAxe.price
-		updateCoin()
+		updateCoin();
 		if (wood.incr < 175) {
 		player.axe.name = store.fireAxe.name;
 		player.axe.img = store.fireAxe.img;
-		wood.incr = 175	
-		updateAxe()
+		wood.incr = 500;	
+		updateAxe();
 		}
 		// update button
 		document.getElementById("buyFireAxe").disabled = true;

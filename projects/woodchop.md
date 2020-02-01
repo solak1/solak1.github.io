@@ -36,6 +36,9 @@ permalink: projects/woodchop/
 		<button class ="sellButton" id="sellWood1000x">
 			Sell: 1000 Wood
 		</button>
+		<button class ="sellButton" id="sellWood5000x">
+			Sell: 5000 Wood
+		</button>
 		<p>Axes For Sale:</p>
 		<button class ="buyButton" id="buyBronzeAxe">
 			Bronze Axe (-50 coins, +2 wood per chop)
@@ -50,7 +53,7 @@ permalink: projects/woodchop/
 		<button class ="buyButton" id="buyTitaniumAxe">Titanium Axe (-2,000 coins, +25 wood per chop)</button>
 		<button class ="buyButton" id="buyDiamondAxe">Diamond Axe (-10,000 coins, +50 wood per chop)</button>
 		<br>
-		<button class ="buyButton" id="buyFireAxe">Fire Axe (-100,000 coins, +175 wood per chop)</button>
+		<button class ="buyButton" id="buyFireAxe">Fire Axe (-100,000 coins, +500 wood per chop)</button>
 	</div>
 </main>
 
