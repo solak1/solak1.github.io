@@ -114,9 +114,8 @@ function play() {
 
 
 promptForName();
-alert('Hello and Welcome to Casino Solak! We are currently under construction. We only have one game, Higher or Lower.  We are working on adding more!');
-alert('Higher or Lower: The Casino will roll a 6 sided dice. You may place a bet on the lower values (1-3) by pressing L. Or you may place a bet on the higher values (4-6) by press H. Good Luck!')
-alert('Play by Setting your bet amount, setting your preference(h/l), and hitting Play.')
+alert(`Hello ${player.name}!`);
+alert('Higher or Lower: The Casino will roll a 6 sided dice. Good Luck! Play by Setting your bet amount, setting your preference, and hitting Play.');
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
