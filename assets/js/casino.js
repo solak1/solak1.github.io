@@ -38,11 +38,19 @@ function promptForName() {
 }
 
 function promptForBetAmt(player) {
-	var newBet = prompt('How much would you like to bet')
-	// check for input
-	player.bet = newBet
+	makeBet(player);
 	document.getElementById("bet").innerHTML = player.bet;
 }
+
+function makeBet(player) {
+	var newBet = prompt(`How much would you like to bet? I must be less than or equal to ${player.currency}.`);
+
+	parseInt(newBet);
+	if (newBet > player.currency) {
+		makeBet(player);
+	} else (player.bet = newBet);
+}
+
 
 function promptForPreference(player) {
 	var newPreference = prompt('Bet on (h/l):')
@@ -101,5 +109,5 @@ function play() {
 
 promptForName();
 alert('Hello and Welcome to Casino Solak! We are currently under construction. We only have one game, Higher or Lower.  We are working on adding more!');
-alert('Higher or Lower: The Casino will roll a 6 sided dice. You may place a bet on the lower values (1-3). Or you may place a bet on the higher values (4-6). Good Luck!')
+alert('Higher or Lower: The Casino will roll a 6 sided dice. You may place a bet on the lower values (1-3) by pressing L. Or you may place a bet on the higher values (4-6) by press H. Good Luck!')
 alert('Play by Setting your bet amount, setting your preference(h/l), and hitting Play.')
