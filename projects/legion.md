@@ -46,6 +46,9 @@ permalink: projects/legion/
     <h2>Camp</h2>
     <section class="moreInfoSection" id="currentStats">
         <h3>Current Stats</h3>
+        <div id="myProgress">
+        <div id="myBar"></div>
+        </div>
         <p>Level: <span id="level">1</span></p>
         <p>XP: <span id="xp">0</span></p>
         <p>Gold: <span id="gold">0</span></p>
@@ -71,6 +74,7 @@ permalink: projects/legion/
 </section>
 <section class="moreInfo" id="inventory">
     <h2>Inventory</h2>
+    <p>Current equipment strength: <span id="strengthSpan">5</span></p>
 </section>
 
 <section class="moreInfo" id="travel">
@@ -87,10 +91,12 @@ permalink: projects/legion/
 </section>
 <section class="moreInfo" id="townShop">
     <h2>Traveling Shoppe</h2>
-    <p>Currently we are sold out of all our equipment! What a shame.</p>
-    <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
-    <button class="equipmentButton" id="buySimpleBow">Simple Bow</button>
-    <button class="equipmentButton" id="buyShortSword">Short Sword</button>
+    <p>The merchant agrees will sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
+    <div id="shopContainer">
+        <button class="equipmentButton" id="buySmallSpear">Small Spear</button>
+        <button class="equipmentButton" id="buySimpleBow">Simple Bow</button>
+        <button class="equipmentButton" id="buyShortSword">Short Sword</button>
+    </div>
 </section>
 </div>
 <script src='{{site.url}}/assets/js/legion/legionMain.js'>

@@ -79,6 +79,9 @@ goToShopButton.addEventListener("click", () => {
 });
 
 
+"buySimpleBow"
+
+
 
 function readyCampaign() {
     document.getElementById("camButton").style.display = "none";
@@ -121,7 +124,34 @@ readyCampaign();
 document.getElementById("camButton").addEventListener("click", () => {
     readyCampaign();
     player.campaign(enemiesInForest);
+    player.updateProgressBar();
 })
+
+class Equipment {
+    constructor(name,price) {
+        this.name = name;
+        this.price = price;
+        
+    }
+    createBuyButton() {
+        this.buyButtonInit = document.createElement("BUTTON");
+        this.buyButtonMsg = String(String(name+" (Costs: "+price))
+        this.t = document.createTextNode(this.buyButtonMsg);
+        this.buyButton = this.buyButtonInit.appendChild(this.t);
+        this.buyButtonEle = document.getElementById("shopContainer").prepend(this.buyButton);
+    }
+    buy() {
+        this.document.getElementById("")
+    }
+} 
+
+class Weapon extends Equipment {
+    constructor(name,price, strength) {
+        super(name,price);
+        this.strength = strength;
+        this.inventoryButton = document.createElement("button").appendChild(document.createTextNode(String(name+" (Strength: "+strength)));
+    }
+}
 
 
 class Character {
@@ -133,7 +163,7 @@ class Character {
         this.health = 10;
         this.level = 1;
         this.xp = 0;
-        this.xpToLevel = this.level*100;
+        this.nextLevelXp = this.level*100;
         this.inventory = []
         this.equipedWeapon = null;
         this.equipedArmor = null;
@@ -165,8 +195,12 @@ class Character {
             }
         } else { // humiliated
             this.health -= 4;
-            return [0, 0, "Humiliated by", target.name];
+            return [0, 0, "Humiliated by a", target.name];
         }
+    }
+    buyEquipment(equipment) {
+        player.inventory.push(equipment);
+        
     }
 }
 
@@ -209,10 +243,10 @@ class Player extends Character {
     }
     didLevel() {
         // @ level 1 xp must be greater than 100 to level
-        if (this.xp >= (this.level*100)){
-            // if xp >= level * 100, increase level & update health
-            this.level += 1;
-            this.health = this.level + 10;
+        if (this.xp >= this.nextLevelXp){
+            this.level += 1; // level up
+            this.nextLevelXp += this.level * 100;
+            this.health = this.level + 10 -1;
             document.getElementById("level").innerHTML = this.level;
             return true;
         } else return false;
@@ -223,7 +257,7 @@ class Player extends Character {
         // player health below max health
             if (player.health < (player.level*10)) {
                 player.coins -= 10;
-                player.health = (player.level * 10);
+                player.health = (player.level + 10 - 1);
                 // update Camp Stats
                 document.getElementById("gold").innerHTML = this.coins;
                 document.getElementById("health").innerHTML = this.health;
@@ -241,6 +275,15 @@ class Player extends Character {
         if (self.location === "Deep Forest") {
             return true;
         }
+    }
+    updateProgressBar() {
+        var elem = document.getElementById("myBar");
+        // 
+        var xpBase = 100 + ((this.level-1) * 100); // divide by zero work around
+        var width = ((this.xp-this.nextLevelXp)/xpBase)*100;
+        width += 100;
+        console.log(width);
+        elem.style.width = width + "%";
     }
 }
 
@@ -279,6 +322,72 @@ const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 
 
+
+function buyShortSword(player) {
+    var cost = 1500;
+    var str = 15
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var shortSword = new Weapon("Short Sword", cost, str);
+        player.inventory.push(shortSword);
+        player.strength = str;
+        console.log('returning true');
+        return true;
+    } else return false;
+}
+
+function buySimpleBow(player) {
+    var cost = 400;
+    var str = 10;
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var simpleBow = new Weapon("Short Sword", cost, str);
+        player.inventory.push(simpleBow);
+        player.strength = str;
+        console.log('returning true');
+        return true;
+    } else return false;
+}
+
+function buySmallSpear(player) {
+    var cost = 50;
+    var str = 7;
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var smallSpear = new Weapon("Small Spear", cost, str);
+        console.log('buying '+ smallSpear.name);
+        player.inventory.push(smallSpear);
+        player.strength = str;
+        return true;
+    } else return false;
+}
+
 function test() {
     player.campaign(enemiesInForest);
 } 
+
+const smallSpearBuyButton = document.getElementById("buySmallSpear");
+const simpleBowBuyButton = document.getElementById("buySimpleBow");
+const shortSwordBuyButton = document.getElementById("buyShortSword");
+
+smallSpearBuyButton.addEventListener("click", () => {
+    if (buySmallSpear(player)) {
+        smallSpearBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 7;
+    }
+});
+
+simpleBowBuyButton.addEventListener("click", () => {
+    if (buySimpleBow(player)) {
+        simpleBowBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 10;
+    }
+});
+
+
+shortSwordBuyButton.addEventListener("click", () => {
+    if (buyShortSword(player)) {
+        shortSwordBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 10;
+    }
+});
