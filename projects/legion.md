@@ -81,7 +81,7 @@ permalink: projects/legion/
 <section class="moreInfo" id="travel">
     <h2>Travel</h2>
     <button id="healButton">Heal (-10 coins)</button>
-    <button id="goToShopButton">Traveling Shoppe</button>
+    <button id="goToShopButton">Shoppe</button>
 </section>
 
 <section class="moreInfo" id="log">
