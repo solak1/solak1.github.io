@@ -175,27 +175,27 @@ class Character {
         // attack logic
         console.log(target);
         if (target == undefined) { // failed to find a target
-            return [0,0, 'You were unsuccessful', 'and wasted an attempt'];
+            return [0,0, 'were unsuccessful', 'and wasted an attempt'];
         } else if (this.strength >= target.health) { // easily kill
             if (this.defenceBonus > target.strength) { // able to kill
-                return [target.coins, target.xp, 'Killed a', target.name];
+                return [target.coins, target.xp, 'killed a', target.name];
             } else { // damage taken
                 this.health -= 2;
-                return [target.coins, target.xp, 'Killed a', target.name];
+                return [target.coins, target.xp, 'killed a', target.name];
             }
         }
         else if ((this.strength*2)>= target.health) { // wound enemy
             if (this.defenceBonus > target.strength) {
                 // unscathed
-                return [target.coins, target.xp, 'Wounded a', target.name];
+                return [target.coins, target.xp, 'wounded a', target.name];
                 }
             else {
                 this.health -= 2;
-                return [target.coins, target.xp, 'Wounded a', target.name];
+                return [target.coins, target.xp, 'wounded a', target.name];
             }
         } else { // humiliated
             this.health -= 4;
-            return [0, 0, "Humiliated by a", target.name];
+            return [0, 0, "were humiliated by a", target.name];
         }
     }
     buyEquipment(equipment) {
@@ -225,9 +225,10 @@ class Player extends Character {
         // Logs stored in json, then create logs from json
         var logLI1 = document.createElement("LI");
         var logLI2 = document.createElement("LI");
-        var logMsg = reward[2]+' '+reward[3]+'.';
+        var logMsg = 'You earned ' +reward[0]+ ' coins and '+ reward[1]+ ' xp when you '+reward[2].toLowerCase()+' '+reward[3]+'.';
+        var logMsg2 = 'You '+reward[2]+' '+reward[3]+'.';
         var t = document.createTextNode(logMsg);
-        var t2 = document.createTextNode(logMsg);
+        var t2 = document.createTextNode(logMsg2);
         logLI1.appendChild(t);
         logLI2.appendChild(t2);
         document.getElementById("logUL").prepend(logLI1);
@@ -315,7 +316,7 @@ const goblinE2 = new Enemy(3, "goblin", 4, 0, 10, 20);
 const goblinM = new Enemy(4, "goblin", 6, 1, 12, 25);
 const goblinH = new Enemy(5, "goblin", 14, 2, 20, 25);
 const mugger = new Enemy(25, "mugger", 9, 1, 30, 20);
-const anarchist = new Enemy(7, "anarchist", 10, 1, 45, 40);
+const anarchist = new Enemy(7, "burgler", 10, 1, 45, 40);
 const blackBear = new Enemy(8, 'black bear', 6, 2, 0, 30);
 const brownBear = new Enemy(9, "brown bear", 9, 3, 0, 40);
 const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
