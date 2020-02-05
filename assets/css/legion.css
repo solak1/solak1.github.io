@@ -1,0 +1,76 @@
+/* Top Nav
+*/
+#imgButton {
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+
+#camButton {
+    float: left;
+}
+#camButton2 {
+    float:left;
+    display: none;
+}
+
+#locButton {
+    float: right;
+}
+
+.legionButton {
+    padding: 10px;
+}
+
+#stats {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+        display: none;
+
+}
+
+#legionHeader {
+    position: relative;
+    min-height: 50px;
+    background-image: linear-gradient(white 50%, grey);
+}
+
+
+
+.navBlock {
+    display: inline-block;
+}
+
+.navBlock > button {
+    height: 100px;
+    width: 15em;
+    padding: auto;
+}
+
+#camp {
+    display: block;
+}
+
+#camp > section {
+    width: 10em;
+    margin: 0;
+    display: inline-block;
+    align-content: left;
+}
+
+.moreInfo {
+    display: none;
+}
+
+#currentStats, #recentEvents > p, #locationTips > p {
+    text-align: left;
+}
+.moreInfoSection {
+    vertical-align: top;
+}
+
