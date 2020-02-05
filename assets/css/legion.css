@@ -64,7 +64,13 @@ body, button {
 }
 
 .navBlock > button, #goToShopButton, #healButton, .equipmentButton {
-    padding: 40px 50px;
+    padding: auto;
+    width: 150px;
+    min-width: 75px;
+    max-width: 300px;
+    height: 100px;
+    min-height: 50px;
+    max-height: 200px;
     box-shadow: 0px 0px 3px;
     font-size: 1rem;
 }
@@ -91,5 +97,16 @@ body, button {
     vertical-align: top;
     height: 250px;
 }
+
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+  }
 
 

@@ -121,6 +121,7 @@ readyCampaign();
 document.getElementById("camButton").addEventListener("click", () => {
     readyCampaign();
     player.campaign(enemiesInForest);
+    player.updateProgressBar();
 })
 
 
@@ -165,7 +166,7 @@ class Character {
             }
         } else { // humiliated
             this.health -= 4;
-            return [0, 0, "Humiliated by", target.name];
+            return [0, 0, "Humiliated by a", target.name];
         }
     }
 }
@@ -241,6 +242,12 @@ class Player extends Character {
         if (self.location === "Deep Forest") {
             return true;
         }
+    }
+    updateProgressBar() {
+        var elem = document.getElementById("myBar");
+        var width = (this.xp-((this.level-1)*100));
+        console.log(width);
+        elem.style.width = width + "%";
     }
 }
 
