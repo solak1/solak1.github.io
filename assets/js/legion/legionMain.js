@@ -41,6 +41,7 @@ navButtons[2].addEventListener("click", () => {
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "block";
     fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
 })
 
 navButtons[3].addEventListener("click", () => {
@@ -144,7 +145,7 @@ class Character {
         // attack logic
         console.log(target);
         if (target == undefined) { // failed to find a target
-            return [0,0, 'You were unsuccessful', 'and wasted attempt'];
+            return [0,0, 'You were unsuccessful', 'and wasted an attempt'];
         } else if (this.strength >= target.health) { // easily kill
             if (this.defenceBonus > target.strength) { // able to kill
                 return [target.coins, target.xp, 'Killed a', target.name];
@@ -173,7 +174,7 @@ class Character {
 class Player extends Character {
     constructor(name) {
         super(name);
-        this.location = null;
+        this.location = "Deep Forest";
     }
     campaign(enemiesArray) {
         let randomInt = Math.round(Math.random() * enemiesArray.length);
@@ -233,6 +234,14 @@ class Player extends Character {
         l.appendChild(t);
         document.getElementById("logUL").prepend(l);
     } 
+    updateLocation() {
+        var locationSection = document.getElementById("locationTips");
+        var locationSpan = document.getElementById("locationSpan");
+        locationSpan.innerHTML = this.location;
+        if (self.location === "Deep Forest") {
+            return true;
+        }
+    }
 }
 
 class Enemy extends Character {

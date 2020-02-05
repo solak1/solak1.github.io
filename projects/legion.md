@@ -24,7 +24,7 @@ permalink: projects/legion/
     <button class="legionButton" id="camButton">Campaign</button>
     <button class="legionButton" id="camButton2">Campain</button>
     <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
-    <button class="legionButton" id="locButton">Locations</button>
+    <button class="legionButton" id="locButton">Located at the <span id="locationSpan">Deep Forest</span></button>
     <div class="legionHeaderFooter"></div>
 </section>
 <section id="navBlocks">
@@ -61,10 +61,12 @@ permalink: projects/legion/
         </ul>
     </section>
     <section class="moreInfoSection" id="locationTips">
-        <h3><span class="location">Location</span> Tips</h3>
-        <p>You are in the forest.</p>
-        <p>You should equip a bow or a sword for a bonus in the <span class="location">woods</span></p>
-        <p>Beware of grizzly bears.</p>
+        <div class="infoContainer" id="deepForestInfoContainer">
+            <h3><span class="location">Location</span> Tips</h3>
+            <p>You are in the forest.</p>
+            <p>You should equip a bow or a sword for a bonus in the <span class="location">Deep Forest</span></p>
+            <p>Beware of grizzly bears.</p>
+        </div>
     </section>
 </section>
 <section class="moreInfo" id="inventory">
@@ -73,8 +75,8 @@ permalink: projects/legion/
 
 <section class="moreInfo" id="travel">
     <h2>Travel</h2>
-    <button id="healButton">Heal at Town(-10 coins)</button>
-    <button id="goToShopButton">Visit the Town Shoppe</button>
+    <button id="healButton">Heal (-10 coins)</button>
+    <button id="goToShopButton">Closest Shoppe</button>
 </section>
 
 <section class="moreInfo" id="log">
@@ -84,7 +86,7 @@ permalink: projects/legion/
     </ul>
 </section>
 <section class="moreInfo" id="townShop">
-    <h2>Town Shoppe</h2>
+    <h2>Traveling Shoppe</h2>
     <p>Currently we are sold out of all our equipment! What a shame.</p>
     <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
     <button class="equipmentButton" id="buySimpleBow">Simple Bow</button>

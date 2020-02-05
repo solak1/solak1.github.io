@@ -1,22 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 /* Top Nav
 */
+body, button {
+    font-family: 'Lora', serif;
+}
 #imgButton {
     float: left;
+    box-shadow: 1px 1px 2px;
     height: 60px;
     width: 60px;
 }
 
 #camButton {
     float: left;
+    box-shadow: 1px 1px 2px;
+    background-color: #bead96;
 }
 #camButton2 {
     float:left;
+    box-shadow: 1px 1px 2px;
+    background-color: #c6c3bf;
     display: none;
 }
 
 #locButton {
     float: right;
+    box-shadow: -1px 1px 2px;
 }
+
+#legionHeader > button {
+    margin: 1px 1px;
+}
+
+
 
 .legionButton {
     padding: 10px;
@@ -48,9 +64,9 @@
 }
 
 .navBlock > button, #goToShopButton, #healButton, .equipmentButton {
-    height: 100px;
-    width: 15em;
-    padding: auto;
+    padding: 40px 50px;
+    box-shadow: 0px 0px 3px;
+    font-size: 1rem;
 }
 
 #camp {
