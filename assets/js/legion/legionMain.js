@@ -103,7 +103,7 @@ readyCampaign();
 
 document.getElementById("camButton").addEventListener("click", () => {
     readyCampaign();
-    player.campaign(enemyArray);
+    player.campaign(enemiesInForest);
 })
 
 
@@ -116,6 +116,7 @@ class Character {
         this.health = 10;
         this.level = 1;
         this.xp = 0;
+        this.xpToLevel = this.level*100;
         this.inventory = []
         this.equipedWeapon = null;
         this.equipedArmor = null;
@@ -161,32 +162,53 @@ class Player extends Character {
         super(name);
         this.location = null;
     }
-    campaign(potentialEnemiesArray) {
-        let randomInt = Math.round(Math.random() * enemyArray.length);
-        var reward = this.kill(potentialEnemiesArray[randomInt]);
+    campaign(enemiesArray) {
+        let randomInt = Math.round(Math.random() * enemiesArray.length);
+        var reward = this.kill(enemiesArray[randomInt]);
         this.coins += reward[0];
         this.xp += reward[1];
         console.log(reward);
+        this.didLevel();
+
+
         // add to log list
-        var y = document.createElement("LI");
-        let logMsg = reward[2]+' '+reward[3]+'.';
+        // This is way too much code for the log system
+        // Will need to be reworked.
+        // Logs stored in json, then create logs from json
+        var logLI1 = document.createElement("LI");
+        var logLI2 = document.createElement("LI");
+        var logMsg = reward[2]+' '+reward[3]+'.';
         var t = document.createTextNode(logMsg);
-        y.appendChild(t);
-        document.getElementById("logUL").prepend(y);
+        var t2 = document.createTextNode(logMsg);
+        logLI1.appendChild(t);
+        logLI2.appendChild(t2);
+        document.getElementById("logUL").prepend(logLI1);
+        var recentEvents = document.getElementById('recentEventsUL');
+        recentEvents.removeChild(recentEvents.childNodes[3])
+        recentEvents.prepend(logLI2);
+        
         // now to update html
         document.getElementById('level').innerHTML = this.level;
         document.getElementById('xp').innerHTML = this.xp;
         document.getElementById("gold").innerHTML = this.coins;
         document.getElementById("health").innerHTML = this.health;
     }
-    updateUI() {
-
-    }
+    didLevel() {
+        // @ level 1 xp must be greater than 100 to level
+        if (this.xp >= (this.level*100)){
+            // if xp >= level * 100, increase level & update health
+            this.level += 1;
+            this.health = this.level * 10;
+            document.getElementById("level").innerHTML(this.level);
+            return true;
+        } else return false;
+    } 
 }
 
 class Enemy extends Character {
-    constructor(name,health, strength,coins,xp) {
+    constructor(id,name,health, strength,coins,xp) {
         super(name)
+        this.id = id;
         this.health = health;
         this.strength = strength;
         this.coins = coins;
@@ -203,9 +225,18 @@ function addToLogUL(data) {
   }
 
 const player = new Player("Unknown");
-const enemyArray = [];
-const goblin0 = new Enemy("goblin",5,0,10,5);
-const goblin1 = new Enemy("goblin",6,1,15,15);
-enemyArray.push(goblin0);
-enemyArray.push(goblin1);
+const enemiesInForest = [];
+const goblinE = new Enemy(1, "goblin", 1, 0, 3, 10);
+const goblinE1 = new Enemy(2, "goblin", 2, 0, 5, 20);
+const goblinE2 = new Enemy(3, "goblin", 4, 0, 10, 20);
+const goblinM = new Enemy(4, "goblin", 6, 1, 12, 25);
+const goblinH = new Enemy(5, "goblin", 14, 2, 20, 25);
+const mugger = new Enemy(25, "mugger", 9, 1, 30, 20);
+const anarchist = new Enemy(7, "anarchist", 10, 1, 45, 40);
+const blackBear = new Enemy(8, 'black bear', 6, 2, 0, 30);
+const brownBear = new Enemy(9, "brown bear", 9, 3, 0, 40);
+const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
+enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
+
+
 // player.campaign(enemyArray);

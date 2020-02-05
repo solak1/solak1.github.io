@@ -24,7 +24,7 @@ permalink: projects/legion/
     <button class="legionButton" id="camButton">Campaign</button>
     <button class="legionButton" id="camButton2">Campain</button>
     <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
-    <button class="legionButton" id="locButton">Location</button>
+    <button class="legionButton" id="locButton">Locations</button>
     <div class="legionHeaderFooter"></div>
 </section>
 <section id="navBlocks">
@@ -53,12 +53,14 @@ permalink: projects/legion/
     </section>
     <section class="moreInfoSection" id="recentEvents">
         <h3>Recent Events</h3>
-        <p>1. Conquered "enemy"</p>
-        <p>2. Retreated with loss.</p>
-        <p>3. Conquered "enemy"</p>
-        <p>4. Retrograded safely.</p>
+        <ul id="recentEventsUL">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </section>
-        <section class="moreInfoSection" id="locationTips">
+    <section class="moreInfoSection" id="locationTips">
         <h3><span class="location">Location</span> Tips</h3>
         <p>You are in the forest.</p>
         <p>You should equip a bow or a sword for a bonus in the <span class="location">woods</span></p>
@@ -76,6 +78,7 @@ permalink: projects/legion/
 <section class="moreInfo" id="log">
     <h2>Log</h2>
     <ul id="logUL">
+        <li></li>
     </ul>
     
 </section>
