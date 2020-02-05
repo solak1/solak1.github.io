@@ -375,6 +375,10 @@ smallSpearBuyButton.addEventListener("click", () => {
     if (buySmallSpear(player)) {
         smallSpearBuyButton.style.display = "none";
         document.getElementById("strengthSpan").innerHTML = 7;
+        let l = document.createElement("LI");
+        var t = document.createTextNode('You bought a small spear for 50 coins.');
+        l.appendChild(t);
+        document.getElementById("logUL").prepend(l);
     }
 });
 
@@ -382,6 +386,10 @@ simpleBowBuyButton.addEventListener("click", () => {
     if (buySimpleBow(player)) {
         simpleBowBuyButton.style.display = "none";
         document.getElementById("strengthSpan").innerHTML = 10;
+        let l = document.createElement("LI");
+        var t = document.createTextNode('You bought a simple bow for 400 coins');
+        l.appendChild(t);
+        document.getElementById("logUL").prepend(l);
     }
 });
 
@@ -390,5 +398,9 @@ shortSwordBuyButton.addEventListener("click", () => {
     if (buyShortSword(player)) {
         shortSwordBuyButton.style.display = "none";
         document.getElementById("strengthSpan").innerHTML = 10;
+        let l = document.createElement("LI");
+        var t = document.createTextNode('You bought a short sword for 1,500 coins.');
+        l.appendChild(t);
+        document.getElementById("logUL").prepend(l);
     }
 });
