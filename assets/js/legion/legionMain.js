@@ -213,7 +213,7 @@ class Player extends Character {
         if (this.xp >= this.nextLevelXp){
             this.level += 1; // level up
             this.nextLevelXp += this.level * 100;
-            this.health = this.level + 10;
+            this.health = this.level + 10 -1;
             document.getElementById("level").innerHTML = this.level;
             return true;
         } else return false;
@@ -224,7 +224,7 @@ class Player extends Character {
         // player health below max health
             if (player.health < (player.level*10)) {
                 player.coins -= 10;
-                player.health = (player.level * 10);
+                player.health = (player.level + 10 - 1);
                 // update Camp Stats
                 document.getElementById("gold").innerHTML = this.coins;
                 document.getElementById("health").innerHTML = this.health;
