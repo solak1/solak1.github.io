@@ -21,7 +21,7 @@ permalink: projects/legion/
     <button class="legionButton" id="imgButton">
     <img src='{{site.url}}/assets/img/legion/sword.png'>
     </button>
-    <button class="legionButton" id="camButton">Campain</button>
+    <button class="legionButton" id="camButton">Campaign</button>
     <button class="legionButton" id="camButton2">Campain</button>
     <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
     <button class="legionButton" id="locButton">Location</button>
