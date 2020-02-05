@@ -79,6 +79,9 @@ goToShopButton.addEventListener("click", () => {
 });
 
 
+"buySimpleBow"
+
+
 
 function readyCampaign() {
     document.getElementById("camButton").style.display = "none";
@@ -124,6 +127,32 @@ document.getElementById("camButton").addEventListener("click", () => {
     player.updateProgressBar();
 })
 
+class Equipment {
+    constructor(name,price) {
+        this.name = name;
+        this.price = price;
+        
+    }
+    createBuyButton() {
+        this.buyButtonInit = document.createElement("BUTTON");
+        this.buyButtonMsg = String(String(name+" (Costs: "+price))
+        this.t = document.createTextNode(this.buyButtonMsg);
+        this.buyButton = this.buyButtonInit.appendChild(this.t);
+        this.buyButtonEle = document.getElementById("shopContainer").prepend(this.buyButton);
+    }
+    buy() {
+        this.document.getElementById("")
+    }
+} 
+
+class Weapon extends Equipment {
+    constructor(name,price, strength) {
+        super(name,price);
+        this.strength = strength;
+        this.inventoryButton = document.createElement("button").appendChild(document.createTextNode(String(name+" (Strength: "+strength)));
+    }
+}
+
 
 class Character {
     constructor(name){
@@ -168,6 +197,10 @@ class Character {
             this.health -= 4;
             return [0, 0, "Humiliated by a", target.name];
         }
+    }
+    buyEquipment(equipment) {
+        player.inventory.push(equipment);
+        
     }
 }
 
@@ -289,6 +322,72 @@ const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 
 
+
+function buyShortSword(player) {
+    var cost = 1500;
+    var str = 15
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var shortSword = new Weapon("Short Sword", cost, str);
+        player.inventory.push(shortSword);
+        player.strength = str;
+        console.log('returning true');
+        return true;
+    } else return false;
+}
+
+function buySimpleBow(player) {
+    var cost = 400;
+    var str = 10;
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var simpleBow = new Weapon("Short Sword", cost, str);
+        player.inventory.push(simpleBow);
+        player.strength = str;
+        console.log('returning true');
+        return true;
+    } else return false;
+}
+
+function buySmallSpear(player) {
+    var cost = 50;
+    var str = 7;
+    if (player.coins >= cost) {
+        player.coins -= cost
+        var smallSpear = new Weapon("Small Spear", cost, str);
+        console.log('buying '+ smallSpear.name);
+        player.inventory.push(smallSpear);
+        player.strength = str;
+        return true;
+    } else return false;
+}
+
 function test() {
     player.campaign(enemiesInForest);
 } 
+
+const smallSpearBuyButton = document.getElementById("buySmallSpear");
+const simpleBowBuyButton = document.getElementById("buySimpleBow");
+const shortSwordBuyButton = document.getElementById("buyShortSword");
+
+smallSpearBuyButton.addEventListener("click", () => {
+    if (buySmallSpear(player)) {
+        smallSpearBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 7;
+    }
+});
+
+simpleBowBuyButton.addEventListener("click", () => {
+    if (buySimpleBow(player)) {
+        simpleBowBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 10;
+    }
+});
+
+
+shortSwordBuyButton.addEventListener("click", () => {
+    if (buyShortSword(player)) {
+        shortSwordBuyButton.style.display = "none";
+        document.getElementById("strengthSpan").innerHTML = 10;
+    }
+});

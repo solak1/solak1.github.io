@@ -63,7 +63,7 @@ body, button {
     margin-bottom: 4px;
 }
 
-.navBlock > button, #goToShopButton, #healButton, .equipmentButton {
+.navBlock > button, #goToShopButton, #healButton, .equipmentButton, #shopContainer > button {
     padding: auto;
     width: 150px;
     min-width: 75px;
