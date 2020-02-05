@@ -49,7 +49,7 @@ permalink: projects/legion/
         <p>Level: <span id="level">1</span></p>
         <p>XP: <span id="xp">0</span></p>
         <p>Gold: <span id="gold">0</span></p>
-        <p>Health: <span id="health"></span></p>
+        <p>Health: <span id="health">10</span></p>
     </section>
     <section class="moreInfoSection" id="recentEvents">
         <h3>Recent Events</h3>
@@ -73,6 +73,8 @@ permalink: projects/legion/
 
 <section class="moreInfo" id="travel">
     <h2>Travel</h2>
+    <button id="healButton">Heal at Town(-10 coins)</button>
+    <button id="goToShopButton">Visit the Town Shoppe</button>
 </section>
 
 <section class="moreInfo" id="log">
@@ -80,7 +82,13 @@ permalink: projects/legion/
     <ul id="logUL">
         <li></li>
     </ul>
-    
+</section>
+<section class="moreInfo" id="townShop">
+    <h2>Town Shoppe</h2>
+    <p>Currently we are sold out of all our equipment! What a shame.</p>
+    <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
+    <button class="equipmentButton" id="buySimpleBow">Simple Bow</button>
+    <button class="equipmentButton" id="buyShortSword">Short Sword</button>
 </section>
 </div>
 <script src='{{site.url}}/assets/js/legion/legionMain.js'>

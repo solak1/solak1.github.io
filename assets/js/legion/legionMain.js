@@ -9,58 +9,74 @@
 // you can launch campaign every 30s
 const campaignButton = document.getElementById("camButton");
 const navButtons = document.getElementsByClassName("navBlock");
-const fourSections = document.getElementsByClassName("moreInfo");
+const fiveSections = document.getElementsByClassName("moreInfo");
 const imgButton = document.getElementById("imgButton");
 const locationButton = document.getElementById("locButton");
+const healButton = document.getElementById('healButton');
+const goToShopButton = document.getElementById('goToShopButton');
 console.log(navButtons);
 
+// Handle NAV BUTTON CLICKS
 navButtons[0].addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "block";
-    fourSections[1].style.display = "none";
-    fourSections[2].style.display = "none";
-    fourSections[3].style.display = "none";
+    console.log(fiveSections);
+    fiveSections[0].style.display = "block";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
 })
 
 navButtons[1].addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "none";
-    fourSections[1].style.display = "block";
-    fourSections[2].style.display = "none";
-    fourSections[3].style.display = "none";
+    console.log();
+    fiveSections[0].style.display = "none";
+    fiveSections[1].style.display = "block";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
 })
 
 navButtons[2].addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "none";
-    fourSections[1].style.display = "none";
-    fourSections[2].style.display = "block";
-    fourSections[3].style.display = "none";
+    console.log(fiveSections);
+    fiveSections[0].style.display = "none";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "block";
+    fiveSections[3].style.display = "none";
 })
 
 navButtons[3].addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "none";
-    fourSections[1].style.display = "none";
-    fourSections[2].style.display = "none";
-    fourSections[3].style.display = "block";
+    console.log(fiveSections);
+    fiveSections[0].style.display = "none";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "block";
+    fiveSections[4].style.display = "none";
 })
 
 locationButton.addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "none";
-    fourSections[1].style.display = "none";
-    fourSections[2].style.display = "none";
-    fourSections[3].style.display = "block";
+    console.log(fiveSections);
+    fiveSections[0].style.display = "none";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "block";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
 })
 
+
 imgButton.addEventListener("click", () => {
-    console.log(fourSections);
-    fourSections[0].style.display = "block";
-    fourSections[1].style.display = "none";
-    fourSections[2].style.display = "none";
-    fourSections[3].style.display = "none";
+    console.log(fiveSections);
+    fiveSections[0].style.display = "block";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
 })
+
+goToShopButton.addEventListener("click", () => {
+    console.log("Going to Shop");
+    document.getElementById("travel").style.display = "none";
+    fiveSections[4].style.display = "block";
+});
+
 
 
 function readyCampaign() {
@@ -122,35 +138,32 @@ class Character {
         this.equipedArmor = null;
     }
     kill(target) {
-        console.log(target);
+        if (this.health <= 0) {
+            return [null, null, "Campaign wasted.", "Go heal"]
+        }
         // attack logic
-        if (target == undefined) {
+        console.log(target);
+        if (target == undefined) { // failed to find a target
             return [0,0, 'You were unsuccessful', 'and wasted attempt'];
-        } else if (this.strength >= target.health) {
-        // able to kill
-            if (this.defenceBonus > target.strength) {
-        // unscathed
+        } else if (this.strength >= target.health) { // easily kill
+            if (this.defenceBonus > target.strength) { // able to kill
                 return [target.coins, target.xp, 'Killed a', target.name];
-            } else {
-        // damage taken
-                var damage = 1
-                this.health -= damage;
+            } else { // damage taken
+                this.health -= 2;
                 return [target.coins, target.xp, 'Killed a', target.name];
             }
         }
-        // wound enemy
-        else if ((this.strength*2)>= target.health) {
+        else if ((this.strength*2)>= target.health) { // wound enemy
             if (this.defenceBonus > target.strength) {
                 // unscathed
                 return [target.coins, target.xp, 'Wounded a', target.name];
                 }
             else {
-                var damage = 1
-                this.health -= damage;
+                this.health -= 2;
                 return [target.coins, target.xp, 'Wounded a', target.name];
             }
-        // humiliated
-        } else {
+        } else { // humiliated
+            this.health -= 4;
             return [0, 0, "Humiliated by", target.name];
         }
     }
@@ -198,10 +211,27 @@ class Player extends Character {
         if (this.xp >= (this.level*100)){
             // if xp >= level * 100, increase level & update health
             this.level += 1;
-            this.health = this.level * 10;
-            document.getElementById("level").innerHTML(this.level);
+            this.health = this.level + 10;
+            document.getElementById("level").innerHTML = this.level;
             return true;
         } else return false;
+    }
+    // Handle HEAL BUTTON CLICK
+    heal() {
+        healButton.addEventListener("click", () => {
+        // player health below max health
+            if (player.health < (player.level*10)) {
+                player.coins -= 10;
+                player.health = (player.level * 10);
+                // update Camp Stats
+                document.getElementById("gold").innerHTML = this.coins;
+                document.getElementById("health").innerHTML = this.health;
+            }
+        })
+        let l = document.createElement("LI");
+        var t = document.createTextNode('You feel ready to take on the world.');
+        l.appendChild(t);
+        document.getElementById("logUL").prepend(l);
     } 
 }
 
@@ -225,6 +255,7 @@ function addToLogUL(data) {
   }
 
 const player = new Player("Unknown");
+player.heal();
 const enemiesInForest = [];
 const goblinE = new Enemy(1, "goblin", 1, 0, 3, 10);
 const goblinE1 = new Enemy(2, "goblin", 2, 0, 5, 20);
@@ -239,4 +270,6 @@ const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 
 
-// player.campaign(enemyArray);
+function test() {
+    player.campaign(enemiesInForest);
+} 
