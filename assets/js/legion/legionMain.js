@@ -134,7 +134,7 @@ class Character {
         this.health = 10;
         this.level = 1;
         this.xp = 0;
-        this.xpToLevel = this.level*100;
+        this.nextLevelXp = this.level*100;
         this.inventory = []
         this.equipedWeapon = null;
         this.equipedArmor = null;
@@ -210,9 +210,9 @@ class Player extends Character {
     }
     didLevel() {
         // @ level 1 xp must be greater than 100 to level
-        if (this.xp >= (this.level*100)){
-            // if xp >= level * 100, increase level & update health
-            this.level += 1;
+        if (this.xp >= this.nextLevelXp){
+            this.level += 1; // level up
+            this.nextLevelXp += this.level * 100;
             this.health = this.level + 10;
             document.getElementById("level").innerHTML = this.level;
             return true;
@@ -245,7 +245,10 @@ class Player extends Character {
     }
     updateProgressBar() {
         var elem = document.getElementById("myBar");
-        var width = (this.xp-((this.level-1)*100));
+        // 
+        var xpBase = 100 + ((this.level-1) * 100); // divide by zero work around
+        var width = ((this.xp-this.nextLevelXp)/xpBase)*100;
+        width += 100;
         console.log(width);
         elem.style.width = width + "%";
     }

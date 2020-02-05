@@ -46,6 +46,9 @@ permalink: projects/legion/
     <h2>Camp</h2>
     <section class="moreInfoSection" id="currentStats">
         <h3>Current Stats</h3>
+        <div id="myProgress">
+        <div id="myBar"></div>
+        </div>
         <p>Level: <span id="level">1</span></p>
         <p>XP: <span id="xp">0</span></p>
         <p>Gold: <span id="gold">0</span></p>
@@ -81,9 +84,6 @@ permalink: projects/legion/
 
 <section class="moreInfo" id="log">
     <h2>Log</h2>
-    <div id="myProgress">
-    <div id="myBar"></div>
-    </div>
     <ul id="logUL">
         <li></li>
     </ul>
