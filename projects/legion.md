@@ -74,6 +74,7 @@ permalink: projects/legion/
 </section>
 <section class="moreInfo" id="inventory">
     <h2>Inventory</h2>
+    <p>Current Weapon: <span id="weaponSpan">Stick</span></p>
     <p>Current equipment strength: <span id="strengthSpan">5</span></p>
 </section>
 
