@@ -22,9 +22,9 @@ permalink: projects/legion/
     <img src='{{site.url}}/assets/img/legion/sword.png'>
     </button>
     <button class="legionButton" id="camButton">Campaign</button>
-    <button class="legionButton" id="camButton2">Campain</button>
+    <button class="legionButton" id="camButton2">Campaign</button>
     <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
-    <button class="legionButton" id="locButton">Located at the <span id="locationSpan">Deep Forest</span></button>
+    <button class="legionButton" id="locButton">Location: <span id="locationSpan">Deep Forest</span></button>
     <div class="legionHeaderFooter"></div>
 </section>
 <section id="navBlocks">
