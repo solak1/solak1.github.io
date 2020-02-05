@@ -124,7 +124,7 @@ class Character {
         console.log(target);
         // attack logic
         if (target == undefined) {
-            return [0,0, 'You were Unsuccessful', 'and wasted attempt'];
+            return [0,0, 'You were unsuccessful', 'and wasted attempt'];
         } else if (this.strength >= target.health) {
         // able to kill
             if (this.defenceBonus > target.strength) {
@@ -139,14 +139,22 @@ class Character {
         }
         // wound enemy
         else if ((this.strength*2)>= target.health) {
-            return [target.coins, target.xp, 'Wounded a', target.name];
-            } 
+            if (this.defenceBonus > target.strength) {
+                // unscathed
+                return [target.coins, target.xp, 'Wounded a', target.name];
+                }
+            else {
+                var damage = 1
+                this.health -= damage;
+                return [target.coins, target.xp, 'Wounded a', target.name];
+            }
         // humiliated
-        else {
+        } else {
             return [0, 0, "Humiliated by", target.name];
         }
     }
 }
+
 
 class Player extends Character {
     constructor(name) {
@@ -154,17 +162,25 @@ class Player extends Character {
         this.location = null;
     }
     campaign(potentialEnemiesArray) {
-        // change
         let randomInt = Math.round(Math.random() * enemyArray.length);
         var reward = this.kill(potentialEnemiesArray[randomInt]);
         this.coins += reward[0];
         this.xp += reward[1];
         console.log(reward);
+        // add to log list
         var y = document.createElement("LI");
         let logMsg = reward[2]+' '+reward[3]+'.';
         var t = document.createTextNode(logMsg);
         y.appendChild(t);
         document.getElementById("logUL").prepend(y);
+        // now to update html
+        document.getElementById('level').innerHTML = this.level;
+        document.getElementById('xp').innerHTML = this.xp;
+        document.getElementById("gold").innerHTML = this.coins;
+        document.getElementById("health").innerHTML = this.health;
+    }
+    updateUI() {
+
     }
 }
 
