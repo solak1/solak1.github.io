@@ -14,11 +14,9 @@ const imgButton = document.getElementById("imgButton");
 const locationButton = document.getElementById("locButton");
 const healButton = document.getElementById('healButton');
 const goToShopButton = document.getElementById('goToShopButton');
-console.log(navButtons);
 
 // Handle NAV BUTTON CLICKS
 navButtons[0].addEventListener("click", () => {
-    console.log(fiveSections);
     fiveSections[0].style.display = "block";
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "none";
@@ -27,7 +25,6 @@ navButtons[0].addEventListener("click", () => {
 })
 
 navButtons[1].addEventListener("click", () => {
-    console.log();
     fiveSections[0].style.display = "none";
     fiveSections[1].style.display = "block";
     fiveSections[2].style.display = "none";
@@ -36,7 +33,6 @@ navButtons[1].addEventListener("click", () => {
 })
 
 navButtons[2].addEventListener("click", () => {
-    console.log(fiveSections);
     fiveSections[0].style.display = "none";
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "block";
@@ -45,7 +41,6 @@ navButtons[2].addEventListener("click", () => {
 })
 
 navButtons[3].addEventListener("click", () => {
-    console.log(fiveSections);
     fiveSections[0].style.display = "none";
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "none";
@@ -54,7 +49,6 @@ navButtons[3].addEventListener("click", () => {
 })
 
 locationButton.addEventListener("click", () => {
-    console.log(fiveSections);
     fiveSections[0].style.display = "none";
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "block";
@@ -64,7 +58,6 @@ locationButton.addEventListener("click", () => {
 
 
 imgButton.addEventListener("click", () => {
-    console.log(fiveSections);
     fiveSections[0].style.display = "block";
     fiveSections[1].style.display = "none";
     fiveSections[2].style.display = "none";
@@ -170,28 +163,29 @@ class Character {
     }
     kill(target) {
         if (this.health <= 0) {
-            return [null, null, "Campaign wasted.", "Go heal"]
+            return [0, 0, "wasted a campaign.", "Go heal"]
         }
+        var rewardXp = target.xp + (Math.floor(Math.random()*target.xp / 10));
         // attack logic
         console.log(target);
         if (target == undefined) { // failed to find a target
             return [0,0, 'were unsuccessful', 'and wasted an attempt'];
         } else if (this.strength >= target.health) { // easily kill
             if (this.defenceBonus > target.strength) { // able to kill
-                return [target.coins, target.xp, 'killed a', target.name];
+                return [target.coins, rewardXp, 'killed a', target.name];
             } else { // damage taken
                 this.health -= 2;
-                return [target.coins, target.xp, 'killed a', target.name];
+                return [target.coins, rewardXp, 'killed a', target.name];
             }
         }
         else if ((this.strength*2)>= target.health) { // wound enemy
             if (this.defenceBonus > target.strength) {
                 // unscathed
-                return [target.coins, target.xp, 'wounded a', target.name];
+                return [target.coins, (rewardXp-5), 'wounded a', target.name];
                 }
             else {
                 this.health -= 2;
-                return [target.coins, target.xp, 'wounded a', target.name];
+                return [target.coins, (rewardXp-5), 'wounded a', target.name];
             }
         } else { // humiliated
             this.health -= 4;

@@ -103,10 +103,15 @@ body, button {
     background-color: #ddd;
   }
   
-  #myBar {
+#myBar {
     width: 0%;
     height: 30px;
     background-color: #4CAF50;
   }
+
+#log {
+    max-height: 100vh;
+    overflow: auto;
+}
 
 
