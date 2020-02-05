@@ -44,6 +44,7 @@
 
 .navBlock {
     display: inline-block;
+    margin-bottom: 4px;
 }
 
 .navBlock > button {
@@ -72,5 +73,6 @@
 }
 .moreInfoSection {
     vertical-align: top;
+    height: 250px;
 }
 
