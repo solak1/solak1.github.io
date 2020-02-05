@@ -104,7 +104,7 @@ function readyCampaign() {
         
     // Output the result in an element with id="demo"
     document.getElementById("camButton2").style.display = "block";
-    document.getElementById("camButton2").innerHTML = 'Next Campaign in: '
+    document.getElementById("camButton2").innerHTML = 'Resting for: '
      + seconds + "s ";
         
     // If the count down is over, write some text 
