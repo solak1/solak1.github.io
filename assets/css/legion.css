@@ -13,7 +13,7 @@ body, button {
 
 #camButton {
     float: left;
-    box-shadow: 1px 1px 2px;
+    box-shadow: 1px 1px 3px;
     background-color: #bead96;
 }
 #camButton2 {
@@ -121,12 +121,41 @@ body, button {
 }
 
 #recentEventsUL > li {
+    text-align: left;
     padding-bottom: 4px;
 }
-#recentEventsUL > li:before {
-    content: counter(elementcounter) " Day(s) Ago: ";
+
+#recentEventsUL > li:nth-child(1):before  {
+    content: "Today: ";
+    counter-increment: 'elementcounter';
+    font-weight: bold;
+}
+
+#recentEventsUL > li:nth-child(2):before  {
+    content: counter(elementcounter) " Day Ago: ";
     counter-increment: elementcounter;
     font-weight: bold;
-  }
+}
 
+#recentEventsUL > li:before {
+    content: counter(elementcounter) " Days Ago: ";
+    counter-increment: elementcounter;
+    font-weight: bold;
+}
 
+#inventoryItems {
+    align-content: center;
+}
+
+#inventoryItems > button {
+    display: none;
+    align-self: center;
+}
+
+#logUL > li {
+    border-bottom: solid .1px #989898;
+}
+
+#goldSpan {
+    transition-delay: 
+}
