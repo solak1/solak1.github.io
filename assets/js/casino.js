@@ -42,7 +42,7 @@ function makeBet(player) {
 	var newBet = prompt(`How much would you like to bet? I must be less than or equal to ${player.currency}.`);
 
 	parseInt(newBet);
-	if (newBet > player.currency || newBet < 0) {
+	if (newBet > player.currency || newBet <= 0) {
 		makeBet(player);
 	} else {
 		player.bet = newBet;
