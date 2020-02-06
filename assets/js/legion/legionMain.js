@@ -189,31 +189,35 @@ class Character {
         if (this.health <= 0) {
             return [0, 0, "wasted a campaign.", "Go heal"]
         }
-        var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
+        // var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
         // attack logic
         console.log(target);
         if (target == undefined) { // failed to find a target
             return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
-        } else if (this.strength >= target.health) { // easily kill
-            if (this.defenceBonus > target.strength) { // able to kill
-                return [target.coins, rewardXp, 'killed a', target.name];
-            } else { // damage taken
-                this.health -= 2;
-                return [target.coins, rewardXp, 'killed a', target.name];
-            }
+        } 
+        else {
+            var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
+            if (this.strength >= target.health) { // easily kill
+                if (this.defenceBonus > target.strength) { // able to kill
+                    return [target.coins, rewardXp, 'killed a', target.name];
+                } else { // damage taken
+                    this.health -= 2;
+                    return [target.coins, rewardXp, 'killed a', target.name];
+                }
         }
-        else if ((this.strength * 2) >= target.health) { // wound enemy
-            if (this.defenceBonus > target.strength) {
-                // unscathed
-                return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+            else if ((this.strength * 2) >= target.health) { // wound enemy
+                if (this.defenceBonus > target.strength) {
+                    // unscathed
+                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+                }
+                else {
+                    this.health -= 2;
+                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+                }
+            } else { // humiliated
+                this.health -= 4;
+                return [0, 0, "were humiliated by a", target.name];
             }
-            else {
-                this.health -= 2;
-                return [target.coins, (rewardXp - 5), 'wounded a', target.name];
-            }
-        } else { // humiliated
-            this.health -= 4;
-            return [0, 0, "were humiliated by a", target.name];
         }
     }
     buyEquipment(equipment) {
@@ -257,7 +261,8 @@ class Player extends Character {
         // now to update html
         document.getElementById('level').innerHTML = this.level;
         document.getElementById('xp').innerHTML = this.xp;
-        document.getElementById("gold").innerHTML = this.coins;
+        updateCoinUI(this);
+        // document.getElementById("gold").innerHTML = this.coins;
         document.getElementById("health").innerHTML = this.health;
     }
     didLevel() {
@@ -278,7 +283,8 @@ class Player extends Character {
                 player.coins -= 10;
                 player.health = (player.level + 10 - 1);
                 // update Camp Stats
-                document.getElementById("gold").innerHTML = this.coins;
+                updateCoinUI(this);
+                // document.getElementById("gold").innerHTML = this.coins;
                 document.getElementById("health").innerHTML = this.health;
             }
         })
@@ -346,11 +352,12 @@ function buyShortSword(player) {
     var cost = 1500;
     var str = 15
     if (player.coins >= cost) {
-        player.coins -= cost
+        player.coins -= cost;
         var shortSword = new Weapon("Short Sword", cost, str);
         player.inventory.push(shortSword);
         player.strength = str;
         console.log('returning true');
+        updateCoinUI(this);
         return true;
     } else return false;
 }
@@ -359,13 +366,15 @@ function buySimpleBow(player) {
     var cost = 400;
     var str = 10;
     if (player.coins >= cost) {
-        player.coins -= cost
+        player.coins -= cost;
         var simpleBow = new Weapon("Short Sword", cost, str);
         player.inventory.push(simpleBow);
         player.strength = str;
         console.log('returning true');
+        updateCoinUI(this);
         return true;
     } else return false;
+
 }
 
 function buySmallSpear(player) {
@@ -377,22 +386,42 @@ function buySmallSpear(player) {
         console.log('buying ' + smallSpear.name);
         player.inventory.push(smallSpear);
         player.strength = str;
+        updateCoinUI(this);
         return true;
     } else return false;
 }
 
 function test() {
     player.campaign(enemiesInForest);
+    player.coins += 30;
+    player.updateProgressBar();
 }
 
+function rich(){
+    player.coins += 1000;
+}
+/*
+*
+WEAPON BUYING AND EQUIPING
+*
+*/
+
+// Weapon Buy and Equip buttons
 const smallSpearBuyButton = document.getElementById("buySmallSpear");
 const simpleBowBuyButton = document.getElementById("buySimpleBow");
 const shortSwordBuyButton = document.getElementById("buyShortSword");
 
+const smallSpearEquipButton = document.getElementById("equipSmallSpear");
+const simpleBowEquipButton = document.getElementById("equipSimpleBow");
+const shortSwordEquipButton = document.getElementById("equipShortSword");
+
+
 smallSpearBuyButton.addEventListener("click", () => {
     if (buySmallSpear(player)) {
         smallSpearBuyButton.style.display = "none";
+        smallSpearEquipButton.style.display = "inline-block";
         document.getElementById("strengthSpan").innerHTML = 7;
+        document.getElementById("weaponSpan").innerHTML = "Small Spear";
         let l = document.createElement("LI");
         var t = document.createTextNode('You bought a small spear for 50 coins.');
         l.appendChild(t);
@@ -403,7 +432,9 @@ smallSpearBuyButton.addEventListener("click", () => {
 simpleBowBuyButton.addEventListener("click", () => {
     if (buySimpleBow(player)) {
         simpleBowBuyButton.style.display = "none";
+        simpleBowEquipButton.style.display = "inline-block";
         document.getElementById("strengthSpan").innerHTML = 10;
+        document.getElementById("weaponSpan").innerHTML = "Simple Bow";
         let l = document.createElement("LI");
         var t = document.createTextNode('You bought a simple bow for 400 coins');
         l.appendChild(t);
@@ -415,10 +446,40 @@ simpleBowBuyButton.addEventListener("click", () => {
 shortSwordBuyButton.addEventListener("click", () => {
     if (buyShortSword(player)) {
         shortSwordBuyButton.style.display = "none";
+        shortSwordEquipButton.style.display = "inline-block";
         document.getElementById("strengthSpan").innerHTML = 10;
+        document.getElementById("weaponSpan").innerHTML = "Short Sword";
         let l = document.createElement("LI");
         var t = document.createTextNode('You bought a short sword for 1,500 coins.');
         l.appendChild(t);
         document.getElementById("logUL").prepend(l);
     }
 });
+
+smallSpearEquipButton.addEventListener("click", () => {
+    document.getElementById("strengthSpan").innerHTML = 7;
+    document.getElementById("weaponSpan").innerHTML = "Small Spear";
+});
+
+simpleBowEquipButton.addEventListener("click", () => {
+    document.getElementById("strengthSpan").innerHTML = 10;
+    document.getElementById("weaponSpan").innerHTML = "Simple Bow";
+});
+
+shortSwordEquipButton.addEventListener("click", () => {
+    document.getElementById("strengthSpan").innerHTML = 15;
+    document.getElementById("weaponSpan").innerHTML = "Short Sword";
+});
+
+/*
+Coin UI updating
+*/
+var gold1 = document.getElementById("gold");
+var gold2 = document.getElementById("goldSpan");
+var gold3 = document.getElementById("inventoryCoins");
+
+function updateCoinUI(player) {
+    gold1.innerHTML = player.coins;
+    gold2.innerHTML = player.coins;
+    gold3.innerHTML = player.coins;
+}

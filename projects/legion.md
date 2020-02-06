@@ -65,15 +65,23 @@ permalink: projects/legion/
     <section class="moreInfoSection" id="locationTips">
         <div class="infoContainer" id="deepForestInfoContainer">
             <h3><span class="location">Deep Forest</span> Tips</h3>
-            <p>Click "Next Campaign" to launch a campaign in the<span class="location">Deep Forest</span></p>
+            <p>Click "Next Campaign" to launch a campaign in the <span class="location">Deep Forest</span></p>
             <p>If you have low health, travel to a healer.</p>
         </div>
     </section>
 </section>
 <section class="moreInfo" id="inventory">
     <h2>Inventory</h2>
-    <p>Current Weapon: <span id="weaponSpan">Stick</span></p>
-    <p>Current equipment strength: <span id="strengthSpan">5</span></p>
+    <p>Current Weapon: <span id="weaponSpan">Hands</span></p>
+    <p>Current Equipment Strength: <span id="strengthSpan">5</span></p>
+    <p>Current Coins: <span id="inventoryCoins">0</span></p>
+    <section>
+        <div id="inventoryItems">
+            <button class="equipmentButton" id="equipSmallSpear">Small Spear</button>
+            <button class="equipmentButton" id="equipSimpleBow">Simple Bow</button>
+            <button class="equipmentButton" id="equipShortSword">Short Sword</button>
+        </div>
+    </section>
 </section>
 
 <section class="moreInfo" id="travel">
@@ -84,12 +92,12 @@ permalink: projects/legion/
 
 <section class="moreInfo" id="log">
     <h2>Log</h2>
-    <ul id="logUL">
-        <li></li>
-    </ul>
+    <ol id="logUL" reversed>
+    </ol>
 </section>
 <section class="moreInfo" id="townShop">
     <h2>Traveling Shoppe</h2>
+    <h4>Coins Available: <span id="goldSpan">0</span></h4>
     <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
     <div id="shopContainer">
         <button class="equipmentButton" id="buySmallSpear">Small Spear</button>
