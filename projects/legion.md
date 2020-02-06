@@ -64,10 +64,9 @@ permalink: projects/legion/
     </section>
     <section class="moreInfoSection" id="locationTips">
         <div class="infoContainer" id="deepForestInfoContainer">
-            <h3><span class="location">Location</span> Tips</h3>
-            <p>You are in the forest.</p>
-            <p>You should equip a bow or a sword for a bonus in the <span class="location">Deep Forest</span></p>
-            <p>Beware of grizzly bears.</p>
+            <h3><span class="location">Deep Forest</span> Tips</h3>
+            <p>Click "Next Campaign" to launch a campaign in the<span class="location">Deep Forest</span></p>
+            <p>If you have low health, travel to a healer.</p>
         </div>
     </section>
 </section>
