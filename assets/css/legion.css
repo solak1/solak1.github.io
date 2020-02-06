@@ -136,19 +136,16 @@ body, button {
 
 #recentEventsUL > li:nth-child(1):before  {
     content: "Today: ";
-    counter-increment: 'elementcounter';
     font-weight: bold;
 }
 
 #recentEventsUL > li:nth-child(2):before  {
-    content: counter(elementcounter) " Day Ago: ";
-    counter-increment: elementcounter;
+    content: "1 Day Ago: ";
     font-weight: bold;
 }
 
 #recentEventsUL > li:before {
-    content: counter(elementcounter) " Days Ago: ";
-    counter-increment: elementcounter;
+    content: "2 Days Ago: ";
     font-weight: bold;
 }
 
