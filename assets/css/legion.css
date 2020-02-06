@@ -114,4 +114,19 @@ body, button {
     overflow: auto;
 }
 
+#recentEventsUL {
+    list-style-type: none;
+    counter-reset: elementcounter;
+    padding-left: 0;
+}
+
+#recentEventsUL > li {
+    padding-bottom: 4px;
+}
+#recentEventsUL > li:before {
+    content: counter(elementcounter) " Day(s) Ago: ";
+    counter-increment: elementcounter;
+    font-weight: bold;
+  }
+
 

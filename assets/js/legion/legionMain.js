@@ -1,11 +1,3 @@
-// game logic
-
-// UI
-
-// player
-
-// game update
-
 // you can launch campaign every 30s
 const campaignButton = document.getElementById("camButton");
 const navButtons = document.getElementsByClassName("navBlock");
@@ -15,7 +7,39 @@ const locationButton = document.getElementById("locButton");
 const healButton = document.getElementById('healButton');
 const goToShopButton = document.getElementById('goToShopButton');
 
-// Handle NAV BUTTON CLICKS
+/*
+function buttonHideOthers(buttonArray, divArray) {
+    Hides other elements that do no correspond to 
+    the relative button.  Button[index] must equal
+    section[index]
+    
+    for (var i = 0; i < buttonArray.length; i++) {
+        console.log("add listening to", buttonArray[i]);
+        buttonArray[i].addEventListener("click", () =>{
+            console.log('clicked')
+            console.log('index = ', i);
+            sectionHideOthers(i, divArray);
+        })
+    }
+}
+
+function sectionHideOthers(i, divArray) {
+    // 
+    console.log('click');
+    for (var index = 0; index < divArray.length; index++) {
+        console.log("hiding", divArray[index]);
+        divArray[index].style.display = "none";
+    }
+    console.log(i);
+    console.log(divArray);
+    console.log("showing", divArray[i]);
+    divArray[i].style.display = "block";
+    
+}
+
+buttonHideOthers(navButtons, fiveSections);
+*/
+
 navButtons[0].addEventListener("click", () => {
     fiveSections[0].style.display = "block";
     fiveSections[1].style.display = "none";
@@ -86,30 +110,30 @@ function readyCampaign() {
     var countDownDate = new Date(countDownDate + durationInMinutes * MS_PER_MINUTE);
 
     // Update the count down every 1 second
-    var x = setInterval(function() {
+    var x = setInterval(function () {
 
-    // Get today's date and time
-    var now = new Date().getTime();
-        
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-        
-    // Time calculations for days, hours, minutes and seconds
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-    // Output the result in an element with id="demo"
-    document.getElementById("camButton2").style.display = "block";
-    document.getElementById("camButton2").innerHTML = 'Resting for: '
-     + seconds + "s ";
-        
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("camButton").style.display = "block";
-        document.getElementById("camButton2").style.display = "none";
-        return true;
-    }
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("camButton2").style.display = "block";
+        document.getElementById("camButton2").innerHTML = 'Resting for: '
+            + seconds + "s ";
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("camButton").style.display = "block";
+            document.getElementById("camButton2").style.display = "none";
+            return true;
+        }
     }, 1000);
 }
 readyCampaign();
@@ -121,14 +145,14 @@ document.getElementById("camButton").addEventListener("click", () => {
 })
 
 class Equipment {
-    constructor(name,price) {
+    constructor(name, price) {
         this.name = name;
         this.price = price;
-        
+
     }
     createBuyButton() {
         this.buyButtonInit = document.createElement("BUTTON");
-        this.buyButtonMsg = String(String(name+" (Costs: "+price))
+        this.buyButtonMsg = String(String(name + " (Costs: " + price))
         this.t = document.createTextNode(this.buyButtonMsg);
         this.buyButton = this.buyButtonInit.appendChild(this.t);
         this.buyButtonEle = document.getElementById("shopContainer").prepend(this.buyButton);
@@ -136,19 +160,19 @@ class Equipment {
     buy() {
         this.document.getElementById("")
     }
-} 
+}
 
 class Weapon extends Equipment {
-    constructor(name,price, strength) {
-        super(name,price);
+    constructor(name, price, strength) {
+        super(name, price);
         this.strength = strength;
-        this.inventoryButton = document.createElement("button").appendChild(document.createTextNode(String(name+" (Strength: "+strength)));
+        this.inventoryButton = document.createElement("button").appendChild(document.createTextNode(String(name + " (Strength: " + strength)));
     }
 }
 
 
 class Character {
-    constructor(name){
+    constructor(name) {
         this.name = name;
         this.coins = 0;
         this.strength = 5;
@@ -156,7 +180,7 @@ class Character {
         this.health = 10;
         this.level = 1;
         this.xp = 0;
-        this.nextLevelXp = this.level*100;
+        this.nextLevelXp = this.level * 100;
         this.inventory = []
         this.equipedWeapon = null;
         this.equipedArmor = null;
@@ -165,11 +189,11 @@ class Character {
         if (this.health <= 0) {
             return [0, 0, "wasted a campaign.", "Go heal"]
         }
-        var rewardXp = target.xp + (Math.floor(Math.random()*target.xp / 10));
+        var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
         // attack logic
         console.log(target);
         if (target == undefined) { // failed to find a target
-            return [0,0, 'were unsuccessful', 'and wasted an attempt'];
+            return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
         } else if (this.strength >= target.health) { // easily kill
             if (this.defenceBonus > target.strength) { // able to kill
                 return [target.coins, rewardXp, 'killed a', target.name];
@@ -178,14 +202,14 @@ class Character {
                 return [target.coins, rewardXp, 'killed a', target.name];
             }
         }
-        else if ((this.strength*2)>= target.health) { // wound enemy
+        else if ((this.strength * 2) >= target.health) { // wound enemy
             if (this.defenceBonus > target.strength) {
                 // unscathed
-                return [target.coins, (rewardXp-5), 'wounded a', target.name];
-                }
+                return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+            }
             else {
                 this.health -= 2;
-                return [target.coins, (rewardXp-5), 'wounded a', target.name];
+                return [target.coins, (rewardXp - 5), 'wounded a', target.name];
             }
         } else { // humiliated
             this.health -= 4;
@@ -194,7 +218,7 @@ class Character {
     }
     buyEquipment(equipment) {
         player.inventory.push(equipment);
-        
+
     }
 }
 
@@ -219,17 +243,17 @@ class Player extends Character {
         // Logs stored in json, then create logs from json
         var logLI1 = document.createElement("LI");
         var logLI2 = document.createElement("LI");
-        var logMsg = 'You earned ' +reward[0]+ ' coins and '+ reward[1]+ ' xp when you '+reward[2].toLowerCase()+' '+reward[3]+'.';
-        var logMsg2 = 'You '+reward[2]+' '+reward[3]+'.';
+        var logMsg = 'You earned ' + reward[0] + ' coins and ' + reward[1] + ' xp when you ' + reward[2].toLowerCase() + ' ' + reward[3] + '.';
+        var logMsg2 = 'You ' + reward[2] + ' ' + reward[3] + '.';
         var t = document.createTextNode(logMsg);
         var t2 = document.createTextNode(logMsg2);
         logLI1.appendChild(t);
         logLI2.appendChild(t2);
         document.getElementById("logUL").prepend(logLI1);
         var recentEvents = document.getElementById('recentEventsUL');
-        recentEvents.removeChild(recentEvents.childNodes[3])
+        recentEvents.removeChild(recentEvents.childNodes[2])
         recentEvents.prepend(logLI2);
-        
+
         // now to update html
         document.getElementById('level').innerHTML = this.level;
         document.getElementById('xp').innerHTML = this.xp;
@@ -238,10 +262,10 @@ class Player extends Character {
     }
     didLevel() {
         // @ level 1 xp must be greater than 100 to level
-        if (this.xp >= this.nextLevelXp){
+        if (this.xp >= this.nextLevelXp) {
             this.level += 1; // level up
             this.nextLevelXp += this.level * 100;
-            this.health = this.level + 10 -1;
+            this.health = this.level + 10 - 1;
             document.getElementById("level").innerHTML = this.level;
             return true;
         } else return false;
@@ -249,8 +273,8 @@ class Player extends Character {
     // Handle HEAL BUTTON CLICK
     heal() {
         healButton.addEventListener("click", () => {
-        // player health below max health
-            if (player.health < (player.level*10)) {
+            // player health below max health
+            if (player.health < (player.level * 10)) {
                 player.coins -= 10;
                 player.health = (player.level + 10 - 1);
                 // update Camp Stats
@@ -262,7 +286,7 @@ class Player extends Character {
         var t = document.createTextNode('You feel ready to take on the world.');
         l.appendChild(t);
         document.getElementById("logUL").prepend(l);
-    } 
+    }
     updateLocation() {
         var locationSection = document.getElementById("locationTips");
         var locationSpan = document.getElementById("locationSpan");
@@ -274,8 +298,8 @@ class Player extends Character {
     updateProgressBar() {
         var elem = document.getElementById("myBar");
         // 
-        var xpBase = 100 + ((this.level-1) * 100); // divide by zero work around
-        var width = ((this.xp-this.nextLevelXp)/xpBase)*100;
+        var xpBase = 100 + ((this.level - 1) * 100); // divide by zero work around
+        var width = ((this.xp - this.nextLevelXp) / xpBase) * 100;
         width += 100;
         console.log(width);
         elem.style.width = width + "%";
@@ -283,7 +307,7 @@ class Player extends Character {
 }
 
 class Enemy extends Character {
-    constructor(id,name,health, strength,coins,xp) {
+    constructor(id, name, health, strength, coins, xp) {
         super(name)
         this.id = id;
         this.health = health;
@@ -299,7 +323,7 @@ function addToLogUL(data) {
     var t = document.createTextNode(data);
     y.appendChild(t);
     document.getElementById("logUL").appendChild(y);
-  }
+}
 
 const player = new Player("Unknown");
 player.heal();
@@ -350,7 +374,7 @@ function buySmallSpear(player) {
     if (player.coins >= cost) {
         player.coins -= cost
         var smallSpear = new Weapon("Small Spear", cost, str);
-        console.log('buying '+ smallSpear.name);
+        console.log('buying ' + smallSpear.name);
         player.inventory.push(smallSpear);
         player.strength = str;
         return true;
@@ -359,7 +383,7 @@ function buySmallSpear(player) {
 
 function test() {
     player.campaign(enemiesInForest);
-} 
+}
 
 const smallSpearBuyButton = document.getElementById("buySmallSpear");
 const simpleBowBuyButton = document.getElementById("buySimpleBow");
