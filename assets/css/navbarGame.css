@@ -127,6 +127,12 @@ body {
     #links, .mobile-menu {
       display: none;
     }
+    body section, body #section {
+        margin: 4px 4px;
+    }
+    body #navbar {
+        min-height: 73px;
+    }
     #moreInfo {
         padding: 0px 20px;
     }
@@ -153,9 +159,17 @@ body {
     #links, .mobile-menu, #navBlocks {
       display: none;
     }
-    #moreInfo {
+    body #navbar {
+        min-height: 73px;
+    }
+    body section, body #section {
+        margin: -1px 4px;
+    }
+
+    body #moreInfo {
         padding: 0px 20px;
     }
+    
     body #camp > section {
         width:85%;
     }
@@ -180,6 +194,12 @@ body {
   @media (min-width:392px) and (max-width:474px) {
     #links, .mobile-menu, #navBlocks {
       display: none;
+    }
+    body #legionHeader {
+        margin: 0px;
+    }
+    body #navbar {
+        min-height: 73px;
     }
     body #moreInfo {
         padding: 0px 20px;
