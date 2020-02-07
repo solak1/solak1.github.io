@@ -1,16 +1,26 @@
-// you can launch campaign every 30s
+/*
+All Buttons
+*/
+// Next Campaign Buttons
 const campaignButtonRest = document.getElementById("camButton2");
 const campaignButton1 = document.getElementById("camButton");
 const campaignButton2 = document.getElementById("camButton3");
-const navButtons = document.getElementsByClassName("navBlock");
-const fiveSections = document.getElementsByClassName("moreInfo");
+
+// Top UI Bottons
 const imgButton = document.getElementById("imgButton");
 const locationButton = document.getElementById("locButton");
+// Heal Buttons
 const healButton = document.getElementById('healButton');
+// Travel Buttons
 const goToShopButton = document.getElementById('goToShopButton');
 const goToMountainsButton = document.getElementById('goToMountainsButton');
 const goToForestButton = document.getElementById('goToForestButton');
+// Array of Elements (navigate & sections)
+const navButtons = Array.from(document.getElementsByClassName("navBlock"));
+const fiveSections = Array.from(document.getElementsByClassName("moreInfo"));
 
+// Character Prototype / "class"
+// Note: JS uses the prototype model for objects
 class Character {
     constructor(name) {
         this.name = name;
@@ -66,37 +76,21 @@ class Character {
     }
 }
 
-
+// Player Prototype or "class"
 class Player extends Character {
     constructor(name) {
         super(name);
         this.location = "Forest";
     }
     campaign(enemiesArray) {
+        // Selects random enemy in an array and kills the enemy
         let randomInt = Math.round(Math.random() * enemiesArray.length);
         var reward = this.kill(enemiesArray[randomInt]);
         this.coins += reward[0];
         this.xp += reward[1];
         console.log(reward);
         this.didLevel();
-
-
-        // add to log list
-        // This is way too much code for the log system
-        // Will need to be reworked.
-        // Logs stored in json, then create logs from json
-        var logLI1 = document.createElement("LI");
-        var logLI2 = document.createElement("LI");
-        var logMsg = 'You earned ' + reward[0] + ' coins and ' + reward[1] + ' xp when you ' + reward[2].toLowerCase() + ' ' + reward[3] + '.';
-        var logMsg2 = 'You ' + reward[2] + ' ' + reward[3] + '.';
-        var t = document.createTextNode(logMsg);
-        var t2 = document.createTextNode(logMsg2);
-        logLI1.appendChild(t);
-        logLI2.appendChild(t2);
-        document.getElementById("logUL").prepend(logLI1);
-        var recentEvents = document.getElementById('recentEventsUL');
-        recentEvents.removeChild(recentEvents.childNodes[2])
-        recentEvents.prepend(logLI2);
+        ui.logEncounter(reward);
 
         // now to update html
         document.getElementById('level').innerHTML = this.level;
@@ -133,7 +127,14 @@ class Player extends Character {
         l.appendChild(t);
         document.getElementById("logUL").prepend(l);
     }
-    updateLocation() {
+}
+
+// Prototype function :D
+function gameUI() {
+    this.updateLocation = () => {
+        /**
+         * Update Location Span and Location Information
+         */
         var locationSection = document.getElementById("locationTips");
         var locationSpan = document.getElementById("locationSpan");
         locationSpan.innerHTML = this.location;
@@ -141,58 +142,86 @@ class Player extends Character {
             return true;
         }
     }
-    updateProgressBar() {
-        var elem = document.getElementById("myBar");
-        // 
-        var xpBase = 100 + ((this.level - 1) * 100); // divide by zero work around
-        var width = ((this.xp - this.nextLevelXp) / xpBase) * 100;
+    this.updateProgressBar = (player) => {
+        /**
+         * Update progress bar.
+         * 
+         * Future Feature: Add multiple progress bars.
+         */
+        let xpBase = 100 + ((player.level - 1) * 100); // divide by zero work around
+        let width = ((player.xp - player.nextLevelXp) / xpBase) * 100;
         width += 100;
-        console.log(width);
-        elem.style.width = width + "%";
+        console.log(`New width: ${width}`);
+        const progressBar = document.getElementById("myBar");
+        progressBar.style.width = width + "%";
+    }
+    this.logEncounter = (reward) => {
+        /** 
+         * Creates log based on an attempted kill.
+         * 
+         * @param {array} reward Array passed in from Player.kill containing coins, xp, and 2 phrases.
+         *  */ 
+
+        // Name data in reward array
+        var coins   = reward[0],
+            xp      = reward[1],
+            phrase1 = reward[2].toLowerCase(),
+            phrase2 = reward[3];
+        
+        // create strings
+        var logMsg      = `You earned ${coins} coins and ${xp} when you ${phrase1} ${phrase2}. `,
+            eventMsg    = 'You ' + reward[2] + ' ' + reward[3] + '.';
+
+        // strings to text nodes
+        var logText     = document.createTextNode(logMsg),
+            eventText   = document.createTextNode(eventMsg);
+        
+        // create list items
+        var logLI  = document.createElement("LI"),
+            eventLI = document.createElement("LI");
+
+        // Put text nodes in list items
+        logLI.appendChild(logText);
+        eventLI.appendChild(eventText);
+
+        // prepend log
+        document.getElementById("logUL").prepend(logLI);
+        // delete recent event (only maintain 3 items)
+        var recentEvents = document.getElementById('recentEventsUL');
+        recentEvents.removeChild(recentEvents.childNodes[2])
+        // prepend recent event
+        recentEvents.prepend(eventLI);
+    }
+    var logTravelUI = (player) => {
+        console.log("logging in UI.")
+        var logLI1 = document.createElement("LI");
+        var logLI2 = document.createElement("LI");
+        var logMSG = `You traveled to the ${player.location}`
+        var t1 = document.createTextNode(logMSG);
+        var t2 = document.createTextNode(logMSG);
+        logLI1.appendChild(t1);
+        logLI2.appendChild(t2)
+        document.getElementById("logUL").prepend(logLI1);
+        var recentEvents = document.getElementById('recentEventsUL');
+        recentEvents.removeChild(recentEvents.childNodes[2])
+        recentEvents.prepend(logLI2);
+    }
+    var showCamp = (sections) => {
+        sections[0].style.display = "block";
+        sections[1].style.display = "none";
+        sections[2].style.display = "none";
+        sections[3].style.display = "none";
+        sections[4].style.display = "none";
+
     }
 }
 
 const player = new Player("Unknown");
+const ui = new gameUI();
 player.heal();
-/*
-function buttonHideOthers(buttonArray, divArray) {
-    Hides other elements that do no correspond to 
-    the relative button.  Button[index] must equal
-    section[index]
-    
-    for (var i = 0; i < buttonArray.length; i++) {
-        console.log("add listening to", buttonArray[i]);
-        buttonArray[i].addEventListener("click", () =>{
-            console.log('clicked')
-            console.log('index = ', i);
-            sectionHideOthers(i, divArray);
-        })
-    }
-}
-
-function sectionHideOthers(i, divArray) {
-    // 
-    console.log('click');
-    for (var index = 0; index < divArray.length; index++) {
-        console.log("hiding", divArray[index]);
-        divArray[index].style.display = "none";
-    }
-    console.log(i);
-    console.log(divArray);
-    console.log("showing", divArray[i]);
-    divArray[i].style.display = "block";
-    
-}
-
-buttonHideOthers(navButtons, fiveSections);
-*/
 
 navButtons[0].addEventListener("click", () => {
-    fiveSections[0].style.display = "block";
-    fiveSections[1].style.display = "none";
-    fiveSections[2].style.display = "none";
-    fiveSections[3].style.display = "none";
-    fiveSections[4].style.display = "none";
+    ui.showCamp(fiveSections);
 })
 
 navButtons[1].addEventListener("click", () => {
@@ -229,11 +258,7 @@ locationButton.addEventListener("click", () => {
 
 
 imgButton.addEventListener("click", () => {
-    fiveSections[0].style.display = "block";
-    fiveSections[1].style.display = "none";
-    fiveSections[2].style.display = "none";
-    fiveSections[3].style.display = "none";
-    fiveSections[4].style.display = "none";
+    ui.showCamp(fiveSections);
 })
 
 goToShopButton.addEventListener("click", () => {
@@ -246,12 +271,8 @@ goToMountainsButton.addEventListener("click", () => {
     console.log("Going to Mountains");
     player.location = "Mountains"
     locationButton.innerHTML = `Location: ${player.location}`
-    fiveSections[0].style.display = "block";
-    fiveSections[1].style.display = "none";
-    fiveSections[2].style.display = "none";
-    fiveSections[3].style.display = "none";
-    fiveSections[4].style.display = "none";
-    logTravelUI(player);
+    ui.showCamp(fiveSections);
+    ui.logTravelUI(player);
     readyCampaign(campaignButton2, player.location, goToMountainsButton);
 
 
@@ -261,18 +282,11 @@ goToForestButton.addEventListener("click", () => {
     console.log("Going to Forest");
     player.location = "Forest"
     locationButton.innerHTML = `Location: ${player.location}`
-    fiveSections[0].style.display = "block";
-    fiveSections[1].style.display = "none";
-    fiveSections[2].style.display = "none";
-    fiveSections[3].style.display = "none";
-    fiveSections[4].style.display = "none";
-    logTravelUI(player);
+    ui.showCamp(fiveSections);
+    ui.logTravelUI(player);
     readyCampaign(campaignButton2, player.location, goToForestButton);
 
 });
-
-
-"buySimpleBow"
 
 
 
@@ -328,7 +342,7 @@ readyCampaign(campaignButton1, player.location, goToForestButton);
 campaignButton1.addEventListener("click", () => {
     readyCampaign(campaignButton1,player.location, goToForestButton);
     player.campaign(enemiesInForest);
-    player.updateProgressBar();
+    ui.updateProgressBar(player);
     
 
 })
@@ -336,7 +350,7 @@ campaignButton1.addEventListener("click", () => {
 campaignButton2.addEventListener("click", () => {
     readyCampaign(campaignButton2, player.location, goToMountainsButton);
     player.campaign(enemiesInForest);
-    player.updateProgressBar();
+    ui.updateProgressBar(player);
 })
 
 class Equipment {
@@ -445,7 +459,7 @@ function buySmallSpear(player) {
 function test() {
     player.campaign(enemiesInForest);
     player.coins += 30;
-    player.updateProgressBar();
+    ui.updateProgressBar(player);
 }
 
 function rich(){
@@ -535,17 +549,3 @@ function updateCoinUI(player) {
     gold3.innerHTML = player.coins;
 }
 
-function logTravelUI(player) {
-    console.log("logging in UI.")
-    var logLI1 = document.createElement("LI");
-    var logLI2 = document.createElement("LI");
-    var logMSG = `You traveled to the ${player.location}`
-    var t1 = document.createTextNode(logMSG);
-    var t2 = document.createTextNode(logMSG);
-    logLI1.appendChild(t1);
-    logLI2.appendChild(t2)
-    document.getElementById("logUL").prepend(logLI1);
-    var recentEvents = document.getElementById('recentEventsUL');
-    recentEvents.removeChild(recentEvents.childNodes[2])
-    recentEvents.prepend(logLI2);
-}
