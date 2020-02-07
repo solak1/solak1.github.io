@@ -11,7 +11,6 @@ const goToShopButton = document.getElementById('goToShopButton');
 const goToMountainsButton = document.getElementById('goToMountainsButton');
 const goToForestButton = document.getElementById('goToForestButton');
 
-
 class Character {
     constructor(name) {
         this.name = name;
@@ -402,14 +401,14 @@ enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anar
 
 function buyShortSword(player) {
     var cost = 1500;
-    var str = 15
+    var str = 15;
     if (player.coins >= cost) {
         player.coins -= cost;
         var shortSword = new Weapon("Short Sword", cost, str);
         player.inventory.push(shortSword);
         player.strength = str;
         console.log('returning true');
-        updateCoinUI(this);
+        updateCoinUI(player);
         return true;
     } else return false;
 }
@@ -423,7 +422,7 @@ function buySimpleBow(player) {
         player.inventory.push(simpleBow);
         player.strength = str;
         console.log('returning true');
-        updateCoinUI(this);
+        updateCoinUI(player);
         return true;
     } else return false;
 
@@ -438,7 +437,7 @@ function buySmallSpear(player) {
         console.log('buying ' + smallSpear.name);
         player.inventory.push(smallSpear);
         player.strength = str;
-        updateCoinUI(this);
+        updateCoinUI(player);
         return true;
     } else return false;
 }
