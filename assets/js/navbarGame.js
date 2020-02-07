@@ -48,3 +48,13 @@ mobileNavButtons[3].addEventListener("click", () => {
     fiveSections[4].style.display = "none";
     closeNav();
 })
+
+document.getElementById("logo").addEventListener("touchstart", () => {
+    console.log("showing camp.")
+    fiveSections[0].style.display = "block";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
+    closeNav();
+});
