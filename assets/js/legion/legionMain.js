@@ -1,12 +1,160 @@
 // you can launch campaign every 30s
-const campaignButton = document.getElementById("camButton");
+const campaignButtonRest = document.getElementById("camButton2");
+const campaignButton1 = document.getElementById("camButton");
+const campaignButton2 = document.getElementById("camButton3");
 const navButtons = document.getElementsByClassName("navBlock");
 const fiveSections = document.getElementsByClassName("moreInfo");
 const imgButton = document.getElementById("imgButton");
 const locationButton = document.getElementById("locButton");
 const healButton = document.getElementById('healButton');
 const goToShopButton = document.getElementById('goToShopButton');
+const goToMountainsButton = document.getElementById('goToMountainsButton');
+const goToForestButton = document.getElementById('goToForestButton');
 
+
+class Character {
+    constructor(name) {
+        this.name = name;
+        this.coins = 0;
+        this.strength = 5;
+        this.defenceBonus = 0;
+        this.health = 10;
+        this.level = 1;
+        this.xp = 0;
+        this.nextLevelXp = this.level * 100;
+        this.inventory = []
+        this.equipedWeapon = null;
+        this.equipedArmor = null;
+    }
+    kill(target) {
+        if (this.health <= 0) {
+            return [0, 0, "wasted a campaign.", "Go heal"]
+        }
+        // var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
+        // attack logic
+        console.log(target);
+        if (target == undefined) { // failed to find a target
+            return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
+        } 
+        else {
+            var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
+            if (this.strength >= target.health) { // easily kill
+                if (this.defenceBonus > target.strength) { // able to kill
+                    return [target.coins, rewardXp, 'killed a', target.name];
+                } else { // damage taken
+                    this.health -= 2;
+                    return [target.coins, rewardXp, 'killed a', target.name];
+                }
+        }
+            else if ((this.strength * 2) >= target.health) { // wound enemy
+                if (this.defenceBonus > target.strength) {
+                    // unscathed
+                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+                }
+                else {
+                    this.health -= 2;
+                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+                }
+            } else { // humiliated
+                this.health -= 4;
+                return [0, 0, "were humiliated by a", target.name];
+            }
+        }
+    }
+    buyEquipment(equipment) {
+        player.inventory.push(equipment);
+
+    }
+}
+
+
+class Player extends Character {
+    constructor(name) {
+        super(name);
+        this.location = "Forest";
+    }
+    campaign(enemiesArray) {
+        let randomInt = Math.round(Math.random() * enemiesArray.length);
+        var reward = this.kill(enemiesArray[randomInt]);
+        this.coins += reward[0];
+        this.xp += reward[1];
+        console.log(reward);
+        this.didLevel();
+
+
+        // add to log list
+        // This is way too much code for the log system
+        // Will need to be reworked.
+        // Logs stored in json, then create logs from json
+        var logLI1 = document.createElement("LI");
+        var logLI2 = document.createElement("LI");
+        var logMsg = 'You earned ' + reward[0] + ' coins and ' + reward[1] + ' xp when you ' + reward[2].toLowerCase() + ' ' + reward[3] + '.';
+        var logMsg2 = 'You ' + reward[2] + ' ' + reward[3] + '.';
+        var t = document.createTextNode(logMsg);
+        var t2 = document.createTextNode(logMsg2);
+        logLI1.appendChild(t);
+        logLI2.appendChild(t2);
+        document.getElementById("logUL").prepend(logLI1);
+        var recentEvents = document.getElementById('recentEventsUL');
+        recentEvents.removeChild(recentEvents.childNodes[2])
+        recentEvents.prepend(logLI2);
+
+        // now to update html
+        document.getElementById('level').innerHTML = this.level;
+        document.getElementById('xp').innerHTML = this.xp;
+        updateCoinUI(this);
+        // document.getElementById("gold").innerHTML = this.coins;
+        document.getElementById("health").innerHTML = this.health;
+    }
+    didLevel() {
+        // @ level 1 xp must be greater than 100 to level
+        if (this.xp >= this.nextLevelXp) {
+            this.level += 1; // level up
+            this.nextLevelXp += this.level * 100;
+            this.health = this.level + 10 - 1;
+            document.getElementById("level").innerHTML = this.level;
+            return true;
+        } else return false;
+    }
+    // Handle HEAL BUTTON CLICK
+    heal() {
+        healButton.addEventListener("click", () => {
+            // player health below max health
+            if (player.health < (player.level * 10)) {
+                player.coins -= 10;
+                player.health = (player.level + 10 - 1);
+                // update Camp Stats
+                updateCoinUI(this);
+                // document.getElementById("gold").innerHTML = this.coins;
+                document.getElementById("health").innerHTML = this.health;
+            }
+        })
+        let l = document.createElement("LI");
+        var t = document.createTextNode('You feel ready to take on the world.');
+        l.appendChild(t);
+        document.getElementById("logUL").prepend(l);
+    }
+    updateLocation() {
+        var locationSection = document.getElementById("locationTips");
+        var locationSpan = document.getElementById("locationSpan");
+        locationSpan.innerHTML = this.location;
+        if (self.location === "Deep Forest") {
+            return true;
+        }
+    }
+    updateProgressBar() {
+        var elem = document.getElementById("myBar");
+        // 
+        var xpBase = 100 + ((this.level - 1) * 100); // divide by zero work around
+        var width = ((this.xp - this.nextLevelXp) / xpBase) * 100;
+        width += 100;
+        console.log(width);
+        elem.style.width = width + "%";
+    }
+}
+
+const player = new Player("Unknown");
+player.heal();
 /*
 function buttonHideOthers(buttonArray, divArray) {
     Hides other elements that do no correspond to 
@@ -95,14 +243,42 @@ goToShopButton.addEventListener("click", () => {
     fiveSections[4].style.display = "block";
 });
 
+goToMountainsButton.addEventListener("click", () => {
+    console.log("Going to Mountains");
+    player.location = "Mountains"
+    locationButton.innerHTML = `Location: ${player.location}`
+    fiveSections[0].style.display = "block";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
+    readyCampaign(campaignButton2, player.location, goToMountainsButton);
+
+});
+
+goToForestButton.addEventListener("click", () => {
+    console.log("Going to Forest");
+    player.location = "Forest"
+    locationButton.innerHTML = `Location: ${player.location}`
+    fiveSections[0].style.display = "block";
+    fiveSections[1].style.display = "none";
+    fiveSections[2].style.display = "none";
+    fiveSections[3].style.display = "none";
+    fiveSections[4].style.display = "none";
+    readyCampaign(campaignButton2, player.location, goToForestButton);
+
+});
+
 
 "buySimpleBow"
 
 
 
-function readyCampaign() {
-    document.getElementById("camButton").style.display = "none";
-
+function readyCampaign(campaignButton,location, goToButton) {
+    console.log(campaignButton);
+    campaignButton1.style.display = "none";
+    campaignButton2.style.display = "none";
+    goToButton.style.display = "none";
     // Set the date we're counting down to
     var countDownDate = new Date().getTime();
     durationInMinutes = .1;
@@ -111,7 +287,11 @@ function readyCampaign() {
 
     // Update the count down every 1 second
     var x = setInterval(function () {
-
+        // if player moved
+        if (player.location !== location) {
+            goToButton.style.display = "inline-grid";
+            clearInterval(x);
+        }
         // Get today's date and time
         var now = new Date().getTime();
 
@@ -123,23 +303,34 @@ function readyCampaign() {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="demo"
-        document.getElementById("camButton2").style.display = "block";
-        document.getElementById("camButton2").innerHTML = 'Resting for: '
+        campaignButtonRest.style.display = "block";
+        campaignButtonRest.innerHTML = 'Resting for: '
             + seconds + "s ";
 
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("camButton").style.display = "block";
-            document.getElementById("camButton2").style.display = "none";
+            goToButton.style.display = "inline-block";
+            if (player.location === location) {
+            campaignButton.style.display = "block";
+            campaignButtonRest.style.display = "none";
             return true;
+            } else return false;
+            
         }
-    }, 1000);
+    }, 500);
 }
-readyCampaign();
+readyCampaign(campaignButton1, player.location, goToForestButton);
 
-document.getElementById("camButton").addEventListener("click", () => {
-    readyCampaign();
+// Going to forest
+campaignButton1.addEventListener("click", () => {
+    readyCampaign(campaignButton1,player.location, goToForestButton);
+    player.campaign(enemiesInForest);
+    player.updateProgressBar();
+})
+
+campaignButton2.addEventListener("click", () => {
+    readyCampaign(campaignButton2, player.location, goToMountainsButton);
     player.campaign(enemiesInForest);
     player.updateProgressBar();
 })
@@ -170,148 +361,6 @@ class Weapon extends Equipment {
     }
 }
 
-
-class Character {
-    constructor(name) {
-        this.name = name;
-        this.coins = 0;
-        this.strength = 5;
-        this.defenceBonus = 0;
-        this.health = 10;
-        this.level = 1;
-        this.xp = 0;
-        this.nextLevelXp = this.level * 100;
-        this.inventory = []
-        this.equipedWeapon = null;
-        this.equipedArmor = null;
-    }
-    kill(target) {
-        if (this.health <= 0) {
-            return [0, 0, "wasted a campaign.", "Go heal"]
-        }
-        // var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
-        // attack logic
-        console.log(target);
-        if (target == undefined) { // failed to find a target
-            return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
-        } 
-        else {
-            var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
-            if (this.strength >= target.health) { // easily kill
-                if (this.defenceBonus > target.strength) { // able to kill
-                    return [target.coins, rewardXp, 'killed a', target.name];
-                } else { // damage taken
-                    this.health -= 2;
-                    return [target.coins, rewardXp, 'killed a', target.name];
-                }
-        }
-            else if ((this.strength * 2) >= target.health) { // wound enemy
-                if (this.defenceBonus > target.strength) {
-                    // unscathed
-                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
-                }
-                else {
-                    this.health -= 2;
-                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
-                }
-            } else { // humiliated
-                this.health -= 4;
-                return [0, 0, "were humiliated by a", target.name];
-            }
-        }
-    }
-    buyEquipment(equipment) {
-        player.inventory.push(equipment);
-
-    }
-}
-
-
-class Player extends Character {
-    constructor(name) {
-        super(name);
-        this.location = "Deep Forest";
-    }
-    campaign(enemiesArray) {
-        let randomInt = Math.round(Math.random() * enemiesArray.length);
-        var reward = this.kill(enemiesArray[randomInt]);
-        this.coins += reward[0];
-        this.xp += reward[1];
-        console.log(reward);
-        this.didLevel();
-
-
-        // add to log list
-        // This is way too much code for the log system
-        // Will need to be reworked.
-        // Logs stored in json, then create logs from json
-        var logLI1 = document.createElement("LI");
-        var logLI2 = document.createElement("LI");
-        var logMsg = 'You earned ' + reward[0] + ' coins and ' + reward[1] + ' xp when you ' + reward[2].toLowerCase() + ' ' + reward[3] + '.';
-        var logMsg2 = 'You ' + reward[2] + ' ' + reward[3] + '.';
-        var t = document.createTextNode(logMsg);
-        var t2 = document.createTextNode(logMsg2);
-        logLI1.appendChild(t);
-        logLI2.appendChild(t2);
-        document.getElementById("logUL").prepend(logLI1);
-        var recentEvents = document.getElementById('recentEventsUL');
-        recentEvents.removeChild(recentEvents.childNodes[2])
-        recentEvents.prepend(logLI2);
-
-        // now to update html
-        document.getElementById('level').innerHTML = this.level;
-        document.getElementById('xp').innerHTML = this.xp;
-        updateCoinUI(this);
-        // document.getElementById("gold").innerHTML = this.coins;
-        document.getElementById("health").innerHTML = this.health;
-    }
-    didLevel() {
-        // @ level 1 xp must be greater than 100 to level
-        if (this.xp >= this.nextLevelXp) {
-            this.level += 1; // level up
-            this.nextLevelXp += this.level * 100;
-            this.health = this.level + 10 - 1;
-            document.getElementById("level").innerHTML = this.level;
-            return true;
-        } else return false;
-    }
-    // Handle HEAL BUTTON CLICK
-    heal() {
-        healButton.addEventListener("click", () => {
-            // player health below max health
-            if (player.health < (player.level * 10)) {
-                player.coins -= 10;
-                player.health = (player.level + 10 - 1);
-                // update Camp Stats
-                updateCoinUI(this);
-                // document.getElementById("gold").innerHTML = this.coins;
-                document.getElementById("health").innerHTML = this.health;
-            }
-        })
-        let l = document.createElement("LI");
-        var t = document.createTextNode('You feel ready to take on the world.');
-        l.appendChild(t);
-        document.getElementById("logUL").prepend(l);
-    }
-    updateLocation() {
-        var locationSection = document.getElementById("locationTips");
-        var locationSpan = document.getElementById("locationSpan");
-        locationSpan.innerHTML = this.location;
-        if (self.location === "Deep Forest") {
-            return true;
-        }
-    }
-    updateProgressBar() {
-        var elem = document.getElementById("myBar");
-        // 
-        var xpBase = 100 + ((this.level - 1) * 100); // divide by zero work around
-        var width = ((this.xp - this.nextLevelXp) / xpBase) * 100;
-        width += 100;
-        console.log(width);
-        elem.style.width = width + "%";
-    }
-}
-
 class Enemy extends Character {
     constructor(id, name, health, strength, coins, xp) {
         super(name)
@@ -331,8 +380,6 @@ function addToLogUL(data) {
     document.getElementById("logUL").appendChild(y);
 }
 
-const player = new Player("Unknown");
-player.heal();
 const enemiesInForest = [];
 const goblinE = new Enemy(1, "goblin", 1, 0, 3, 10);
 const goblinE1 = new Enemy(2, "goblin", 2, 0, 5, 20);
@@ -483,3 +530,4 @@ function updateCoinUI(player) {
     gold2.innerHTML = player.coins;
     gold3.innerHTML = player.coins;
 }
+
