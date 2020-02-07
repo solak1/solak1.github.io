@@ -20,6 +20,7 @@ body {
   }
   
   #logo {
+    
     display: grid;
     justify-content: start;
     align-content: center;
@@ -28,10 +29,11 @@ body {
     font-weight: 700;
     color: #000;
     text-transform: uppercase;
+    text-shadow: 1px 1px 1px grey;
   }
   
   .logo span {
-    color: #0474bc;
+    color: #bead96;
   }
   
   #links {
@@ -75,6 +77,7 @@ body {
     font-family: "Open Sans", sans-serif;
     cursor: pointer;
     font-weight: bold;
+    text-shadow: -1px 1px 1px grey;
     -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
   }
   
