@@ -181,7 +181,7 @@ body {
     #links, .mobile-menu, #navBlocks {
       display: none;
     }
-    #moreInfo {
+    body #moreInfo {
         padding: 0px 20px;
     }
     body #camp > section {
