@@ -1,0 +1,24 @@
+<header>
+  <nav>
+    <div id="navbar">
+      <div id="logo" class="reverse">
+        <div class="logo"><a>Le<span>gion</a></div>
+      </div>
+      <div id="links">
+
+        <a href="/" {% if page.url == "/" %}style="color: #0474bc;"{% endif %}>Home</a>
+        <a href="/projects/" {% if page.url == '/projects/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Projects</a>
+        <a href="/contact/" {% if page.url == '/contact/' %}style="color: #0474bc; #nav li a: hover{text-decoration: none;"{% endif %}>Contact</a>
+      </div>
+      <div class="mobile-btn" onclick="openNav()">MENU</div>
+    </div>
+  </nav>
+  <!-- Mobile Menu -->
+  <div id="mySidenav" class="sidenav">
+    <a style="cursor:pointer;" class="closebtn" onclick="closeNav()">&times;</a>
+      <a class="sideNavItem">Camp</a>
+      <a class="sideNavItem">Inventory</a>
+      <a class="sideNavItem">Travel</a>
+      <a class="sideNavItem">Log</a>
+  </div>
+</header>

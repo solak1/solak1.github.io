@@ -1,5 +1,5 @@
 ---
-layout: wrapper
+layout: gameWrapper
 title: Legion
 description: Cut wood, upgrade axes, and increase your gold!
 permalink: projects/legion/
