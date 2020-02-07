@@ -65,9 +65,10 @@ permalink: projects/legion/
     </section>
     <section class="moreInfoSection" id="locationTips">
         <div class="infoContainer" id="deepForestInfoContainer">
-            <h3><span class="location">Deep Forest</span> Tips</h3>
-            <p>Click "Next Campaign" to launch a campaign in the <span class="location">Deep Forest</span></p>
+            <h3><span class="location">Legion</span> Tips</h3>
+            <p>Click "Next Campaign" to launch a campaign. <span class="location"></span></p>
             <p>If you have low health, travel to a healer.</p>
+            <p>Buy Weapons!</p>
         </div>
     </section>
 </section>
