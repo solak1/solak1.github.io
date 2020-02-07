@@ -252,7 +252,9 @@ goToMountainsButton.addEventListener("click", () => {
     fiveSections[2].style.display = "none";
     fiveSections[3].style.display = "none";
     fiveSections[4].style.display = "none";
+    logTravelUI(player);
     readyCampaign(campaignButton2, player.location, goToMountainsButton);
+
 
 });
 
@@ -265,6 +267,7 @@ goToForestButton.addEventListener("click", () => {
     fiveSections[2].style.display = "none";
     fiveSections[3].style.display = "none";
     fiveSections[4].style.display = "none";
+    logTravelUI(player);
     readyCampaign(campaignButton2, player.location, goToForestButton);
 
 });
@@ -275,7 +278,7 @@ goToForestButton.addEventListener("click", () => {
 
 
 function readyCampaign(campaignButton,location, goToButton) {
-    console.log(campaignButton);
+    // console.log(campaignButton);
     campaignButton1.style.display = "none";
     campaignButton2.style.display = "none";
     goToButton.style.display = "none";
@@ -327,8 +330,10 @@ campaignButton1.addEventListener("click", () => {
     readyCampaign(campaignButton1,player.location, goToForestButton);
     player.campaign(enemiesInForest);
     player.updateProgressBar();
-})
+    
 
+})
+// Go to Mountain
 campaignButton2.addEventListener("click", () => {
     readyCampaign(campaignButton2, player.location, goToMountainsButton);
     player.campaign(enemiesInForest);
@@ -531,3 +536,17 @@ function updateCoinUI(player) {
     gold3.innerHTML = player.coins;
 }
 
+function logTravelUI(player) {
+    console.log("logging in UI.")
+    var logLI1 = document.createElement("LI");
+    var logLI2 = document.createElement("LI");
+    var logMSG = `You traveled to the ${player.location}`
+    var t1 = document.createTextNode(logMSG);
+    var t2 = document.createTextNode(logMSG);
+    logLI1.appendChild(t1);
+    logLI2.appendChild(t2)
+    document.getElementById("logUL").prepend(logLI1);
+    var recentEvents = document.getElementById('recentEventsUL');
+    recentEvents.removeChild(recentEvents.childNodes[2])
+    recentEvents.prepend(logLI2);
+}
