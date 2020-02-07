@@ -127,7 +127,12 @@ body {
     #links, .mobile-menu {
       display: none;
     }
-  
+    #moreInfo {
+        padding: 0px 20px;
+    }
+    body #camp > section {
+        width:85%;
+    }
     .mobile-btn {
       text-align: center;
     }
@@ -145,7 +150,12 @@ body {
     #links, .mobile-menu, #navBlocks {
       display: none;
     }
-  
+    #moreInfo {
+        padding: 0px 20px;
+    }
+    body #camp > section {
+        width:85%;
+    }
     #logo {
       display: inline-grid;
       align-items: center;
@@ -161,9 +171,15 @@ body {
   }
   
   /* Mobile to Tablet  */
-  @media (min-width:392px) and (max-width:575px) {
+  @media (min-width:392px) and (max-width:474px) {
     #links, .mobile-menu, #navBlocks {
       display: none;
+    }
+    #moreInfo {
+        padding: 0px 20px;
+    }
+    body #camp > section {
+        width:85%;
     }
   
     #logo {
@@ -176,7 +192,7 @@ body {
   }
   
   /* Tablet to Desktop */
-  @media (min-width:576px) {
+  @media (min-width:475px) {
     .mobile-btn, .mobile-btn-text {
       display: none;
     }
