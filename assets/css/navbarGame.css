@@ -133,6 +133,9 @@ body {
     body #camp > section {
         width:85%;
     }
+    #camp h2 {
+        display: none;
+    }
     .mobile-btn {
       text-align: center;
     }
@@ -155,6 +158,9 @@ body {
     }
     body #camp > section {
         width:85%;
+    }
+    #camp h2 {
+        display: none;
     }
     #logo {
       display: inline-grid;
@@ -180,6 +186,9 @@ body {
     }
     body #camp > section {
         width:85%;
+    }
+    #camp h2 {
+        display: none;
     }
   
     #logo {
