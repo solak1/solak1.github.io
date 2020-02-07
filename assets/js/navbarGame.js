@@ -19,6 +19,7 @@ mobileNavButtons[0].addEventListener("touchstart", () => {
     fiveSections[2].style.display = "none";
     fiveSections[3].style.display = "none";
     fiveSections[4].style.display = "none";
+    closeNav();
 });
 
 mobileNavButtons[1].addEventListener("click", () => {
@@ -27,6 +28,7 @@ mobileNavButtons[1].addEventListener("click", () => {
     fiveSections[2].style.display = "none";
     fiveSections[3].style.display = "none";
     fiveSections[4].style.display = "none";
+    closeNav();
 })
 
 mobileNavButtons[2].addEventListener("click", () => {
@@ -35,6 +37,7 @@ mobileNavButtons[2].addEventListener("click", () => {
     fiveSections[2].style.display = "block";
     fiveSections[3].style.display = "none";
     fiveSections[4].style.display = "none";
+    closeNav();
 })
 
 mobileNavButtons[3].addEventListener("click", () => {
@@ -43,4 +46,5 @@ mobileNavButtons[3].addEventListener("click", () => {
     fiveSections[2].style.display = "none";
     fiveSections[3].style.display = "block";
     fiveSections[4].style.display = "none";
+    closeNav();
 })
