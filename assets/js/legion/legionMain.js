@@ -192,7 +192,7 @@ function gameUI() {
         // prepend recent event
         recentEvents.prepend(eventLI);
     }
-    var logTravelUI = (player) => {
+    this.logTravelUI = (player) => {
         console.log("logging in UI.")
         var logLI1 = document.createElement("LI");
         var logLI2 = document.createElement("LI");
@@ -206,7 +206,7 @@ function gameUI() {
         recentEvents.removeChild(recentEvents.childNodes[2])
         recentEvents.prepend(logLI2);
     }
-    var showCamp = (sections) => {
+    this.showCamp = (sections) => {
         sections[0].style.display = "block";
         sections[1].style.display = "none";
         sections[2].style.display = "none";

@@ -13,9 +13,9 @@ permalink: "/projects/"
       <ul>
         <li><a href="{{ page.url }}legion">Legion</a></li>
         <ul class = "projectNotes">
-          <li>HTML, CSS, and Javascript game</li>
+          <li>JS game</li>
           <li>Started on: 02/04/20</li>
-          <li>Last updated: 02/05/20</li>
+          <li>Last updated: 02/07/20</li>
         </ul>
         <li><a href="{{ page.url }}woodchop">Wood Chop</a></li>
         <ul class = "projectNotes">
