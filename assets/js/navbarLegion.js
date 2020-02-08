@@ -10,6 +10,7 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
+const fiveSections = Array.from(document.getElementsByClassName("moreInfo"));
 const mobileNavButtons = document.getElementsByClassName("sideNavItem");
 
 mobileNavButtons[0].addEventListener("touchstart", () => {
