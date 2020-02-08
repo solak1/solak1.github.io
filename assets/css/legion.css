@@ -1,3 +1,5 @@
+---
+---
 @import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 /* Top Nav
 */
@@ -9,6 +11,7 @@ body, button {
     box-shadow: 1px 1px 2px;
     height: 60px;
     width: 60px;
+    background-color: #c6c3bf;
 }
 
 #camButton {
@@ -35,6 +38,7 @@ body, button {
 #locButton {
     float: right;
     box-shadow: -1px 1px 2px;
+    background-color: #c6c3bf;
 }
 
 #legionHeader > button {
@@ -63,6 +67,9 @@ body, button {
     position: relative;
     min-height: 50px;
     background-image: linear-gradient(white 50%, grey);
+    background-image: url('{{ site.baseurl }}/assets/img/legion/forest-background.jpg');
+    background-image: url('{{ site.baseurl }}/assets/img/legion/forest-background.jpg'), linear-gradient(#0ff0ff, #0f000f);
+    background-size: auto;
 }
 
 
@@ -173,4 +180,8 @@ body, button {
 
 #goldSpan {
     transition-delay: 
+}
+
+#goToShopButton, #healButton, #leaveTownButton {
+    display: none;
 }

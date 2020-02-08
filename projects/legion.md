@@ -67,8 +67,8 @@ permalink: projects/legion/
         <div class="infoContainer" id="deepForestInfoContainer">
             <h3><span class="location">Legion</span> Tips</h3>
             <p>Click "Next Campaign" to launch a campaign. <span class="location"></span></p>
-            <p>If you have low health, travel to a healer.</p>
-            <p>Buy Weapons!</p>
+            <p>If you have low health, visit the town.</p>
+            <p>Buy Weapons from the Shoppe!</p>
         </div>
     </section>
 </section>
@@ -79,19 +79,21 @@ permalink: projects/legion/
     <p>Current Coins: <span id="inventoryCoins">0</span></p>
     <section>
         <div id="inventoryItems">
-            <button class="equipmentButton" id="equipSmallSpear">Small Spear</button>
-            <button class="equipmentButton" id="equipSimpleBow">Simple Bow</button>
-            <button class="equipmentButton" id="equipShortSword">Short Sword</button>
+            <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
+            <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
+            <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
         </div>
     </section>
 </section>
 
 <section class="moreInfo" id="travel">
     <h2>Travel</h2>
-    <button id="healButton">Heal (-10 coins)</button>
-    <button id="goToShopButton">Shoppe</button>
-    <button id="goToMountainsButton">Mountains</button>
-    <button id="goToForestButton">Forest</button>
+    <button class="travelButton outsideTownButton"  id="goToTownButton">Town</button>
+    <button class="travelButton shopButton" id="leaveTownButton">Leave Town</button>
+    <button class="travelButton shopButton" id="healButton">Heal (-10 coins)</button>
+    <button class="travelButton shopButton" id="goToShopButton">Shoppe</button>
+    <button class="travelButton outsideTownButton" id="goToForestButton">Forest</button>
+    <button class="travelButton outsideTownButton" id="goToMountainsButton">Mountains</button>
 </section>
 
 <section class="moreInfo" id="log">
@@ -104,11 +106,11 @@ permalink: projects/legion/
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
     <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
     <div id="shopContainer">
-        <button class="equipmentButton" id="buySmallSpear">Small Spear</button>
-        <button class="equipmentButton" id="buySimpleBow">Simple Bow</button>
-        <button class="equipmentButton" id="buyShortSword">Short Sword</button>
+        <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
+        <button class="equipmentButton" id="buySimpleBowButton">Simple Bow</button>
+        <button class="equipmentButton" id="buyShortSwordButton">Short Sword</button>
     </div>
 </section>
 </div>
-<script src='{{site.url}}/assets/js/legion/legionMain.js'>
+<script type="module" src='{{site.url}}/assets/js/legion/legionMain.js'>
 
