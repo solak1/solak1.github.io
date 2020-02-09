@@ -263,8 +263,8 @@ function initTravelButtons(player) {
         logUI.showCamp(fiveSections);
         logUI.logTravelUI(player);
         readyCampaign(campaignButton2, readyCampaignIn, goToMountainsButton, player);
-        header.style.backgroundImage = "url('/assets/img/legion/mountains-background.jpg";
-        header.style.backgroundPosition = "bottom";
+        header.style.backgroundImage = "url('/assets/img/legion/mountains-background5.jpg";
+        header.style.backgroundPosition = "right center";
     }, player);
     
     goToForestButton.addEventListener("click", () => {
