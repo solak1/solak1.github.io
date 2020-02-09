@@ -82,6 +82,7 @@ body, button {
     box-shadow: 0px 0px 8px;
     font-size: 1rem;
     padding-bottom: 4px;
+    margin-bottom: 4px;
 }
 
 .navBlock > button:active, #goToShopButton:active, #healButton:active, .equipmentButton:active, #shopContainer > button:active {
