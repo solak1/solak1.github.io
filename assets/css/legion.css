@@ -165,6 +165,71 @@ body, button {
     display: none;
 }
 
+#goToShopButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/shoppe-icon4.png'); 
+}
+
+#goToTownButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/town-icon2.png'); 
+}
+
+#goToForestButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/forest-icon.png'); 
+}
+
+#goToMountainsButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/mountains-icon.png'); 
+}
+
+#goToDesertButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/desert-icon.png'); 
+}
+
+#healButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/heal-icon4.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#leaveTownButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/leaveTown-icon.png'); 
+}
+
+.navBlock > button {
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#campButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/camp-icon25.png'); 
+}
+#inventoryButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/inventory-icon25.png'); 
+}
+#travelButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/travel-icon25.png'); 
+}
+#logButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/log-icon25.png'); 
+}
+
+#inventoryItems > button, #inventoryArmorItems > button, #shopContainer > button {
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+#buySmallSpearButton, #equipSmallSpearButton{
+    background-image: url('{{ site.baseurl }}/assets/img/legion/spear-icon25.png')
+}
+
+#buySimpleBowButton, #equipSimpleBowButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/bow-icon25.png')
+}
+
+#buyShortSwordButton, #equipShortSwordButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/sword-icon25.png')
+}
+
 #myProgress {
     width: 100%;
     background-color: #ddd;

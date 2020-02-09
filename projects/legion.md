@@ -38,16 +38,16 @@ permalink: projects/legion/
 </section>
 <section id="navBlocks">
     <div class="navBlock">
-        <button>CAMP</button>
+        <button id="campButton">CAMP</button>
     </div>
     <div class="navBlock">
-        <button>INVENTORY</button>
+        <button id="inventoryButton">INVENTORY</button>
     </div>
     <div class="navBlock">
-        <button>TRAVEL</button>
+        <button id="travelButton">TRAVEL</button>
     </div>
     <div class="navBlock">
-        <button>LOG</button>
+        <button id="logButton">LOG</button>
     </div>
 </section>
 <div id="moreInfoContainer">
