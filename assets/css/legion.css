@@ -20,7 +20,7 @@ body, button {
     display: none;
 }
 
-#camButton3 {
+#camButton3, #camButton4 {
     font-weight: bold;
     float: left;
     box-shadow: 1px 1px 3px;
@@ -147,14 +147,16 @@ body, button {
     font-weight: bold;
 }
 
-#inventoryItems {
+#inventoryItems, #inventoryArmorItems {
     align-content: center;
 }
 
-#inventoryItems > button {
+#inventoryItems > button, #inventoryArmorItems > button {
     display: none;
     align-self: center;
 }
+
+
 
 #logUL > li {
     border-bottom: solid .1px #989898;

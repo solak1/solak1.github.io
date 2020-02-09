@@ -143,9 +143,18 @@ class Player extends Character {
         this.enemiesArray = []
     }
     campaign() {
-        if (this.location === 'Mountains') {
-            this.enemiesArray = enemiesInMountains;
-        }
+        // handle location arrays
+        if (this.location !== 'Forest') {
+            if (this.location === 'Mountains') {
+                this.enemiesArray = enemiesInMountains;
+                console.log('enemies in mountains.')
+            }
+            else {
+                console.log('enemies in the desert!')
+                this.enemiesArray = enemiesInDesert;
+            }
+        } else console.log('enemies in forest.')
+
         // Selects random enemy in an array and kills the enemy
         let randomInt = Math.round(Math.random() * this.enemiesArray.length);
         var reward = this.kill(this.enemiesArray[randomInt]);
@@ -282,10 +291,16 @@ const grizleyBear = new Enemy(10, "grizzley bear", 14, 5, 0, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 
 const enemiesInMountains = [];
-const mountainGoatE = new Enemy(1, "mountain goat", 1, 0, 0, 50);
-const poacher = new Enemy(1, "poacher", 1, 0, 50, 10);
-const mountainLion = new Enemy(1, "mountain goat", 14, 5, 0, 100);
+const mountainGoatE = new Enemy(11, "mountain goat", 1, 0, 0, 50);
+const poacher = new Enemy(12, "poacher", 1, 0, 50, 10);
+const mountainLion = new Enemy(13, "mountain goat", 14, 5, 0, 100);
 enemiesInMountains.push(mountainGoatE, poacher);
+
+const enemiesInDesert = [];
+const cammelE = new Enemy(21, 'cammel', 4, 4, 4, 100);
+const cammelE1 = new Enemy(22, 'cammel', 4, 5, 5, 150);
+const mercenary = new Enemy(23, 'mercenary', 4, 5, 50, 250);
+enemiesInDesert.push(cammelE, cammelE1, mercenary);
 
 player.enemiesArray = enemiesInForest;
 
