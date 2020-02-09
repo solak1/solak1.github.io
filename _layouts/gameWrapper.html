@@ -10,11 +10,13 @@
 		
         <meta charset="UTF-8">
 	</head>
-	<body class=wrapper>
-		{% include navbarLegion.html %}
-		
-		{{ content }}
+	<body class="body">
+		<div class="wrapper">
 
+			{% include navbarLegion.html %}
+			
+			{{ content }}
+		</div>
 	</body>
 
     <script type="text/javascript" src="{{ site.baseurl }}/assets/js/navbarLegion.js"></script>
