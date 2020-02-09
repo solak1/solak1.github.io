@@ -251,8 +251,8 @@ function initTravelButtons(player) {
         // console.log("Going to Shop");
         // document.getElementById("travel").style.display = "none";
         fiveSections[4].style.display = "block";
-        header.style.backgroundImage = "url('/assets/img/legion/shoppe-background.jpg";
-        header.style.backgroundPosition = "left center";
+        header.style.backgroundImage = "url('/assets/img/legion/shoppe-background9.jpg";
+        header.style.backgroundPosition = "right center";
     });
     
     goToMountainsButton.addEventListener("click", () => {
