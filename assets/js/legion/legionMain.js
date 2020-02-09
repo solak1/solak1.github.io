@@ -49,6 +49,7 @@ class Character {
         if (this.health < 1) {
             this.health = 1;
         }
+        logUI.updateHealthBar(this);
     }
 
     kill(target) {
@@ -182,6 +183,7 @@ class Player extends Character {
                 updateCoinUI(this);
                 // document.getElementById("gold").innerHTML = this.coins;
                 document.getElementById("health").innerHTML = this.health;
+                logUI.updateHealthBar(this);
             }
         })
         // medical debt lol

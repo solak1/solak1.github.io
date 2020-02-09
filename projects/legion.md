@@ -18,15 +18,23 @@ permalink: projects/legion/
 
 <section id="legionHeader">
     <div class="leagionHeaderHeader"></div>
-    <button class="legionButton" id="imgButton">
-    <img src='{{site.url}}/assets/img/legion/sword.png'>
-    </button>
+    <div id="healthDiv">
+        <button class="legionButton" id="imgButton">
+        <img src='{{site.url}}/assets/img/legion/sword.png'>
+        </button>
+        <div id="curHealthDiv"></div>
+        <div id="maxHealthDiv"></div>
+        <div id="healthBackgroundDiv"></div>
+    </div>
     <button class="legionButton" id="camButton">Next Campaign</button>
     <button class="legionButton" id="camButton2">Campaign</button>
     <button class="legionButton" id="camButton3">Next Campaign</button>
     <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
     <button class="legionButton" id="locButton">Location: <span id="locationSpan">Forest</span></button>
-    <div class="legionHeaderFooter"></div>
+    <div class="legionHeaderFooter">
+        <div id="hpSpan"></div>
+        <div id="hpSpanCur"></div>
+    </div>
 </section>
 <section id="navBlocks">
     <div class="navBlock">

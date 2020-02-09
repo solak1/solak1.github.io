@@ -6,13 +6,6 @@
 body, button {
     font-family: 'Lora', serif;
 }
-#imgButton {
-    float: left;
-    box-shadow: 1px 1px 2px;
-    height: 60px;
-    width: 60px;
-    background-color: #c6c3bf;
-}
 
 #camButton {
     font-weight: bold;
@@ -123,17 +116,6 @@ body, button {
     height: 250px;
 }
 
-#myProgress {
-    width: 100%;
-    background-color: #ddd;
-  }
-  
-#myBar {
-    width: 0%;
-    height: 30px;
-    background-color: #4CAF50;
-  }
-
 #log {
     max-height: 100vh;
     overflow: auto;
@@ -182,6 +164,88 @@ body, button {
     display: none;
 }
 
-#imgButton {
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+#myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #4CAF50;
+  }
+#healthDiv, #curHealthDiv, #maxHealthDiv, #imgButton {
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
+}
+
+body #healthDiv {
+    max-width: 50px;
+    position: relative;
+    margin: 0px;
+    padding 0px;
+    display: inline-block;
+    float: left;
+}
+
+#healthBackgroundDiv {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 0;
+    background-color: #c6c3bf;
+}
+
+#maxHealthDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #c6c3bf;
+}
+#curHealthDiv {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    height: 0%;
+    background-color: #c6c3bf;
+}
+#imgButton {
+    float: left;
+    box-shadow: 1px 1px 2px;
+    height: 50px;
+    width: 50px;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+
+#hpSpan {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: 1;
+    background-color: rgb(173, 144, 144, .8);
+    width: 100%
+}
+
+#hpSpanCur {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: 1;
+    background-color: #A31F1F;
+    width: 100%
 }
