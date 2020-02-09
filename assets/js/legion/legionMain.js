@@ -195,6 +195,8 @@ class Player extends Character {
                 logUI.updateHealthBar(this);
             }
         })
+        logUI.updateHealthBar(this);
+        
         // medical debt lol
         let l = document.createElement("LI");
         if (this.coins < 0) {

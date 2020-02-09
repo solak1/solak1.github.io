@@ -81,7 +81,7 @@ function LogUI() {
          * 
          * Future Feature: Add multiple progress bars.
          */
-        let maxHP = (player.level*10 - 1); // divide by zero work around
+        let maxHP = (10 + player.level - 1); // divide by zero work around
         let dim = ((player.health/maxHP) * 100);
         
         // console.log(`New width: ${width}`);
