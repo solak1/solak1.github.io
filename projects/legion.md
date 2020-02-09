@@ -29,7 +29,7 @@ permalink: projects/legion/
     <button class="legionButton" id="camButton">Next Campaign</button>
     <button class="legionButton" id="camButton2">Campaign</button>
     <button class="legionButton" id="camButton3">Next Campaign</button>
-    <span id="stats">Level: 1 | XP: 999999 | Gold: 999999</span>
+    <button class="legionButton" id="camButton4">Next Campaign</button>
     <button class="legionButton" id="locButton">Location: <span id="locationSpan">Forest</span></button>
     <div class="legionHeaderFooter">
         <div id="hpSpan"></div>
@@ -102,6 +102,7 @@ permalink: projects/legion/
     <button class="travelButton shopButton" id="goToShopButton">Shoppe</button>
     <button class="travelButton outsideTownButton" id="goToForestButton">Forest</button>
     <button class="travelButton outsideTownButton" id="goToMountainsButton">Mountains</button>
+    <button class="travelButton outsideTownButton" id="goToDesertButton">Desert</button>
 </section>
 
 <section class="moreInfo" id="log">

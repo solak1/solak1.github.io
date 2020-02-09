@@ -20,6 +20,7 @@ All Buttons
 const campaignButtonRest = document.getElementById("camButton2");
 const campaignButton1 = document.getElementById("camButton");
 const campaignButton2 = document.getElementById("camButton3");
+const campaignButton3 = document.getElementById("camButton4");
 
 // Top UI Bottons
 const imgButton = document.getElementById("imgButton");
@@ -28,8 +29,9 @@ const locationButton = document.getElementById("locButton");
 const healButton = document.getElementById('healButton');
 // Travel Buttons
 const goToShopButton = document.getElementById('goToShopButton');
-const goToMountainsButton = document.getElementById('goToMountainsButton');
 const goToForestButton = document.getElementById('goToForestButton');
+const goToMountainsButton = document.getElementById('goToMountainsButton');
+const goToDesertButton = document.getElementById('goToDesertButton');
 const goToTownButton = document.getElementById('goToTownButton');
 const leaveTownButton = document.getElementById('leaveTownButton');
 // travel button array
@@ -277,6 +279,19 @@ function initTravelButtons(player) {
         header.style.backgroundPosition = "right center";
     });
     
+    goToForestButton.addEventListener("click", () => {
+        // console.log("Going to Forest");
+        let readyCampaignIn = "Forest";
+        player.location = readyCampaignIn;
+        locationButton.innerHTML = `Location: ${player.location}`
+        logUI.showCamp(fiveSections);
+        logUI.logTravelUI(player);
+        readyCampaign(campaignButton1, readyCampaignIn, goToForestButton, player);
+        header.style.backgroundImage = "url('/assets/img/legion/forest-background.jpg";
+        header.style.backgroundPosition = "left top";
+    
+    }, player);
+
     goToMountainsButton.addEventListener("click", () => {
         // console.log("Going to Mountains");
         let readyCampaignIn = "Mountains";
@@ -288,17 +303,17 @@ function initTravelButtons(player) {
         header.style.backgroundImage = "url('/assets/img/legion/mountains-background5.jpg";
         header.style.backgroundPosition = "right center";
     }, player);
-    
-    goToForestButton.addEventListener("click", () => {
-        // console.log("Going to Forest");
-        let readyCampaignIn = "Forest";
+
+    goToDesertButton.addEventListener("click", () => {
+        // console.log("Going to Desert");
+        let readyCampaignIn = "Desert";
         player.location = readyCampaignIn;
         locationButton.innerHTML = `Location: ${player.location}`
         logUI.showCamp(fiveSections);
         logUI.logTravelUI(player);
-        readyCampaign(campaignButton2, readyCampaignIn, goToForestButton, player);
-        header.style.backgroundImage = "url('/assets/img/legion/forest-background.jpg";
-        header.style.backgroundPosition = "left top";
+        readyCampaign(campaignButton3, readyCampaignIn, goToDesertButton, player);
+        header.style.backgroundImage = "url('/assets/img/legion/desert-background5.jpg";
+        header.style.backgroundPosition = "center center";
     
     }, player);
 
@@ -348,6 +363,8 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
 
     campaignButton1.style.display = "none";
     campaignButton2.style.display = "none";
+    campaignButton3.style.display = "none";
+    
     goToButton.style.display = "none";
     // Set the date we're counting down to
     var countDownDate = new Date().getTime();
@@ -415,7 +432,17 @@ function initCampaignButtons(player) {
         logUI.updateProgressBar(player);
         rotateWeapon(imgButton);
     }, player);
+
+    // Go to Mountain
+    campaignButton3.addEventListener("click", () => {
+        readyCampaign(campaignButton3, "Desert", goToMountainsButton, player);
+        player.location = "Desert"
+        player.campaign();
+        logUI.updateProgressBar(player);
+        rotateWeapon(imgButton);
+    }, player);
 }
+
 
 
 function rotateWeapon(img) {

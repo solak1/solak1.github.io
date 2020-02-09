@@ -20,7 +20,7 @@ body, button {
     display: none;
 }
 
-#camButton3 {
+#camButton3, #camButton4 {
     font-weight: bold;
     float: left;
     box-shadow: 1px 1px 3px;
