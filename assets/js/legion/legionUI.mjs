@@ -8,6 +8,8 @@ const smallSpearEquipButton = document.getElementById("equipSmallSpearButton");
 const simpleBowEquipButton = document.getElementById("equipSimpleBowButton");
 const shortSwordEquipButton = document.getElementById("equipShortSwordButton");
 
+const weaponImg = document.getElementById("weaponImg");
+
 // legion header
 var header = document.getElementById('legionHeader');
 
@@ -153,6 +155,7 @@ function sellUI(player) {
         if (player.buySmallSpear()) {
             smallSpearBuyButton.style.display = "none";
             smallSpearEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/spear.png";
             document.getElementById("strengthSpan").innerHTML = 7;
             document.getElementById("weaponSpan").innerHTML = "Small Spear";
             let l = document.createElement("LI");
@@ -166,6 +169,7 @@ function sellUI(player) {
         if (player.buySimpleBow()) {
             simpleBowBuyButton.style.display = "none";
             simpleBowEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/bow.png";
             document.getElementById("strengthSpan").innerHTML = 10;
             document.getElementById("weaponSpan").innerHTML = "Simple Bow";
             let l = document.createElement("LI");
@@ -178,6 +182,7 @@ function sellUI(player) {
         if (player.buyShortSword()) {
             shortSwordBuyButton.style.display = "none";
             shortSwordEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/sword.png";
             document.getElementById("strengthSpan").innerHTML = 10;
             document.getElementById("weaponSpan").innerHTML = "Short Sword";
             let l = document.createElement("LI");
@@ -192,16 +197,19 @@ function equipUI() {
     smallSpearEquipButton.addEventListener("click", () => {
         document.getElementById("strengthSpan").innerHTML = 7;
         document.getElementById("weaponSpan").innerHTML = "Small Spear";
+        weaponImg.src = "/assets/img/legion/spear.png";
     });
     
     simpleBowEquipButton.addEventListener("click", () => {
         document.getElementById("strengthSpan").innerHTML = 10;
         document.getElementById("weaponSpan").innerHTML = "Simple Bow";
+        weaponImg.src = "/assets/img/legion/bow.png";
     });
     
     shortSwordEquipButton.addEventListener("click", () => {
         document.getElementById("strengthSpan").innerHTML = 15;
         document.getElementById("weaponSpan").innerHTML = "Short Sword";
+        weaponImg.src = "/assets/img/legion/sword.png";
     });
 
 }
@@ -412,7 +420,7 @@ function initCampaignButtons(player) {
 
 function rotateWeapon(img) {
     img.style.transform= "rotate(20deg)"
-    setTimeout(() => { img.style.transform= "rotate(0deg)"; }, 500);
+    setTimeout(() => { img.style.transform= "rotate(0deg)"; }, 125);
 }
 
     
