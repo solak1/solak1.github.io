@@ -20,7 +20,7 @@ permalink: projects/legion/
     <div class="leagionHeaderHeader"></div>
     <div id="healthDiv">
         <button class="legionButton" id="imgButton">
-        <img src='{{site.url}}/assets/img/legion/sword.png'>
+        <img id="weaponImg" src='{{site.url}}/assets/img/legion/hands.png'>
         </button>
         <div id="curHealthDiv"></div>
         <div id="maxHealthDiv"></div>
