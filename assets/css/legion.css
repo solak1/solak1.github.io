@@ -178,10 +178,10 @@ body, button {
     border-bottom: solid .1px #989898;
 }
 
-#goldSpan {
-    transition-delay: 
-}
-
 #goToShopButton, #healButton, #leaveTownButton {
     display: none;
+}
+
+#imgButton {
+    border-radius: 50%;
 }

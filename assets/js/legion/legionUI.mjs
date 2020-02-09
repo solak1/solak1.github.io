@@ -397,10 +397,8 @@ function initCampaignButtons(player) {
 
 
 function rotateWeapon(img) {
-    
-    img.style.transform = "rotate(20deg)";
-    window.setTimeout(() => {
-        img.style.transform= "rotate(0deg)";
-        }, 100);
+    img.style.transform= "rotate(20deg)"
+    setTimeout(() => { img.style.transform= "rotate(0deg)"; }, 500);
 }
 
+    
