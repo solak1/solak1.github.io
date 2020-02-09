@@ -275,7 +275,7 @@ function initTravelButtons(player) {
         // console.log("Going to Shop");
         // document.getElementById("travel").style.display = "none";
         fiveSections[4].style.display = "block";
-        header.style.backgroundImage = "url('/assets/img/legion/shoppe-background9.jpg";
+        header.style.backgroundImage = "url('/assets/img/legion/shoppe-background10.jpg";
         header.style.backgroundPosition = "right center";
     });
     
@@ -287,7 +287,7 @@ function initTravelButtons(player) {
         logUI.showCamp(fiveSections);
         logUI.logTravelUI(player);
         readyCampaign(campaignButton1, readyCampaignIn, goToForestButton, player);
-        header.style.backgroundImage = "url('/assets/img/legion/forest-background.jpg";
+        header.style.backgroundImage = "url('/assets/img/legion/forest-background2.jpg";
         header.style.backgroundPosition = "left top";
     
     }, player);
@@ -300,7 +300,7 @@ function initTravelButtons(player) {
         logUI.showCamp(fiveSections);
         logUI.logTravelUI(player);
         readyCampaign(campaignButton2, readyCampaignIn, goToMountainsButton, player);
-        header.style.backgroundImage = "url('/assets/img/legion/mountains-background5.jpg";
+        header.style.backgroundImage = "url('/assets/img/legion/mountains-background6.jpg";
         header.style.backgroundPosition = "right center";
     }, player);
 
@@ -312,7 +312,7 @@ function initTravelButtons(player) {
         logUI.showCamp(fiveSections);
         logUI.logTravelUI(player);
         readyCampaign(campaignButton3, readyCampaignIn, goToDesertButton, player);
-        header.style.backgroundImage = "url('/assets/img/legion/desert-background5.jpg";
+        header.style.backgroundImage = "url('/assets/img/legion/desert-background6.jpg";
         header.style.backgroundPosition = "center center";
     
     }, player);

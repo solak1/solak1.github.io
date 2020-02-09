@@ -131,4 +131,3 @@ permalink: projects/legion/
 </section>
 </div>
 <script type="module" src='{{site.url}}/assets/js/legion/legionMain.js'>
-

@@ -59,9 +59,8 @@ body, button {
 #legionHeader {
     position: relative;
     min-height: 50px;
-    background-image: linear-gradient(white 50%, grey);
+    background-color: black;
     background-image: url('{{ site.baseurl }}/assets/img/legion/forest-background.jpg');
-    background-image: url('{{ site.baseurl }}/assets/img/legion/forest-background.jpg'), linear-gradient(#0ff0ff, #0f000f);
     background-size: auto;
 }
 
