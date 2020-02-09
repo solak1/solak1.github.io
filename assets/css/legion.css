@@ -147,14 +147,16 @@ body, button {
     font-weight: bold;
 }
 
-#inventoryItems {
+#inventoryItems, #inventoryArmorItems {
     align-content: center;
 }
 
-#inventoryItems > button {
+#inventoryItems > button, #inventoryArmorItems > button {
     display: none;
     align-self: center;
 }
+
+
 
 #logUL > li {
     border-bottom: solid .1px #989898;

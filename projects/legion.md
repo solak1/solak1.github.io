@@ -87,9 +87,18 @@ permalink: projects/legion/
     <p>Current Coins: <span id="inventoryCoins">0</span></p>
     <section>
         <div id="inventoryItems">
+            <h4>My Weapons:</h4>
             <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
             <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
             <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
+        </div>
+    </section>
+    <section>
+        <div id="inventoryArmorItems">
+            <h4>My Armor:</h4>
+            <button class="equipmentButton" id="equipSmallSpearButton">Cloth Tunic</button>
+            <button class="equipmentButton" id="equipSimpleBowButton">Studded Tunic</button>
+            <button class="equipmentButton" id="equipShortSwordButton">Leather Cuirass</button>
         </div>
     </section>
 </section>
