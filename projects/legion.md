@@ -102,7 +102,7 @@ permalink: projects/legion/
     </ol>
 </section>
 <section class="moreInfo" id="townShop">
-    <h2>Traveling Shoppe</h2>
+    <h2>Shoppe</h2>
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
     <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
     <div id="shopContainer">
