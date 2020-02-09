@@ -71,6 +71,20 @@ function LogUI() {
         const progressBar = document.getElementById("myBar");
         progressBar.style.width = width + "%";
     }
+    this.updateHealthBar = (player) => {
+        /**
+         * Update progress bar.
+         * 
+         * Future Feature: Add multiple progress bars.
+         */
+        let maxHP = (player.level*10 - 1); // divide by zero work around
+        let dim = ((player.health/maxHP) * 100);
+        
+        // console.log(`New width: ${width}`);
+        const progressBar = document.getElementById("hpSpanCur");
+        // progressBar.style.height = dim + "%";
+        progressBar.style.width = dim + "%";
+    }
     this.logEncounter = (reward) => {
         /** 
          * Creates log based on an attempted kill.
