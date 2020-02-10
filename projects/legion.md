@@ -143,7 +143,10 @@ permalink: projects/legion/
 <img src='{{ site.baseurl }}/assets/img/legion/desert-icon.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/heal-icon4.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/leaveTown-icon.png' decoding="async"/>
+<<<<<<< HEAD
 <img src='{{ site.baseurl }}/assets/img/legion/camp-icon25.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/inventory-icon25.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/travel-icon25.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/log-icon25.png' decoding="async"/>
+=======
+>>>>>>> 7ce0a54322fd358c77e042729db866afebdac202
