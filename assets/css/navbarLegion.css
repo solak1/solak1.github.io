@@ -158,7 +158,7 @@ body {
   
   /* Small Mobile to Mobile */
   @media (min-width:278px) and (max-width:391px) {
-    #links, .mobile-menu, #navBlocks {
+    #links, .mobile-menu, body #navBlocks {
       display: none;
     }
     body #navbar {
@@ -194,7 +194,7 @@ body {
   
   /* Mobile to Tablet  */
   @media (min-width:392px) and (max-width:474px) {
-    #links, .mobile-menu, #navBlocks {
+    #links, .mobile-menu, body #navBlocks {
       display: none;
     }
     body #legionHeader {
