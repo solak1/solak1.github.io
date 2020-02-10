@@ -153,8 +153,10 @@ class Player extends Character {
                 console.log('enemies in the desert!')
                 this.enemiesArray = enemiesInDesert;
             }
-        } else console.log('enemies in forest.')
-
+        } else  {
+            this.enemiesArray = enemiesInForest;
+            console.log('enemies in forest.')
+        }
         // Selects random enemy in an array and kills the enemy
         let randomInt = Math.round(Math.random() * this.enemiesArray.length);
         var reward = this.kill(this.enemiesArray[randomInt]);
@@ -196,7 +198,7 @@ class Player extends Character {
             }
         })
         logUI.updateHealthBar(this);
-        
+
         // medical debt lol
         let l = document.createElement("LI");
         if (this.coins < 0) {

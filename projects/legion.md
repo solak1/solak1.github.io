@@ -88,9 +88,11 @@ permalink: projects/legion/
     <section>
         <div id="inventoryItems">
             <h4>My Weapons:</h4>
+            <div id="weaponsContainer">
             <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
             <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
             <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
+            </div>
         </div>
     </section>
     <section>
@@ -105,13 +107,15 @@ permalink: projects/legion/
 
 <section class="moreInfo" id="travel">
     <h2>Travel</h2>
-    <button class="travelButton outsideTownButton"  id="goToTownButton">Town</button>
-    <button class="travelButton shopButton" id="leaveTownButton">Leave Town</button>
-    <button class="travelButton shopButton" id="healButton">Heal (-10 coins)</button>
-    <button class="travelButton shopButton" id="goToShopButton">Shoppe</button>
-    <button class="travelButton outsideTownButton" id="goToForestButton">Forest</button>
-    <button class="travelButton outsideTownButton" id="goToMountainsButton">Mountains</button>
-    <button class="travelButton outsideTownButton" id="goToDesertButton">Desert</button>
+    <div id="travelContainer">
+        <button class="travelButton outsideTownButton"  id="goToTownButton">Town</button>
+        <button class="travelButton shopButton" id="leaveTownButton">Leave Town</button>
+        <button class="travelButton shopButton" id="healButton">Visit the Healer<br >(-10 coins)</button>
+        <button class="travelButton shopButton" id="goToShopButton">Shoppe</button>
+        <button class="travelButton outsideTownButton" id="goToForestButton">Forest</button>
+        <button class="travelButton outsideTownButton" id="goToMountainsButton">Mountains</button>
+        <button class="travelButton outsideTownButton" id="goToDesertButton">Desert</button>
+    </div>
 </section>
 
 <section class="moreInfo" id="log">
@@ -124,9 +128,9 @@ permalink: projects/legion/
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
     <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
     <div id="shopContainer">
-        <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
-        <button class="equipmentButton" id="buySimpleBowButton">Simple Bow</button>
-        <button class="equipmentButton" id="buyShortSwordButton">Short Sword</button>
+        <button class="equipmentButton" id="buySmallSpearButton">Small Spear<br />(50 coins)</button>
+        <button class="equipmentButton" id="buySimpleBowButton">Simple Bow<br />(400 coins)</button>
+        <button class="equipmentButton" id="buyShortSwordButton">Short Sword<br />(1,500 coins)</button>
     </div>
 </section>
 </div>
@@ -139,3 +143,7 @@ permalink: projects/legion/
 <img src='{{ site.baseurl }}/assets/img/legion/desert-icon.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/heal-icon4.png' decoding="async"/>
 <img src='{{ site.baseurl }}/assets/img/legion/leaveTown-icon.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/camp-icon25.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/inventory-icon25.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/travel-icon25.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/log-icon25.png' decoding="async"/>
