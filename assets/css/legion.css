@@ -108,6 +108,12 @@ body, button {
     display: none;
 }
 
+.moreInfo #inventory, .moreInfo #travel, .moreInfo #log {
+    display: none;
+}
+
+
+
 #currentStats, #recentEvents > p, #locationTips > p {
     text-align: left;
 }
