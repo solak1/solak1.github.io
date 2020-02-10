@@ -131,3 +131,11 @@ permalink: projects/legion/
 </section>
 </div>
 <script type="module" src='{{site.url}}/assets/js/legion/legionMain.js'>
+
+<img src='{{ site.baseurl }}/assets/img/legion/shoppe-icon4.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/town-icon2.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/forest-icon.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/mountains-icon.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/desert-icon.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/heal-icon4.png' decoding="async"/>
+<img src='{{ site.baseurl }}/assets/img/legion/leaveTown-icon.png' decoding="async"/>
