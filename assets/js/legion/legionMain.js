@@ -36,6 +36,8 @@ class Character {
         this.name = name;
         this.coins = 0;
         this.strength = 5;
+        this.weaponStrength = 0;
+        this.totalStrength = this.strength + this.weaponStrength;
         this.defenceBonus = 0;
         this.health = 10;
         this.level = 1;
@@ -53,37 +55,58 @@ class Character {
     }
 
     kill(target) {
-        // var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
-        // attack logic
+        /**
+         *  RewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
+         *  Attack Logic Variables:
+         *  -Player "Strength"
+         *  -Player "Defence " 
+         *  Logic Flows:
+         *  -kill (no damage, damage taken) = 20%
+         *  -wound (no damage, damage taken) = 30%
+         *  -humiliated (damage) -> damage = ~40%
+         * 
+         */
+        maxHealth = this.level + 9;
+        nextLevelXpConst = this.level * 100;
+        woundXpDiscount = parseInt(nextLevelXpConst * .05) 
+        damageConst = parseInt(maxHealth / 10); // 10% of max health
         console.log(target);
-        if (target == undefined) { // failed to find a target
+        if (target == undefined || target === null) { // failed to find a target
             return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
         } 
         else {
-            var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10));
-            if (this.strength >= target.health) { // easily kill
-                if (this.defenceBonus > target.strength) { // able to kill
-                    return [target.coins, rewardXp, 'killed a', target.name];
-                } else { // damage taken
-                    this.health -= 2;
+            var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10)); // 10% variablility
+            // easily kill
+            if (this.strength >= target.health) { 
+                //Take no damage
+                if (this.defenceBonus > target.strength) { 
+                    return [target.coins, rewardXp, 'easily killed a', target.name];
+                } 
+                // damage taken
+                else { 
+                    this.health -= 2*damageConst;
                     this.cantDie();
                     return [target.coins, rewardXp, 'killed a', target.name];
                 }
             }
-            else if ((this.strength * 2) >= target.health) { // wound enemy
+            // Wound enemy, allowing them to escape
+            else if ((this.strength * 2) >= target.health) { 
+                // take no damage
                 if (this.defenceBonus > target.strength) {
-                    // unscathed
-                    return [target.coins, (rewardXp - 5), 'wounded a', target.name];
+                    return [target.coins, (rewardXp -   5), 'easily wounded a', target.name];
                 }
+                // take damage
                 else {
-                    this.health -= 2;
+                    this.health -= 3 * damageConst;
                     this.cantDie();
                     return [target.coins, (rewardXp - 5), 'wounded a', target.name];
                 }
-            } else { // humiliated
-                this.health -= 4;
+            } 
+             // humiliated
+             else {
+                this.health -= 4 * damageConst;
                 this.cantDie();
-                return [0, 0, "were humiliated by a", target.name];
+                return [0, 1, "were humiliated by a", target.name];
             }
         }
     }
@@ -117,7 +140,6 @@ class Character {
             updateCoinUI(this);
             return true;
         } else return false;
-    
     }
     
     buySmallSpear() {

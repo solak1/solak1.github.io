@@ -130,7 +130,7 @@ body, button {
     align-content: left;
 }
 
-body section .moreInfo, body #townShop, body .equipmentButton {
+body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
     display: none;
 }
 
