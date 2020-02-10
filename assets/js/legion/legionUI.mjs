@@ -336,9 +336,10 @@ function initTravelButtons(player) {
 
     leaveTownButton.addEventListener("click", () => {
         // console.log("Leaving");
-        player.location = 'Town Limits'
-        campaignButtonRest.innerHTML = "Town Limits"
-        locationButton.innerHTML = `Location: ${player.location}`
+        player.location = 'Town Limits';
+        clearInterval(readyCampaign);
+        campaignButtonRest.innerHTML = "Town Limits";
+        locationButton.innerHTML = `Location: ${player.location}`;
         logUI.logTravelUI(player);
         for (let ele of travelButtons) {
             ele.style.display = 'none';
