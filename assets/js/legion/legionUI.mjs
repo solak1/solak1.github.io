@@ -195,20 +195,23 @@ function sellUI(player) {
     }, player);
 }
 
-function equipUI() {
+function equipUI(player) {
     smallSpearEquipButton.addEventListener("click", () => {
+        player.strength = 7;
         document.getElementById("strengthSpan").innerHTML = 7;
         document.getElementById("weaponSpan").innerHTML = "Small Spear";
         weaponImg.src = "/assets/img/legion/spear.png";
     });
     
     simpleBowEquipButton.addEventListener("click", () => {
+        player.strength = 10;
         document.getElementById("strengthSpan").innerHTML = 10;
         document.getElementById("weaponSpan").innerHTML = "Simple Bow";
         weaponImg.src = "/assets/img/legion/bow.png";
     });
     
     shortSwordEquipButton.addEventListener("click", () => {
+        player.strength = 15;
         document.getElementById("strengthSpan").innerHTML = 15;
         document.getElementById("weaponSpan").innerHTML = "Short Sword";
         weaponImg.src = "/assets/img/legion/sword.png";
