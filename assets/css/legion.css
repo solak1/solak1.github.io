@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
 /* Top Nav
 */
+
 body, button {
     font-family: 'Lora', serif;
 }
@@ -129,13 +130,14 @@ body, button {
     align-content: left;
 }
 
-.moreInfo {
+body section .moreInfo, body #townShop {
     display: none;
 }
 
-.moreInfo #inventory, .moreInfo #travel, .moreInfo #log {
+#inventory, #travel, #log {
     display: none;
 }
+
 
 
 
