@@ -67,12 +67,37 @@ body, button {
 
 
 
-.navBlock {
-    display: inline-block;
-    margin-bottom: 4px;
+#navBlocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#travel, #townShop {
+    display: flex;
+    flex-flow: column;
 }
 
-.navBlock > button, .equipmentButton, #shopContainer > button, #travel > button {
+#travelContainer, #shopContainer, #weaponContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#travelContainer > button, #shopContainer > button, #weaponsContainer > button {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+#townShop {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navBlock > button, .equipmentButton, #shopContainer > button, #travelContainer > button {
     padding: auto;
     width: 150px;
     min-width: 75px;
@@ -122,6 +147,8 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
 .moreInfoSection {
     vertical-align: top;
     height: 250px;
+    display: flex;
+    flex-flow: space-evenly;
 }
 
 #log {
@@ -202,7 +229,7 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/leaveTown-icon.png'); 
 }
 
-.navBlock > button {
+.navBlock > button, .equipmentButton {
     background-repeat: no-repeat;
     background-position: center top;
 }
