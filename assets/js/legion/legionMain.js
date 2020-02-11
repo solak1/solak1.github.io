@@ -72,6 +72,9 @@ class Character {
         console.log(target);
         if (target == undefined || target === null) { // failed to find a target
             return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
+        }
+        else if (this.health === 1) {
+            return [0, 0, 'were gravely injured!', 'Travel and Heal!'];
         } 
         else {
             var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10)); // 10% variablility
