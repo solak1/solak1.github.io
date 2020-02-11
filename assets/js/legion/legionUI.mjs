@@ -3,10 +3,23 @@ export { LogUI, sellUI, equipUI, initNavSection, initTravelButtons, readyCampaig
 const smallSpearBuyButton = document.getElementById("buySmallSpearButton");
 const simpleBowBuyButton = document.getElementById("buySimpleBowButton");
 const shortSwordBuyButton = document.getElementById("buyShortSwordButton");
+const standardSpearBuyButton = document.getElementById("buyStandardSpearButton");
+const craftedBowBuyButton = document.getElementById("buyCraftedBowButton");
+const standardSwordBuyButton = document.getElementById("buyStandardSwordButton");
+const longSpearBuyButton = document.getElementById("buyLongSpearButton");
+const engineeredBowBuyButton = document.getElementById("buyEngineeredBowButton");
+const longSwordBuyButton = document.getElementById("buyLongSwordButton");
+
 
 const smallSpearEquipButton = document.getElementById("equipSmallSpearButton");
 const simpleBowEquipButton = document.getElementById("equipSimpleBowButton");
 const shortSwordEquipButton = document.getElementById("equipShortSwordButton");
+const standardSpearEquipButton = document.getElementById("equipStandardSpearButton");
+const craftedBowEquipButton = document.getElementById("equipCraftedBowButton");
+const standardSwordEquipButton = document.getElementById("equipStandardSwordButton");
+const longSpearEquipButton = document.getElementById("equipLongSpearButton");
+const engineeredBowEquipButton = document.getElementById("equipEngineeredBowButton");
+const longSwordEquipButton = document.getElementById("equipLongSwordButton");
 
 const weaponImg = document.getElementById("weaponImg");
 
@@ -199,6 +212,101 @@ function sellUI(player) {
             document.getElementById("logUL").prepend(l);
         }
     }, player);
+    // location 2 gear
+
+    standardSpearBuyButton.addEventListener("click", () => {
+        if (player.buyStandardSpear()) {
+            standardSpearBuyButton.style.display = "none";
+            standardSpearEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/spear.png";
+            player.weaponStrength = 17;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 17;
+            document.getElementById("weaponSpan").innerHTML = "Long Spear";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a standard spear for 2000 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    
+    craftedBowBuyButton.addEventListener("click", () => {
+        if (player.buyCraftedBow()) {
+            craftedBowBuyButton.style.display = "none";
+            craftedBowEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/bow.png";
+            player.weaponStrength = 20;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 20;
+            document.getElementById("weaponSpan").innerHTML = "Crafted Bow";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a simple bow for 3400 coins');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    standardSwordBuyButton.addEventListener("click", () => {
+        if (player.buyShortSword()) {
+            standardSwordBuyButton.style.display = "none";
+            standardSwordEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/sword.png";
+            player.weaponStrength = 25;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 10;
+            document.getElementById("weaponSpan").innerHTML = "Standard Sword";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a short sword for 7,200 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+
+    longSpearBuyButton.addEventListener("click", () => {
+        if (player.buyLongSpear()) {
+            longSpearBuyButton.style.display = "none";
+            longSpearEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/spear.png";
+            player.weaponStrength = 17;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 17;
+            document.getElementById("weaponSpan").innerHTML = "Long Spear";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a long spear for 12,000 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    
+    engineeredBowBuyButton.addEventListener("click", () => {
+        if (player.buySimpleBow()) {
+            engineeredBowBuyButton.style.display = "none";
+            engineeredBowEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/bow.png";
+            player.weaponStrength = 20;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 20;
+            document.getElementById("weaponSpan").innerHTML = "Simple Bow";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a simple bow for 15,500 coins');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    longSwordBuyButton.addEventListener("click", () => {
+        if (player.buyLongSword()) {
+            longSwordBuyButton.style.display = "none";
+            longSwordEquipButton.style.display = "inline-block";
+            weaponImg.src = "/assets/img/legion/sword.png";
+            player.weaponStrength = 25;
+            document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("strengthSpan").innerHTML = 25;
+            document.getElementById("weaponSpan").innerHTML = "Long Sword";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a long sword for 24,000 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
 }
 
 function equipUI(player) {
@@ -223,6 +331,54 @@ function equipUI(player) {
         document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
         document.getElementById("strengthSpan").innerHTML = 15;
         document.getElementById("weaponSpan").innerHTML = "Short Sword";
+        weaponImg.src = "/assets/img/legion/sword.png";
+    }, player);
+
+    standardSpearEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 17;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 17;
+        document.getElementById("weaponSpan").innerHTML = "Long Spear";
+        weaponImg.src = "/assets/img/legion/spear.png";
+    }, player);
+    
+    craftedBowEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 20;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 20;
+        document.getElementById("weaponSpan").innerHTML = "Crafted Bow";
+        weaponImg.src = "/assets/img/legion/bow.png";
+    }, player);
+    
+    standardSwordEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 25;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 25;
+        document.getElementById("weaponSpan").innerHTML = "Standard Sword";
+        weaponImg.src = "/assets/img/legion/sword.png";
+    }, player);
+
+    longSpearEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 27;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 27;
+        document.getElementById("weaponSpan").innerHTML = "Long Spear";
+        weaponImg.src = "/assets/img/legion/spear.png";
+    }, player);
+    
+    engineeredBowEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 30;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 30;
+        document.getElementById("weaponSpan").innerHTML = "Engineered Bow";
+        weaponImg.src = "/assets/img/legion/bow.png";
+    }, player);
+    
+    longSwordEquipButton.addEventListener("click", () => {
+        player.weaponStrength = 35;
+        document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+        document.getElementById("strengthSpan").innerHTML = 35;
+        document.getElementById("weaponSpan").innerHTML = "Long Sword";
         weaponImg.src = "/assets/img/legion/sword.png";
     }, player);
 

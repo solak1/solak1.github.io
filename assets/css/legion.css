@@ -225,15 +225,15 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
     background-position: center top;
 }
 
-#buySmallSpearButton, #equipSmallSpearButton{
+#buySmallSpearButton, #equipSmallSpearButton, #buyStandardSpearButton, #equipStandardSpearButton, #buyLongSpearButton, #equipLongSpearButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/spear-icon25.png')
 }
 
-#buySimpleBowButton, #equipSimpleBowButton {
+#buySimpleBowButton, #equipSimpleBowButton, #buyCraftedBowButton, #equipCraftedBowButton, #buyEngineeredBowButton, #equipEngineeredButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/bow-icon25.png')
 }
 
-#buyShortSwordButton, #equipShortSwordButton {
+#buyShortSwordButton, #equipShortSwordButton, #buyStandardSwordButton, #equipStandardSwordButton, #buyLongSwordButton, #equipLongSwordButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/sword-icon25.png')
 }
 

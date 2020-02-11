@@ -154,6 +154,88 @@ class Character {
             return true;
         } else return false;
     }
+    buyStandardSword() {
+        let cost = 7200;
+        let str = 17;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            let standardSword = new Weapon("Standard Sword", cost, str);
+            this.inventory.push(standardSword);
+            this.weaponStrength = str;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyCraftedBow() {
+        let cost = 3400;
+        let str = 20;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            let craftedBow = new Weapon("Crafted Bow", cost, str);
+            this.inventory.push(craftedBow);
+            this.weaponStrength = str;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyStandardSpear() {
+        let cost = 2000;
+        let str = 17;
+        if (this.coins >= cost) {
+            this.coins -= cost
+            let standardSpear = new Weapon("Standard Spear", cost, str);
+            console.log('buying ' + standardSpear.name);
+            this.inventory.push(standardSpear);
+            this.weaponStrength = str;
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    buyLongSword() {
+        let cost = 24000;
+        let str = 35;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            let longSword = new Weapon("Long Sword", cost, str);
+            this.inventory.push(longSword);
+            this.weaponStrength = str;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyEngineeredBow() {
+        let cost = 16000;
+        let str = 30;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            let engineeredBow = new Weapon("Engineered Bow", cost, str);
+            this.inventory.push(engineeredBow);
+            this.weaponStrength = str;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyLongSpear() {
+        let cost = 12000;
+        let str = 27;
+        if (this.coins >= cost) {
+            this.coins -= cost
+            let longSpear = new Weapon("Long Spear", cost, str);
+            console.log('buying ' + longSpear.name);
+            this.inventory.push(longSpear);
+            this.weaponStrength = str;
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
 }
 
 // Player Prototype or "class"
@@ -169,7 +251,9 @@ class Player extends Character {
 
     totalStr() {
         this.totalStrength = this.characterStrength + this.weaponStrength;
+        document.getElementById('totalStrengthSpan').innerHTML = this.totalStrength;
         return this.totalStrength;
+
     }
 
     campaign() {
@@ -217,7 +301,7 @@ class Player extends Character {
             this.health = this.level + 10 - 1;
             document.getElementById("level").innerHTML = this.level;
             document.getElementById('totalStrengthSpan').innerHTML = this.totalStrength;
-            document.getElementById("characterStrengthSpan").innerHTML = this.totalStrength;
+            document.getElementById("characterStrengthSpan").innerHTML = this.characterStrength;
             return true;
         } else return false;
     }
@@ -339,14 +423,14 @@ enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anar
 const enemiesInMountains = [];
 const mountainGoatE     = new Enemy(11, "mountain goat", 15, 2, 50, 20);
 const mountainGoatE1    = new Enemy(12, "mountain goat", 20, 2, 50, 30);
-const mountainGoatE2    = new Enemy(13, "mountain goat", 20, 2, 100, 30);
-const mountainGoatM     = new Enemy(14, "mountain goat", 20, 2, 125, 40);
-const mountainGoatH     = new Enemy(15, "mountain goat", 20, 2, 150, 50);
-const poacher           = new Enemy(16, "poacher", 1, 0, 200, 55);
-const poacher1           = new Enemy(17, "poacher", 1, 0, 250, 10);
+const mountainGoatE2    = new Enemy(13, "mountain goat", 25, 2, 100, 30);
+const mountainGoatM     = new Enemy(14, "mountain goat", 25, 2, 125, 40);
+const mountainGoatH     = new Enemy(15, "mountain goat", 30, 2, 150, 50);
+const poacher           = new Enemy(16, "poacher", 30, 4, 200, 55);
+const poacher1           = new Enemy(17, "poacher", 30, 4, 250, 10);
 const smallCougar       = new Enemy(18, 'small cougar', 35, 4, 350, 70);
 const cougar            = new Enemy(19, 'cougar', 45, 6, 450, 80);
-const mountainLion      = new Enemy(20, "mountain lion", 14, 5, 0, 90);
+const mountainLion      = new Enemy(20, "mountain lion", 65, 6, 550, 90);
 enemiesInMountains.push(mountainGoatE, mountainGoatE1, mountainGoatE2, mountainGoatM, mountainGoatH, poacher, poacher1, smallCougar, cougar, mountainLion);
 
 const enemiesInDesert = [];
