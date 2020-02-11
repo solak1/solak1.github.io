@@ -135,20 +135,20 @@ permalink: projects/legion/
 <section class="moreInfo" id="townShop">
     <h2>Shoppe</h2>
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
-    <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
+    <p>The merchant agrees to sell you a weapons and armor.</p>
     <div id="shopContainer">
         <button class="equipmentButton" id="buySmallSpearButton">Small Spear<br />(50 coins)</button>
         <button class="equipmentButton" id="buySimpleBowButton">Simple Bow<br />(400 coins)</button>
         <button class="equipmentButton" id="buyShortSwordButton">Short Sword<br />(1,500 coins)</button>
-        <button class="equipmentButton" id="buyStandardSpearButton">Standard Spear</button>
-        <button class="equipmentButton" id="buyCraftedBowButton">Crafted Bow</button>
-        <button class="equipmentButton" id="buyStandardSwordButton">Standard Sword</button>
-        <button class="equipmentButton" id="buyLongSpearButton">Long Spear</button>
-        <button class="equipmentButton" id="buyEngineeredBowButton">Engineered Bow</button>
-        <button class="equipmentButton" id="buyLongSwordButton">Long Sword</button>
-        <button class="equipmentButton" id="buyClothTunicButton">Cloth Tunic</button>
-        <button class="equipmentButton" id="buyStuddedTunicButton">Studded Tunic</button>
-        <button class="equipmentButton" id="buyLeatherCuirassButton">Leather Cuirass</button>
+        <button class="equipmentButton" id="buyStandardSpearButton">Standard Spear<br />(2,000 coins)</button>
+        <button class="equipmentButton" id="buyCraftedBowButton">Crafted Bow<br />(3,400 coins)</button>
+        <button class="equipmentButton" id="buyStandardSwordButton">Standard Sword<br />(7,200 coins)</button>
+        <button class="equipmentButton" id="buyLongSpearButton">Long Spear<br />(12,000 coins)</button>
+        <button class="equipmentButton" id="buyEngineeredBowButton">Engineered Bow<br />(16,000 coins)</button>
+        <button class="equipmentButton" id="buyLongSwordButton">Long Sword<br />(24,000 coins)</button>
+        <button class="equipmentButton" id="buyClothTunicButton">Cloth Tunic<br />(700 coins)</button>
+        <button class="equipmentButton" id="buyStuddedTunicButton">Studded Tunic<br />(4,800 coins)</button>
+        <button class="equipmentButton" id="buyLeatherCuirassButton">Leather Cuirass<br />(18,000 coins)</button>
     </div>
 </section>
 </div>
