@@ -451,15 +451,15 @@ const wanderingSoul = new Enemy(0, 'wondering soul', 0, 0, 20, 20);
 enemiesInElse.push(wanderingSoul);
 
 const enemiesInForest = [];
-const goblinE   =   new Enemy(1, "goblin", 5, 0, 5, 10);
+const goblinE   =   new Enemy(1, "goblin", 4, 0, 5, 10);
 const goblinE1  =   new Enemy(2, "goblin", 5, 0, 10, 20);
-const goblinE2  =   new Enemy(3, "goblin", 10, 0, 15, 20);
-const goblinM   =   new Enemy(4, "goblin", 10, 0, 20, 25);
-const goblinH   =   new Enemy(5, "goblin", 15, 0, 25, 25);
-const mugger    =   new Enemy(6, "mugger", 20, 2, 30, 20);
-const anarchist =   new Enemy(7, "burgler",25, 2, 35, 40);
-const blackBear =   new Enemy(8, 'black bear', 30, 2, 40, 30);
-const brownBear =   new Enemy(9, "brown bear", 35, 4, 45, 40);
+const goblinE2  =   new Enemy(3, "goblin", 9, 0, 15, 20);
+const goblinM   =   new Enemy(4, "goblin", 9, 0, 20, 25);
+const goblinH   =   new Enemy(5, "goblin", 9, 0, 25, 25);
+const mugger    =   new Enemy(6, "mugger", 15, 2, 30, 20);
+const anarchist =   new Enemy(7, "burgler",20, 2, 35, 40);
+const blackBear =   new Enemy(8, 'black bear', 20, 2, 40, 30);
+const brownBear =   new Enemy(9, "brown bear", 25, 4, 45, 40);
 const grizleyBear = new Enemy(10, "grizzley bear", 35, 4, 50, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 

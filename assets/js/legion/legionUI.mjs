@@ -518,6 +518,7 @@ function initTravelButtons(player) {
         // console.log("Going to Shop");
         // document.getElementById("travel").style.display = "none";
         fiveSections[4].style.display = "block";
+        readyCampaign(null, null, null, null);
         header.style.backgroundImage = "url('/assets/img/legion/shoppe-background10.jpg";
         header.style.backgroundPosition = "right center";
     });
@@ -628,7 +629,9 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
             return null;
         }
         else if (player.location !== readyCampaignIn) {
-            goToButton.style.display = "inline-grid";
+            campaignButton1.style.display = "none";
+            campaignButton2.style.display = "none";
+            campaignButton3.style.display = "none";
           // console.log(player.location, readyCampaignIn);
           // console.log("player left area.")
             clearInterval(x);
@@ -677,9 +680,9 @@ function initCampaignButtons(player) {
         rotateWeapon(imgButton);
     }, player);
 
-    // Go to Mountain
+    // Go to Desert
     campaignButton3.addEventListener("click", () => {
-        readyCampaign(campaignButton3, "Desert", goToMountainsButton, player);
+        readyCampaign(campaignButton3, "Desert", goToDesertButton, player);
         player.location = "Desert"
         player.campaign();
         logUI.updateProgressBar(player);
