@@ -649,8 +649,9 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
         // Find the distance between now and the count down date
         let distance = countDownDate - now;
         // Time calculations for days, hours, minutes and seconds
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        seconds ++; //
         // Output the result in an element with id="demo"
         campaignButtonRest.style.display = "block";
         campaignButtonRest.innerHTML = 'Resting for: '
