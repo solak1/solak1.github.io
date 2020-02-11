@@ -83,7 +83,9 @@ permalink: projects/legion/
 <section class="moreInfo" id="inventory">
     <h2>Inventory</h2>
     <p>Current Weapon: <span id="weaponSpan">Hands</span></p>
-    <p>Current Equipment Strength: <span id="strengthSpan">5</span></p>
+    <p>Total Strength: <span id='totalStrengthSpan'>5</span></p>
+    <p>Current Weapon Strength: <span id="strengthSpan">0</span></p>
+    <p>Character Strength: <span id='characterStrengthSpan'>0</span></p>
     <p>Current Coins: <span id="inventoryCoins">0</span></p>
     <section>
         <div id="inventoryItems">
