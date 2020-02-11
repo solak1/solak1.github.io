@@ -74,7 +74,7 @@ class Character {
             return [0, 0, 'were unsuccessful', 'and wasted an attempt'];
         }
         else if (this.health === 1) {
-            return [0, 0, 'were gravely injured!', 'Travel and Heal!'];
+            return [0, 0, 'were gravely injured!', 'Travel and Heal'];
         } 
         else {
             var rewardXp = target.xp + (Math.floor(Math.random() * target.xp / 10)); // 10% variablility
@@ -298,7 +298,6 @@ class Player extends Character {
         document.getElementById('totalStrengthSpan').innerHTML = this.totalStrength;
         document.getElementById('characterStrengthSpan').innerHTML = this.characterStrength;
         return this.totalStrength;
-
     }
 
     campaign() {
