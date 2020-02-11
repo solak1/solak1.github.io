@@ -565,6 +565,10 @@ function initTravelButtons(player) {
         // console.log("Going to Town");
         player.location = 'Town'
         clearInterval(readyCampaign);
+        campaignButton1.style.display = "none";
+        campaignButton2.style.display = "none";
+        campaignButton3.style.display = "none";
+        campaignButtonRest.style.display = "inline-block";
         campaignButtonRest.innerHTML = "In Town"
         locationButton.innerHTML = `Location: ${player.location}`
         logUI.logTravelUI(player);
@@ -582,6 +586,9 @@ function initTravelButtons(player) {
         // console.log("Leaving");
         player.location = 'Town Limits';
         clearInterval(readyCampaign);
+        campaignButton1.style.display = "none";
+        campaignButton2.style.display = "none";
+        campaignButton3.style.display = "none";
         campaignButtonRest.innerHTML = "Town Limits";
         locationButton.innerHTML = `Location: ${player.location}`;
         logUI.logTravelUI(player);
@@ -613,7 +620,7 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
     goToButton.style.display = "none";
     // Set the date we're counting down to
     var countDownDate = new Date().getTime();
-    var durationInMinutes = .1;
+    var durationInMinutes = .01;
     var MS_PER_MINUTE = 60000;
     countDownDate = new Date(countDownDate + (durationInMinutes * MS_PER_MINUTE));
     // console.log(countDownDate);
