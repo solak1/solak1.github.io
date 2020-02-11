@@ -1,7 +1,7 @@
 ---
 layout: gameWrapper
 title: Legion
-description: Cut wood, upgrade axes, and increase your gold!
+description: Welcome to your next adventure. Legion is a text based rpg accessible from anywhere.
 permalink: projects/legion/
 ---
 
@@ -88,10 +88,10 @@ permalink: projects/legion/
     <section>
         <div id="inventoryItems">
             <h4>My Weapons:</h4>
-            <span>| <b>Total Strength: 
+            <p>| <b>Total Strength: 
                 <span id='totalStrengthSpan'>5</span></b> | Weapon Strength: <span id="strengthSpan">0</span>
-                 | Character Strength: <span id='characterStrengthSpan'>0</span>
-            </span>
+                 | Character Strength: <span id='characterStrengthSpan'>5</span>
+            </p>
             <div id="weaponsContainer">
                 <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
                 <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
