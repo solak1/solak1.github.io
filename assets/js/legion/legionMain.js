@@ -65,7 +65,7 @@ class Character {
          */
         // update total strength?
         this.totalStr();
-        let maxHealth = this.level + 9;
+        let maxHealth = this.level + 8;
         // let nextLevelXpConst = this.level * 100;
         // let woundXpDiscount = parseInt(nextLevelXpConst * .05) 
         let damageConst = parseInt(maxHealth / 10); // 10% of max health
@@ -95,7 +95,7 @@ class Character {
             else if ((this.totalStrength * 2) >= target.health) { 
                 // take no damage
                 if (this.defenceBonus > target.strength) {
-                    return [target.coins, (rewardXp -  5), 'easily wounded a', target.name];
+                    return [target.coins, (rewardXp -  5), 'safely wounded a', target.name];
                 }
                 // take damage
                 else {
@@ -105,10 +105,18 @@ class Character {
                 }
             } 
              // humiliated
-             else {
-                this.health -= 4 * damageConst;
-                this.cantDie();
-                return [0, 1, "were humiliated by a", target.name];
+            else {
+                if (this.defenceBonus >= target.strength) {
+                    this.health -= 2 * damageConst;
+                    this.cantDie();
+                    return [0, 5, "were overtaken by a", target.name];
+                }
+                else {
+                    this.health -= 4 * damageConst;
+                    this.cantDie();
+                    return [0, 1, "were humiliated by a", target.name];
+                }
+                
             }
         }
     }
@@ -325,8 +333,8 @@ class Player extends Character {
         this.coins += reward[0];
         this.xp += reward[1];
         console.log(reward);
-        this.didLevel();
         logUI.logEncounter(reward);
+        this.didLevel();
 
         // now to update html
         document.getElementById('level').innerHTML = this.level;
@@ -339,6 +347,12 @@ class Player extends Character {
         // @ level 1 xp must be greater than 100 to level
         if (this.xp >= this.nextLevelXp) {
             this.level += 1; // level up
+            if (this.level === 2) {
+                let recentEvents = document.getElementById("recentEventsUL");
+                let recentEventsList = recentEvents.getElementsByTagName('li');
+                recentEventsList[0].innerHTML = 'Congrats on your first level! You will now take damage.'
+
+            }
             this.characterStrength += 1;
             this.nextLevelXp += this.level * 100;
             this.health = this.level + 10 - 1;
@@ -456,11 +470,11 @@ const goblinE1  =   new Enemy(2, "goblin", 5, 0, 10, 20);
 const goblinE2  =   new Enemy(3, "goblin", 9, 0, 15, 20);
 const goblinM   =   new Enemy(4, "goblin", 9, 0, 20, 25);
 const goblinH   =   new Enemy(5, "goblin", 9, 0, 25, 25);
-const mugger    =   new Enemy(6, "mugger", 15, 2, 30, 20);
-const anarchist =   new Enemy(7, "burgler",20, 2, 35, 40);
-const blackBear =   new Enemy(8, 'black bear', 20, 2, 40, 30);
-const brownBear =   new Enemy(9, "brown bear", 25, 4, 45, 40);
-const grizleyBear = new Enemy(10, "grizzley bear", 35, 4, 50, 50);
+const mugger    =   new Enemy(6, "mugger", 9, 1, 30, 20);
+const anarchist =   new Enemy(7, "burgler",15, 1, 35, 40);
+const blackBear =   new Enemy(8, 'black bear', 20, 0, 40, 30);
+const brownBear =   new Enemy(9, "brown bear", 25, 0, 45, 40);
+const grizleyBear = new Enemy(10, "grizzley bear", 35, 3, 50, 50);
 enemiesInForest.push(goblinE, goblinE1, goblinE2, goblinM, goblinH, mugger, anarchist, blackBear, brownBear, grizleyBear);
 
 const enemiesInMountains = [];
@@ -469,11 +483,11 @@ const mountainGoatE1    = new Enemy(12, "mountain goat", 20, 2, 50, 30);
 const mountainGoatE2    = new Enemy(13, "mountain goat", 25, 2, 100, 30);
 const mountainGoatM     = new Enemy(14, "mountain goat", 25, 2, 125, 40);
 const mountainGoatH     = new Enemy(15, "mountain goat", 30, 2, 150, 50);
-const poacher           = new Enemy(16, "poacher", 30, 4, 200, 55);
-const poacher1           = new Enemy(17, "poacher", 30, 4, 250, 10);
-const smallCougar       = new Enemy(18, 'small cougar', 35, 4, 350, 70);
-const cougar            = new Enemy(19, 'cougar', 45, 6, 450, 80);
-const mountainLion      = new Enemy(20, "mountain lion", 65, 6, 550, 90);
+const poacher           = new Enemy(16, "poacher", 30, 3, 200, 55);
+const poacher1           = new Enemy(17, "poacher", 30, 3, 250, 10);
+const smallCougar       = new Enemy(18, 'small cougar', 35, 3, 350, 70);
+const cougar            = new Enemy(19, 'cougar', 45, 5, 450, 80);
+const mountainLion      = new Enemy(20, "mountain lion", 65, 5, 550, 90);
 enemiesInMountains.push(mountainGoatE, mountainGoatE1, mountainGoatE2, mountainGoatM, mountainGoatH, poacher, poacher1, smallCougar, cougar, mountainLion);
 
 const enemiesInDesert = [];
