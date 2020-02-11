@@ -94,7 +94,16 @@ permalink: projects/legion/
             <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
             <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
             <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
+<<<<<<< HEAD
+            <button class="equipmentButton" id="equipStandardSpearButton">Standard Spear</button>
+            <button class="equipmentButton" id="equipCraftedBowButton">Crafted Bow</button>
+            <button class="equipmentButton" id="equipStandardSwordButton">Standard Sword</button>
+            <button class="equipmentButton" id="equipLongSpearButton">Long Spear</button>
+            <button class="equipmentButton" id="equipEngineeredBowButton">Engineered Bow</button>
+            <button class="equipmentButton" id="equipLongSwordButton">Long Sword</button>
+=======
             </div>
+>>>>>>> 83d4f12e258b51b304b4c21971655ac115a8c8ad
         </div>
     </section>
     <section>
@@ -130,6 +139,15 @@ permalink: projects/legion/
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
     <p>The merchant agrees to sell you a small spear for 50 coins, a simple bow for 400 coins, and a short sword for 1,500 coins.</p>
     <div id="shopContainer">
+        <button class="equipmentButton" id="buySmallSpearButton">Small Spear</button>
+        <button class="equipmentButton" id="buySimpleBowButton">Simple Bow</button>
+        <button class="equipmentButton" id="buyShortSwordButton">Short Sword</button>
+        <button class="equipmentButton" id="buyStandardSpearButton">Standard Spear</button>
+        <button class="equipmentButton" id="buyCraftedBowButton">Crafted Bow</button>
+        <button class="equipmentButton" id="buyStandardSwordButton">Standard Sword</button>
+        <button class="equipmentButton" id="buyLongSpearButton">Long Spear</button>
+        <button class="equipmentButton" id="buyEngineeredBowButton">Engineered Bow</button>
+        <button class="equipmentButton" id="buyLongSwordButton">Long Sword</button>
         <button class="equipmentButton" id="buySmallSpearButton">Small Spear<br />(50 coins)</button>
         <button class="equipmentButton" id="buySimpleBowButton">Simple Bow<br />(400 coins)</button>
         <button class="equipmentButton" id="buyShortSwordButton">Short Sword<br />(1,500 coins)</button>
