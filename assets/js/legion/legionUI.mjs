@@ -320,6 +320,7 @@ function sellUI(player) {
         if (player.buyClothTunic()) {
             clothTunicBuyButton.style.display = "none";
             clothTunicEquipButton.style.display = "inline-block";
+            document.getElementById('defenceBonusSpan').innerHTML = 2;
             // weaponImg.src = "/assets/img/legion/spear.png";
             player.defenceBonus = 2;
             let l = document.createElement("LI");
@@ -333,11 +334,8 @@ function sellUI(player) {
         if (player.buyStuddedTunic()) {
             studdedTunicBuyButton.style.display = "none";
             studdedTunicEquipButton.style.display = "inline-block";
-            // weaponImg.src = "/assets/img/legion/bow.png";
-            player.defenceBonus = 4;
-            // document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
             document.getElementById("defenceBonusSpan").innerHTML = 4;
-            // document.getElementById("weaponSpan").innerHTML = "Simple Bow";
+            player.defenceBonus = 4;
             let l = document.createElement("LI");
             var t = document.createTextNode('You bought a studded tunic for 4,800 coins');
             l.appendChild(t);
