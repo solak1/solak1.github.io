@@ -10,6 +10,10 @@ const longSpearBuyButton = document.getElementById("buyLongSpearButton");
 const engineeredBowBuyButton = document.getElementById("buyEngineeredBowButton");
 const longSwordBuyButton = document.getElementById("buyLongSwordButton");
 
+const clothTunicBuyButton = document.getElementById("buyClothTunicButton");
+const studdedTunicBuyButton = document.getElementById("buyStuddedTunicButton");
+const leatherCuirassBuyButton = document.getElementById("buyLeatherCuirassButton");
+
 
 const smallSpearEquipButton = document.getElementById("equipSmallSpearButton");
 const simpleBowEquipButton = document.getElementById("equipSimpleBowButton");
@@ -20,6 +24,10 @@ const standardSwordEquipButton = document.getElementById("equipStandardSwordButt
 const longSpearEquipButton = document.getElementById("equipLongSpearButton");
 const engineeredBowEquipButton = document.getElementById("equipEngineeredBowButton");
 const longSwordEquipButton = document.getElementById("equipLongSwordButton");
+const clothTunicEquipButton = document.getElementById("equipClothTunicButton");
+const studdedTunicEquipButton = document.getElementById("equipStuddedTunicButton");
+const leatherCuirassEquipButton = document.getElementById("equipLeatherCuirassButton");
+
 
 const weaponImg = document.getElementById("weaponImg");
 
@@ -307,6 +315,51 @@ function sellUI(player) {
             document.getElementById("logUL").prepend(l);
         }
     }, player);
+
+    clothTunicBuyButton.addEventListener("click", () => {
+        if (player.buyClothTunic()) {
+            clothTunicBuyButton.style.display = "none";
+            clothTunicEquipButton.style.display = "inline-block";
+            // weaponImg.src = "/assets/img/legion/spear.png";
+            player.defenceBonus = 2;
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a cloth tunic for 700 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    
+    studdedTunicBuyButton.addEventListener("click", () => {
+        if (player.buyStuddedTunic()) {
+            studdedTunicBuyButton.style.display = "none";
+            studdedTunicEquipButton.style.display = "inline-block";
+            // weaponImg.src = "/assets/img/legion/bow.png";
+            player.defenceBonus = 4;
+            // document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("defenceBonusSpan").innerHTML = 4;
+            // document.getElementById("weaponSpan").innerHTML = "Simple Bow";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a studded tunic for 4,800 coins');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+    leatherCuirassBuyButton.addEventListener("click", () => {
+        if (player.buyLeatherCuirass()) {
+            leatherCuirassBuyButton.style.display = "none";
+            leatherCuirassEquipButton.style.display = "inline-block";
+            // weaponImg.src = "/assets/img/legion/sword.png";
+            player.defenceBonus = 6;
+            // document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
+            document.getElementById("defenceBonusSpan").innerHTML = 6;
+            // document.getElementById("weaponSpan").innerHTML = "Long Sword";
+            let l = document.createElement("LI");
+            var t = document.createTextNode('You bought a leather cuirass for 18,000 coins.');
+            l.appendChild(t);
+            document.getElementById("logUL").prepend(l);
+        }
+    }, player);
+
 }
 
 function equipUI(player) {
@@ -380,6 +433,30 @@ function equipUI(player) {
         document.getElementById("strengthSpan").innerHTML = 35;
         document.getElementById("weaponSpan").innerHTML = "Long Sword";
         weaponImg.src = "/assets/img/legion/sword.png";
+    }, player);
+
+    clothTunicEquipButton.addEventListener("click", () => {
+        player.defenceBonus = 2;
+        document.getElementById('defenceBonusSpan').innerHTML = player.defenceBonus;
+        // document.getElementById("strengthSpan").innerHTML = 27;
+        // document.getElementById("weaponSpan").innerHTML = "Long Spear";
+        // weaponImg.src = "/assets/img/legion/spear.png";
+    }, player);
+    
+    studdedTunicEquipButton.addEventListener("click", () => {
+        player.defenceBonus = 4;
+        document.getElementById('defenceBonusSpan').innerHTML = player.defenceBonus;
+        // document.getElementById("strengthSpan").innerHTML = 30;
+        // document.getElementById("weaponSpan").innerHTML = "Engineered Bow";
+        // weaponImg.src = "/assets/img/legion/bow.png";
+    }, player);
+    
+    leatherCuirassEquipButton.addEventListener("click", () => {
+        player.defenceBonus = 6;
+        document.getElementById('defenceBonusSpan').innerHTML = player.defenceBonus;
+        // document.getElementById("strengthSpan").innerHTML = 35;
+        // document.getElementById("weaponSpan").innerHTML = "Long Sword";
+        // weaponImg.src = "/assets/img/legion/sword.png";
     }, player);
 
 }

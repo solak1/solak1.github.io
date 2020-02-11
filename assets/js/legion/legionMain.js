@@ -236,6 +236,47 @@ class Character {
             return true;
         } else return false;
     }
+    buyClothTunic() {
+        let cost = 700;
+        let def = 2;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            // let clothTunic = new Weapon("Long Sword", cost, str);
+            // this.inventory.push(longSword);
+            this.defenceBonus = def;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyStuddedTunic() {
+        let cost = 4800;
+        let def = 4;
+        if (this.coins >= cost) {
+            this.coins -= cost;
+            // let studdedTunic = new Weapon("Studded Tunic", cost, str);
+            // this.inventory.push(engineeredBow);
+            this.defenceBonus = def;
+            console.log('returning true');
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
+    
+    buyLeatherCuirass() {
+        let cost = 18000;
+        let def = 6;
+        if (this.coins >= cost) {
+            this.coins -= cost
+            // let leatherCuirass = new Weapon("Long Spear", cost, str);
+            //console.log('buying ' + longSpear.name);
+            // this.inventory.push(longSpear);
+            this.defenceBonus = def;
+            updateCoinUI(this);
+            return true;
+        } else return false;
+    }
 }
 
 // Player Prototype or "class"
