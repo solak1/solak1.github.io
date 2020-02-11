@@ -264,6 +264,10 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/sword-icon25.png')
 }
 
+#buyClothTunicButton, #equipClothTunicButton, #buyStuddedTunicButton, #equipStuddedTunicButton, #buyLeatherCuirassButton, #equipLeatherCuirassButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/armor-icon25.png')
+}
+
 #myProgress {
     width: 100%;
     background-color: #ddd;
