@@ -58,7 +58,7 @@ function LogUI() {
          * Update Location Span and Location Information
          */
         this.locationSpan.innerHTML = player.location;
-        if (player.location === "Deep Forest") {
+        if (player.location === "Forest") {
             return true;
         }
     }
