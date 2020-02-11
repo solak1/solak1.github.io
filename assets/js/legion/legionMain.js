@@ -179,13 +179,17 @@ class Player extends Character {
                 this.enemiesArray = enemiesInMountains;
                 console.log('enemies in mountains.')
             }
-            else {
-                console.log('enemies in the desert!')
+            else if (this.location === 'Desert') {
+                console.log('enemies in the desert!');
                 this.enemiesArray = enemiesInDesert;
             }
-        } else  {
+            else {
+                this.enemiesArray = enemiesInElse;
+            }
+        } else {
             this.enemiesArray = enemiesInForest;
             console.log('enemies in forest.')
+            
         }
         // Selects random enemy in an array and kills the enemy
         let randomInt = Math.round(Math.random() * this.enemiesArray.length);
@@ -314,6 +318,10 @@ function addToLogUL(data) {
     document.getElementById("logUL").appendChild(y);
 }
 
+const enemiesInElse = [];
+const wanderingSoul = new Enemy(0, 'wondering soul', 0, 0, 20, 20);
+enemiesInElse.push(wanderingSoul);
+
 const enemiesInForest = [];
 const goblinE   =   new Enemy(1, "goblin", 5, 0, 5, 10);
 const goblinE1  =   new Enemy(2, "goblin", 5, 0, 10, 20);
@@ -343,7 +351,7 @@ enemiesInMountains.push(mountainGoatE, mountainGoatE1, mountainGoatE2, mountainG
 const enemiesInDesert = [];
 const banditE           = new Enemy(21, 'bandit', 30, 4, 500, 100);
 const banditE1          = new Enemy(22, 'bandit', 30, 4, 600, 155);
-const banditE2          = new Enemyy(23, 'bandit', 35, 4, 700, 158);
+const banditE2          = new Enemy(23, 'bandit', 35, 4, 700, 158);
 const banditM           = new Enemy(24, 'bandit', 40, 4, 800, 160);
 const banditH           = new Enemy(25, 'bandit', 45, 4, 900, 165);
 const cammel            = new Enemy(26, 'cammel', 50, 6, 1000, 165);
@@ -351,7 +359,6 @@ const cammelM           = new Enemy(27, 'cammel', 55, 6, 1100, 168);
 const cammelH           = new Enemy(28, 'cammel', 65, 6, 1200, 170);
 const assassin          = new Enemy(29, 'assassin', 75, 8, 1300, 172);
 const rogue             = new Enemy(30, 'rogue', 95, 8, 1500, 175);
-
 
 enemiesInDesert.push(banditE, banditE1, banditE2, banditM, banditH, cammel, cammelM, cammelH, assassin, rogue);
 
