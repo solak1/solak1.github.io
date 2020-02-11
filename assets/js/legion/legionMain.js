@@ -187,8 +187,9 @@ class Player extends Character {
                 this.enemiesArray = enemiesInElse;
             }
         } else {
+            this.enemiesArray = enemiesInForest;
             console.log('enemies in forest.')
-            this.enemiesArray = enemiesInForest
+            
         }
 
         // Selects random enemy in an array and kills the enemy
