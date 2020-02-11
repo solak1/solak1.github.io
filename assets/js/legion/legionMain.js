@@ -296,6 +296,7 @@ class Player extends Character {
     totalStr() {
         this.totalStrength = this.characterStrength + this.weaponStrength;
         document.getElementById('totalStrengthSpan').innerHTML = this.totalStrength;
+        document.getElementById('characterStrengthSpan').innerHTML = this.characterStrength;
         return this.totalStrength;
 
     }

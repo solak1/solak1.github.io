@@ -82,31 +82,33 @@ permalink: projects/legion/
 </section>
 <section class="moreInfo" id="inventory">
     <h2>Inventory</h2>
+    <p>Coins: <span id="inventoryCoins">0</span></p>
     <p>Current Weapon: <span id="weaponSpan">Hands</span></p>
-    <p>Total Strength: <span id='totalStrengthSpan'>5</span></p>
-    <p>Current Weapon Strength: <span id="strengthSpan">0</span></p>
-    <p>Character Strength: <span id='characterStrengthSpan'>0</span></p>
-    <p>Defense Bonus: <span id='defenceBonusSpan'>0</span></p>
-    <p>Current Coins: <span id="inventoryCoins">0</span></p>
+    <p>Current Armor: <span id="armorSpan">None</span></p>
     <section>
         <div id="inventoryItems">
             <h4>My Weapons:</h4>
+            <span>| <b>Total Strength: 
+                <span id='totalStrengthSpan'>5</span></b> | Weapon Strength: <span id="strengthSpan">0</span>
+                 | Character Strength: <span id='characterStrengthSpan'>0</span>
+            </span>
             <div id="weaponsContainer">
-            <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
-            <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
-            <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
-            <button class="equipmentButton" id="equipStandardSpearButton">Standard Spear</button>
-            <button class="equipmentButton" id="equipCraftedBowButton">Crafted Bow</button>
-            <button class="equipmentButton" id="equipStandardSwordButton">Standard Sword</button>
-            <button class="equipmentButton" id="equipLongSpearButton">Long Spear</button>
-            <button class="equipmentButton" id="equipEngineeredBowButton">Engineered Bow</button>
-            <button class="equipmentButton" id="equipLongSwordButton">Long Sword</button>
+                <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
+                <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
+                <button class="equipmentButton" id="equipShortSwordButton">Short Sword</button>
+                <button class="equipmentButton" id="equipStandardSpearButton">Standard Spear</button>
+                <button class="equipmentButton" id="equipCraftedBowButton">Crafted Bow</button>
+                <button class="equipmentButton" id="equipStandardSwordButton">Standard Sword</button>
+                <button class="equipmentButton" id="equipLongSpearButton">Long Spear</button>
+                <button class="equipmentButton" id="equipEngineeredBowButton">Engineered Bow</button>
+                <button class="equipmentButton" id="equipLongSwordButton">Long Sword</button>
             </div>
         </div>
     </section>
     <section>
         <div id="inventoryArmorItems">
             <h4>My Armor:</h4>
+            <p>Defense Bonus: <span id='defenceBonusSpan'>0</span></p>
             <button class="equipmentButton" id="equipClothTunicButton">Cloth Tunic</button>
             <button class="equipmentButton" id="equipStuddedTunicButton">Studded Tunic</button>
             <button class="equipmentButton" id="equipLeatherCuirassButton">Leather Cuirass</button>
