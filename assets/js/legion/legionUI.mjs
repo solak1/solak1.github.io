@@ -518,6 +518,7 @@ function initTravelButtons(player) {
         // console.log("Going to Shop");
         // document.getElementById("travel").style.display = "none";
         fiveSections[4].style.display = "block";
+        // readyCampaign(null, null, null, null);
         header.style.backgroundImage = "url('/assets/img/legion/shoppe-background10.jpg";
         header.style.backgroundPosition = "right center";
     });
@@ -563,7 +564,11 @@ function initTravelButtons(player) {
     goToTownButton.addEventListener("click", () => {
         // console.log("Going to Town");
         player.location = 'Town'
-        clearInterval(readyCampaign);
+        // clearInterval(readyCampaign);
+        campaignButton1.style.display = "none";
+        campaignButton2.style.display = "none";
+        campaignButton3.style.display = "none";
+        campaignButtonRest.style.display = "inline-block";
         campaignButtonRest.innerHTML = "In Town"
         locationButton.innerHTML = `Location: ${player.location}`
         logUI.logTravelUI(player);
@@ -581,6 +586,9 @@ function initTravelButtons(player) {
         // console.log("Leaving");
         player.location = 'Town Limits';
         clearInterval(readyCampaign);
+        campaignButton1.style.display = "none";
+        campaignButton2.style.display = "none";
+        campaignButton3.style.display = "none";
         campaignButtonRest.innerHTML = "Town Limits";
         locationButton.innerHTML = `Location: ${player.location}`;
         logUI.logTravelUI(player);
@@ -612,7 +620,7 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
     goToButton.style.display = "none";
     // Set the date we're counting down to
     var countDownDate = new Date().getTime();
-    var durationInMinutes = .1;
+    var durationInMinutes = .01;
     var MS_PER_MINUTE = 60000;
     countDownDate = new Date(countDownDate + (durationInMinutes * MS_PER_MINUTE));
     // console.log(countDownDate);
@@ -628,7 +636,9 @@ function readyCampaign(campaignButton, readyCampaignIn, goToButton, player) {
             return null;
         }
         else if (player.location !== readyCampaignIn) {
-            goToButton.style.display = "inline-grid";
+            campaignButton1.style.display = "none";
+            campaignButton2.style.display = "none";
+            campaignButton3.style.display = "none";
           // console.log(player.location, readyCampaignIn);
           // console.log("player left area.")
             clearInterval(x);
@@ -677,9 +687,9 @@ function initCampaignButtons(player) {
         rotateWeapon(imgButton);
     }, player);
 
-    // Go to Mountain
+    // Go to Desert
     campaignButton3.addEventListener("click", () => {
-        readyCampaign(campaignButton3, "Desert", goToMountainsButton, player);
+        readyCampaign(campaignButton3, "Desert", goToDesertButton, player);
         player.location = "Desert"
         player.campaign();
         logUI.updateProgressBar(player);
@@ -690,7 +700,7 @@ function initCampaignButtons(player) {
 
 
 function rotateWeapon(img) {
-    img.style.transform= "rotate(20deg)"
+    img.style.transform= "rotate(70deg)"
     setTimeout(() => { img.style.transform= "rotate(0deg)"; }, 125);
 }
 
