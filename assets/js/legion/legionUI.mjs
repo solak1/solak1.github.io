@@ -124,7 +124,7 @@ function LogUI() {
             phrase2 = reward[3];
         
         // create strings
-        let logMsg      = `You earned ${coins} coins and ${xp} when you ${phrase1} ${phrase2}. `,
+        let logMsg      = `You earned ${coins} coins and ${xp} xp when you ${phrase1} ${phrase2}. `,
             eventMsg    = 'You ' + reward[2] + ' ' + reward[3] + '.';
 
         // strings to text nodes

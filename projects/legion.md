@@ -60,7 +60,7 @@ permalink: projects/legion/
         </div>
         <p>Level: <span id="level">1</span></p>
         <p>XP: <span id="xp">0</span></p>
-        <p>Gold: <span id="gold">0</span></p>
+        <p>Coins: <span id="gold">0</span></p>
         <p>Health: <span id="health">10</span></p>
     </section>
     <section class="moreInfoSection" id="recentEvents">
@@ -88,10 +88,12 @@ permalink: projects/legion/
     <section>
         <div id="inventoryItems">
             <h4>My Weapons:</h4>
+            <hr>
             <p>| <b>Total Strength: 
                 <span id='totalStrengthSpan'>5</span></b> | Weapon Strength: <span id="strengthSpan">0</span>
                  | Character Strength: <span id='characterStrengthSpan'>5</span>
             </p>
+            <hr>
             <div id="weaponsContainer">
                 <button class="equipmentButton" id="equipSmallSpearButton">Small Spear</button>
                 <button class="equipmentButton" id="equipSimpleBowButton">Simple Bow</button>
@@ -108,7 +110,9 @@ permalink: projects/legion/
     <section>
         <div id="inventoryArmorItems">
             <h4>My Armor:</h4>
+            <hr>
             <p>Defense Bonus: <span id='defenceBonusSpan'>0</span></p>
+            <hr>
             <button class="equipmentButton" id="equipClothTunicButton">Cloth Tunic</button>
             <button class="equipmentButton" id="equipStuddedTunicButton">Studded Tunic</button>
             <button class="equipmentButton" id="equipLeatherCuirassButton">Leather Cuirass</button>
