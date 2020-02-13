@@ -137,7 +137,7 @@ permalink: projects/legion/
 <section class="moreInfo" id="townShop">
     <h2>Shoppe</h2>
     <h4>Coins Available: <span id="goldSpan">0</span></h4>
-    <p>The merchant agrees to sell you a weapons and armor.</p>
+    <p>The merchant agrees to sell you weapons and armor.</p>
     <div id="shopContainer">
         <button class="equipmentButton" id="buySmallSpearButton">Small Spear<br />(50 coins)</button>
         <button class="equipmentButton" id="buySimpleBowButton">Simple Bow<br />(400 coins)</button>
