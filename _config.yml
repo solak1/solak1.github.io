@@ -14,20 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 # SEO variables
-
-title: Mike Solak
-tagline: 'Personal web projects.'
-email: solakmj@gmail.com
-description:
-  Projects and Dev Blog for computer science projects created and
-  ran by Mike Solak.  Most projects written in Python or JavaScript.  
-  Updated on a rolling basis. 
-
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.mikesolak.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: solak1
 github_username:  solak1
-logo: "https://www.mikesolak.com/assets/img/my_company_logo.png
+logo: "https://www.mikesolak.com/assets/img/my_company_logo.png"
 
 
 # Build settings
