@@ -848,8 +848,9 @@ function initNavSection() {
 
 function initTravelButtons(player) {
   goToShopButton.addEventListener("click", () => {
-    // console.log("Going to Shop");
-    // document.getElementById("travel").style.display = "none";
+    player.location = "Shoppe";
+    campaignButtonRest.innerHTML = "Shoppe";
+    locationButton.innerHTML = `Location: ${player.location}`;
     fiveSections[4].style.display = "block";
     // readyCampaign(null, null, null, null);
     header.style.backgroundImage =
