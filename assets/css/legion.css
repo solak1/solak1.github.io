@@ -21,7 +21,7 @@ body, button {
     display: none;
 }
 
-#camButton3, #camButton4 {
+#camButton3, #camButton4, #camButton5 {
     font-weight: bold;
     float: left;
     box-shadow: 1px 1px 3px;
@@ -217,6 +217,10 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
 
 #goToDesertButton {
     background-image: url('{{ site.baseurl }}/assets/img/legion/desert-icon.png'); 
+}
+
+#goToOasisButton {
+    background-image: url('{{ site.baseurl }}/assets/img/legion/oasis-icon.png'); 
 }
 
 #healButton {

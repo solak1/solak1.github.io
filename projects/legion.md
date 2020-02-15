@@ -5,7 +5,6 @@ description: Welcome to your next adventure. Legion is a text based rpg accessib
 permalink: projects/legion/
 ---
 
-
 <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/legion.css">
 <!--
 <section id="accMenu">
@@ -30,6 +29,7 @@ permalink: projects/legion/
     <button class="legionButton" id="camButton2">Campaign</button>
     <button class="legionButton" id="camButton3">Next Campaign</button>
     <button class="legionButton" id="camButton4">Next Campaign</button>
+    <button class="legionButton" id="camButton5">Next Campaign</button>
     <button class="legionButton" id="locButton">Location: <span id="locationSpan">Forest</span></button>
     <div class="legionHeaderFooter">
         <div id="hpSpan"></div>
@@ -104,6 +104,9 @@ permalink: projects/legion/
                 <button class="equipmentButton" id="equipLongSpearButton">Long Spear</button>
                 <button class="equipmentButton" id="equipEngineeredBowButton">Engineered Bow</button>
                 <button class="equipmentButton" id="equipLongSwordButton">Long Sword</button>
+                <button class="equipmentButton" id="equipSteelSpearButton">Steel Spear</button>
+                <button class="equipmentButton" id="equipSculptedBowButton">Sculpted Bow</button>
+                <button class="equipmentButton" id="equipSteelSwordButton">Steel Sword</button>
             </div>
         </div>
     </section>
@@ -116,8 +119,10 @@ permalink: projects/legion/
             <button class="equipmentButton" id="equipClothTunicButton">Cloth Tunic</button>
             <button class="equipmentButton" id="equipStuddedTunicButton">Studded Tunic</button>
             <button class="equipmentButton" id="equipLeatherCuirassButton">Leather Cuirass</button>
+            <button class="equipmentButton" id="equipIronChainmailButton">Iron Chainmail</button>
         </div>
     </section>
+
 </section>
 
 <section class="moreInfo" id="travel">
@@ -130,6 +135,7 @@ permalink: projects/legion/
         <button class="travelButton outsideTownButton" id="goToForestButton">Forest</button>
         <button class="travelButton outsideTownButton" id="goToMountainsButton">Mountains</button>
         <button class="travelButton outsideTownButton" id="goToDesertButton">Desert</button>
+        <button class="travelButton outsideTownButton" id="goToOasisButton">Oasis</button>
     </div>
 </section>
 
@@ -155,6 +161,11 @@ permalink: projects/legion/
         <button class="equipmentButton" id="buyEngineeredBowButton">Engineered Bow<br />(16,000 coins)</button>
         <button class="equipmentButton" id="buyLeatherCuirassButton">Leather Cuirass<br />(18,000 coins)</button>
         <button class="equipmentButton" id="buyLongSwordButton">Long Sword<br />(24,000 coins)</button>
+        <button class="equipmentButton" id="buySteelSpearButton">Steel Spear<br />(32,000 coins)</button>
+        <button class="equipmentButton" id="buySculptedBowButton">Sculpted Bow<br />(40,000 coins)</button>
+        <button class="equipmentButton" id="buyIronChainmailButton">Iron Chainmail<br />(42,000 coins)</button>
+        <button class="equipmentButton" id="buySteelSwordButton">Steel Sword<br />(50,000 coins)</button>
+        
     </div>
 </section>
 </div>

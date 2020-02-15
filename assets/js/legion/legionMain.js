@@ -246,6 +246,49 @@ class Character {
       return true;
     } else return false;
   }
+
+  buySteelSword() {
+    let cost = 50000;
+    let str = 45;
+    if (this.coins >= cost) {
+      this.coins -= cost;
+      let steelSword = new Weapon("Steel Sword", cost, str);
+      this.inventory.push(steelSword);
+      this.weaponStrength = str;
+      console.log("returning true");
+      updateCoinUI(this);
+      return true;
+    } else return false;
+  }
+
+  buySculptedBow() {
+    let cost = 40000;
+    let str = 40;
+    if (this.coins >= cost) {
+      this.coins -= cost;
+      let sculptedBow = new Weapon("Sculpted Bow", cost, str);
+      this.inventory.push(sculptedBow);
+      this.weaponStrength = str;
+      console.log("returning true");
+      updateCoinUI(this);
+      return true;
+    } else return false;
+  }
+
+  buySteelSpear() {
+    let cost = 32000;
+    let str = 37;
+    if (this.coins >= cost) {
+      this.coins -= cost;
+      let steelSpear = new Weapon("Steel Spear", cost, str);
+      console.log("buying " + steelSpear.name);
+      this.inventory.push(steelSpear);
+      this.weaponStrength = str;
+      updateCoinUI(this);
+      return true;
+    } else return false;
+  }
+
   buyClothTunic() {
     let cost = 700;
     let def = 2;
@@ -287,6 +330,19 @@ class Character {
       return true;
     } else return false;
   }
+  buyIronChainmail() {
+    let cost = 42000;
+    let def = 8;
+    if (this.coins >= cost) {
+      this.coins -= cost;
+      // let leatherCuirass = new Weapon("Long Spear", cost, str);
+      //console.log('buying ' + longSpear.name);
+      // this.inventory.push(longSpear);
+      this.defenceBonus = def;
+      updateCoinUI(this);
+      return true;
+    } else return false;
+  }
 }
 
 // Player Prototype or "class"
@@ -318,6 +374,8 @@ class Player extends Character {
       } else if (this.location === "Desert") {
         console.log("enemies in the desert!");
         this.enemiesArray = enemiesInDesert;
+      } else if (this.location === "Oasis") {
+        this.enemiesArray = enemiesInOasis;
       } else {
         this.enemiesArray = enemiesInElse;
       }
@@ -538,6 +596,31 @@ enemiesInDesert.push(
   cammelH,
   assassin,
   rogue
+);
+
+const enemiesInOasis = [];
+const oasisGuardE = new Enemy(31, "oasis guard", 35, 4, 1500, 200);
+const oasisGuardM = new Enemy(32, "oasis guard", 35, 5, 2000, 310);
+const oasisGuardH = new Enemy(33, "oasis guard", 40, 5, 2250, 315);
+const crocodile = new Enemy(34, "crocodile", 45, 4, 2750, 320);
+const crocodile1 = new Enemy(35, "crodile", 50, 5, 3250, 325);
+const razertoothSnake = new Enemy(36, "razertooth snake", 55, 6, 4000, 330);
+const razertoothSnake1 = new Enemy(37, "razertooth snake", 60, 7, 4500, 345);
+const rhinoceros = new Enemy(38, "rhinoceros", 65, 8, 5000, 350);
+const rhinoceros1 = new Enemy(39, "rhinoceros", 75, 9, 5500, 375);
+const rhinoceros2 = new Enemy(40, "rhinoceros", 95, 10, 6000, 400);
+
+enemiesInOasis.push(
+  oasisGuardE,
+  oasisGuardM,
+  oasisGuardH,
+  crocodile,
+  crocodile1,
+  razertoothSnake,
+  razertoothSnake1,
+  rhinoceros,
+  rhinoceros1,
+  rhinoceros2
 );
 
 player.enemiesArray = enemiesInForest;
