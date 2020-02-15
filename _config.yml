@@ -15,19 +15,14 @@
 # in the templates via {{ site.myvariable }}.
 # SEO variables
 
-
-tagline: 'Personal web projects.'
-description:
-  "Projects and Dev Blog for computer science projects created and
-  ran by Mike Solak.  Most projects written in Python or JavaScript.  
-  Updated on a rolling basis."
-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.mikesolak.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: solak1
-github_username:  solak1
-logo: "https://www.mikesolak.com/assets/img/my_company_logo.png
+github_username: solak1
+logo: "https://www.mikesolak.com/assets/img/my_company_logo.png"
 
+tagline: "Personal web projects."
+description: "Projects and Dev Blog for computer science projects created and ran by Mike Solak.  Most projects written in Python or JavaScript.  Updated on a rolling basis."
 
 # Build settings
 markdown: kramdown
@@ -36,16 +31,14 @@ plugins:
   - jekyll-seo-tag
 
 defaults:
-  -
-    scope:
-        path: ""
-        type: "posts"
+  - scope:
+      path: ""
+      type: "posts"
     values:
       layout: "post"
-      title: "Mike Solak"
+      title:
+        "Mike Solak"
         #values
-
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
