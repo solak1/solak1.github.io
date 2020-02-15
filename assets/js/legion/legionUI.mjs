@@ -194,7 +194,7 @@ function sellUI(player) {
         if (player.buySimpleBow()) {
             simpleBowBuyButton.style.display = "none";
             simpleBowEquipButton.style.display = "inline-block";
-            weaponImg.src = "/assets/img/legion/bow.png";
+            weaponImg.src = "/assets/img/legion/bow2.png";
             player.weaponStrength = 10;
             document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
             document.getElementById("strengthSpan").innerHTML = 10;
@@ -242,7 +242,7 @@ function sellUI(player) {
         if (player.buyCraftedBow()) {
             craftedBowBuyButton.style.display = "none";
             craftedBowEquipButton.style.display = "inline-block";
-            weaponImg.src = "/assets/img/legion/bow.png";
+            weaponImg.src = "/assets/img/legion/bow2.png";
             player.weaponStrength = 20;
             document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
             document.getElementById("strengthSpan").innerHTML = 20;
@@ -289,7 +289,7 @@ function sellUI(player) {
         if (player.buySimpleBow()) {
             engineeredBowBuyButton.style.display = "none";
             engineeredBowEquipButton.style.display = "inline-block";
-            weaponImg.src = "/assets/img/legion/bow.png";
+            weaponImg.src = "/assets/img/legion/bow2.png";
             player.weaponStrength = 20;
             document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
             document.getElementById("strengthSpan").innerHTML = 20;
@@ -374,7 +374,7 @@ function equipUI(player) {
         document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
         document.getElementById("strengthSpan").innerHTML = 10;
         document.getElementById("weaponSpan").innerHTML = "Simple Bow";
-        weaponImg.src = "/assets/img/legion/bow.png";
+        weaponImg.src = "/assets/img/legion/bow2.png";
     }, player);
     
     shortSwordEquipButton.addEventListener("click", () => {
@@ -398,7 +398,7 @@ function equipUI(player) {
         document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
         document.getElementById("strengthSpan").innerHTML = 20;
         document.getElementById("weaponSpan").innerHTML = "Crafted Bow";
-        weaponImg.src = "/assets/img/legion/bow.png";
+        weaponImg.src = "/assets/img/legion/bow2.png";
     }, player);
     
     standardSwordEquipButton.addEventListener("click", () => {
@@ -422,7 +422,7 @@ function equipUI(player) {
         document.getElementById('totalStrengthSpan').innerHTML = player.totalStr();
         document.getElementById("strengthSpan").innerHTML = 30;
         document.getElementById("weaponSpan").innerHTML = "Engineered Bow";
-        weaponImg.src = "/assets/img/legion/bow.png";
+        weaponImg.src = "/assets/img/legion/bow2.png";
     }, player);
     
     longSwordEquipButton.addEventListener("click", () => {
@@ -446,7 +446,6 @@ function equipUI(player) {
         document.getElementById('defenceBonusSpan').innerHTML = player.defenceBonus;
         // document.getElementById("strengthSpan").innerHTML = 30;
         // document.getElementById("weaponSpan").innerHTML = "Engineered Bow";
-        // weaponImg.src = "/assets/img/legion/bow.png";
     }, player);
     
     leatherCuirassEquipButton.addEventListener("click", () => {

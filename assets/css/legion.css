@@ -257,7 +257,7 @@ body section .moreInfo, body #townShop, #weaponsContainer .equipmentButton {
 }
 
 #buySimpleBowButton, #equipSimpleBowButton, #buyCraftedBowButton, #equipCraftedBowButton, #buyEngineeredBowButton, #equipEngineeredButton {
-    background-image: url('{{ site.baseurl }}/assets/img/legion/bow-icon25.png')
+    background-image: url('{{ site.baseurl }}/assets/img/legion/bow-icon26.png')
 }
 
 #buyShortSwordButton, #equipShortSwordButton, #buyStandardSwordButton, #equipStandardSwordButton, #buyLongSwordButton, #equipLongSwordButton {
