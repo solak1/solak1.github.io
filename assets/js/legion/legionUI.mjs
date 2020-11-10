@@ -966,6 +966,7 @@ function initTravelButtons(player) {
       campaignButton1.style.display = "none";
       campaignButton2.style.display = "none";
       campaignButton3.style.display = "none";
+      campaignButton4.style.display = "none";
       campaignButtonRest.innerHTML = "Town Limits";
       locationButton.innerHTML = `Location: ${player.location}`;
       logUI.logTravelUI(player);
