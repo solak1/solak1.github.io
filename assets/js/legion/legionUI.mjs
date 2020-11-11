@@ -940,6 +940,7 @@ function initTravelButtons(player) {
       campaignButton1.style.display = "none";
       campaignButton2.style.display = "none";
       campaignButton3.style.display = "none";
+      campaignButton4.style.display = "none";
       campaignButtonRest.style.display = "inline-block";
       campaignButtonRest.innerHTML = "In Town";
       locationButton.innerHTML = `Location: ${player.location}`;
